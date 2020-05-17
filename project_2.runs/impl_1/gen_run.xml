@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a50tcsg324-1" LaunchTime="1589086517">
+<GenRun Id="impl_1" LaunchPart="xc7a50tcsg324-1" LaunchTime="1589700006">
   <File Type="BITSTR-BMM" Name="nexysA7fpga_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="nexysA7fpga_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="nexysA7fpga_timing_summary_init.rpt"/>
@@ -140,4 +140,5 @@
   <BlockFileSet Type="BlockSrcs" Name="embsys_microblaze_0_xlconcat_1"/>
   <BlockFileSet Type="BlockSrcs" Name="embsys_axi_timebase_wdt_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="embsys_xbar_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="embsys_rst_clk_wiz_1_100M_1"/>
 </GenRun>

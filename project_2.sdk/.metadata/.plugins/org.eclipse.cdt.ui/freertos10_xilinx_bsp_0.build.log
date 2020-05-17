@@ -1,4 +1,4 @@
-00:11:37 **** Auto Build of project freertos10_xilinx_bsp_0 ****
+00:34:14 **** Build of project freertos10_xilinx_bsp_0 ****
 make -k all 
 "Running Make include in microblaze_0/libsrc/bram_v4_2/src"
 C:/Xilinx/SDK/2018.2/gnuwin/bin/make -C microblaze_0/libsrc/bram_v4_2/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
@@ -26,6 +26,7 @@ C:/Xilinx/SDK/2018.2/gnuwin/bin/make -C microblaze_0/libsrc/wdttb_v4_3/src -s in
 "Running Make libs in microblaze_0/libsrc/bram_v4_2/src"
 C:/Xilinx/SDK/2018.2/gnuwin/bin/make -C microblaze_0/libsrc/bram_v4_2/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
 "Compiling bram"
+mb-ar: creating ../../../lib/libxil.a
 "Running Make libs in microblaze_0/libsrc/cpu_v2_7/src"
 C:/Xilinx/SDK/2018.2/gnuwin/bin/make -C microblaze_0/libsrc/cpu_v2_7/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
 "Compiling cpu"
@@ -45,6 +46,7 @@ microblaze_sleep.c:153:19: warning: unused parameter 'MilliSeconds' [-Wunused-pa
  void MB_Sleep(u32 MilliSeconds)
                    ^~~~~~~~~~~~
 "Compiling FreeRTOS"
+mb-ar: creating ../../../lib/libfreertos.a
 "Running Make libs in microblaze_0/libsrc/gpio_v4_3/src"
 C:/Xilinx/SDK/2018.2/gnuwin/bin/make -C microblaze_0/libsrc/gpio_v4_3/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
 "Compiling gpio"
@@ -90,5 +92,5 @@ xwdttb.c:1229:5: note: declared here
      ^~~~~~~~~~~~~~~~~~~~~~
 'Finished building libraries'
 
-00:13:10 Build Finished (took 1m:33s.229ms)
+00:35:43 Build Finished (took 1m:28s.847ms)
 

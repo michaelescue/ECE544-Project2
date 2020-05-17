@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-//Date        : Sat May  9 20:47:30 2020
+//Date        : Sun May 17 00:19:32 2020
 //Host        : DESKTOP-J4B3MVP running 64-bit major release  (build 9200)
 //Command     : generate_target embsys.bd
 //Design      : embsys
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "embsys,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=embsys,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=36,numReposBlks=21,numNonXlnxBlks=2,numHierBlks=15,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=17,da_board_cnt=14,da_clkrst_cnt=2,da_mb_cnt=2,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "embsys.hwdef" *) 
+(* CORE_GENERATION_INFO = "embsys,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=embsys,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=36,numReposBlks=21,numNonXlnxBlks=2,numHierBlks=15,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=18,da_board_cnt=14,da_clkrst_cnt=2,da_mb_cnt=2,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "embsys.hwdef" *) 
 module embsys
    (PmodOLEDrgb_out_0_pin10_i,
     PmodOLEDrgb_out_0_pin10_o,
@@ -207,6 +207,7 @@ module embsys
   wire [4:0]axi_gpio_1_GPIO_TRI_I;
   wire axi_gpio_1_ip2intc_irpt;
   wire axi_timebase_wdt_0_wdt_interrupt;
+  wire axi_timebase_wdt_0_wdt_reset;
   wire axi_timer_0_generateout0;
   wire axi_timer_0_interrupt;
   wire axi_uartlite_0_UART_RxD;
@@ -731,7 +732,8 @@ module embsys
         .s_axi_wready(microblaze_0_axi_periph_M10_AXI_WREADY),
         .s_axi_wstrb(microblaze_0_axi_periph_M10_AXI_WSTRB),
         .s_axi_wvalid(microblaze_0_axi_periph_M10_AXI_WVALID),
-        .wdt_interrupt(axi_timebase_wdt_0_wdt_interrupt));
+        .wdt_interrupt(axi_timebase_wdt_0_wdt_interrupt),
+        .wdt_reset(axi_timebase_wdt_0_wdt_reset));
   embsys_axi_timer_0_1 axi_timer_0
        (.capturetrig0(1'b0),
         .capturetrig1(1'b0),
@@ -1216,7 +1218,7 @@ module embsys
         .seg(nexys4IO_0_seg),
         .sw(sw_0_1));
   embsys_rst_clk_wiz_1_100M_1 rst_clk_wiz_1_100M
-       (.aux_reset_in(1'b1),
+       (.aux_reset_in(axi_timebase_wdt_0_wdt_reset),
         .bus_struct_reset(rst_clk_wiz_1_100M_bus_struct_reset),
         .dcm_locked(clk_wiz_1_locked),
         .ext_reset_in(reset_rtl_0_0_1),

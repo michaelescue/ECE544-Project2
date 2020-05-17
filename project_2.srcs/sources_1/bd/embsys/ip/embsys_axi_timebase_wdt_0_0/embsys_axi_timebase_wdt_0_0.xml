@@ -1344,11 +1344,11 @@ This counter runs only if SSTE = 1.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun May 10 02:44:37 UTC 2020</spirit:value>
+            <spirit:value>Sat May 16 07:58:37 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:d171e58d</spirit:value>
+            <spirit:value>8:4d0d99c6</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1362,11 +1362,11 @@ This counter runs only if SSTE = 1.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun May 10 02:44:37 UTC 2020</spirit:value>
+            <spirit:value>Sat May 16 07:58:37 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:d171e58d</spirit:value>
+            <spirit:value>8:4d0d99c6</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1382,11 +1382,11 @@ This counter runs only if SSTE = 1.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun May 10 02:44:37 UTC 2020</spirit:value>
+            <spirit:value>Sat May 16 07:58:37 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:d171e58d</spirit:value>
+            <spirit:value>8:4d0d99c6</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1408,11 +1408,11 @@ This counter runs only if SSTE = 1.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun May 10 02:44:36 UTC 2020</spirit:value>
+            <spirit:value>Sat May 16 07:54:57 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:ec8177ee</spirit:value>
+            <spirit:value>8:337bb928</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1428,11 +1428,11 @@ This counter runs only if SSTE = 1.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun May 10 02:44:37 UTC 2020</spirit:value>
+            <spirit:value>Sat May 16 07:58:37 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:ec8177ee</spirit:value>
+            <spirit:value>8:337bb928</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1446,11 +1446,11 @@ This counter runs only if SSTE = 1.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun May 10 02:48:29 UTC 2020</spirit:value>
+            <spirit:value>Sat May 16 07:59:25 UTC 2020</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:d171e58d</spirit:value>
+            <spirit:value>8:4d0d99c6</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1846,7 +1846,7 @@ This counter runs only if SSTE = 1.
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_WDT_INTERVAL</spirit:name>
         <spirit:displayName>Width of Interval counter</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_WDT_INTERVAL" spirit:minimum="8" spirit:maximum="31" spirit:rangeType="long">30</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_WDT_INTERVAL" spirit:minimum="8" spirit:maximum="31" spirit:rangeType="long">27</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_WDT_ENABLE_ONCE</spirit:name>
@@ -2052,7 +2052,7 @@ This counter runs only if SSTE = 1.
       <spirit:name>C_WDT_INTERVAL</spirit:name>
       <spirit:displayName>Width of Watchdog Timer</spirit:displayName>
       <spirit:description>Indicates the exponent for setting the length of the WDT interval. WDT interval = (2^C_WDT_INTERVAL) x Tclk</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_WDT_INTERVAL" spirit:order="1400" spirit:minimum="8" spirit:maximum="31" spirit:rangeType="long">30</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_WDT_INTERVAL" spirit:order="1400" spirit:minimum="8" spirit:maximum="31" spirit:rangeType="long">27</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -2121,6 +2121,7 @@ This counter runs only if SSTE = 1.
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_ACLK.FREQ_HZ" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_ACLK.PHASE" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.WDT_INTERRUPT.PortWidth" xilinx:valueSource="default_prop" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_WDT_INTERVAL" xilinx:valueSource="user"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

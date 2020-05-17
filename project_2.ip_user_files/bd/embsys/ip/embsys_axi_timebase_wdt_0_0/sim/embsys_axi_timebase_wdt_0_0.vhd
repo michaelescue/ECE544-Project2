@@ -161,7 +161,7 @@ BEGIN
   U0 : axi_timebase_wdt_top
     GENERIC MAP (
       C_FAMILY => "artix7",
-      C_WDT_INTERVAL => 30,
+      C_WDT_INTERVAL => 27,
       C_WDT_ENABLE_ONCE => 1,
       C_S_AXI_DATA_WIDTH => 32,
       C_S_AXI_ADDR_WIDTH => 4,

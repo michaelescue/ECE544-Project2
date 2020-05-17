@@ -1,11 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Mon Apr 13 12:02:19 2020
+// Date        : Sun May 17 00:20:48 2020
 // Host        : DESKTOP-J4B3MVP running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
-//               {c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project
-//               0-Getting_Started/project_0/project_0.srcs/sources_1/bd/embsys/ip/embsys_rst_clk_wiz_1_100M_1/embsys_rst_clk_wiz_1_100M_1_sim_netlist.v}
+//               C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_rst_clk_wiz_1_100M_1/embsys_rst_clk_wiz_1_100M_1_sim_netlist.v
 // Design      : embsys_rst_clk_wiz_1_100M_1
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -28,7 +27,7 @@ module embsys_rst_clk_wiz_1_100M_1
     peripheral_aresetn);
   (* x_interface_info = "xilinx.com:signal:clock:1.0 clock CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME clock, ASSOCIATED_RESET mb_reset:bus_struct_reset:interconnect_aresetn:peripheral_aresetn:peripheral_reset, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1" *) input slowest_sync_clk;
   (* x_interface_info = "xilinx.com:signal:reset:1.0 ext_reset RST" *) (* x_interface_parameter = "XIL_INTERFACENAME ext_reset, BOARD.ASSOCIATED_PARAM RESET_BOARD_INTERFACE, POLARITY ACTIVE_LOW" *) input ext_reset_in;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 aux_reset RST" *) (* x_interface_parameter = "XIL_INTERFACENAME aux_reset, POLARITY ACTIVE_LOW" *) input aux_reset_in;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 aux_reset RST" *) (* x_interface_parameter = "XIL_INTERFACENAME aux_reset, POLARITY ACTIVE_HIGH" *) input aux_reset_in;
   (* x_interface_info = "xilinx.com:signal:reset:1.0 dbg_reset RST" *) (* x_interface_parameter = "XIL_INTERFACENAME dbg_reset, POLARITY ACTIVE_HIGH" *) input mb_debug_sys_rst;
   input dcm_locked;
   (* x_interface_info = "xilinx.com:signal:reset:1.0 mb_rst RST" *) (* x_interface_parameter = "XIL_INTERFACENAME mb_rst, POLARITY ACTIVE_HIGH, TYPE PROCESSOR" *) output mb_reset;
@@ -48,7 +47,7 @@ module embsys_rst_clk_wiz_1_100M_1
   wire [0:0]peripheral_reset;
   wire slowest_sync_clk;
 
-  (* C_AUX_RESET_HIGH = "1'b0" *) 
+  (* C_AUX_RESET_HIGH = "1'b1" *) 
   (* C_AUX_RST_WIDTH = "4" *) 
   (* C_EXT_RESET_HIGH = "1'b0" *) 
   (* C_EXT_RST_WIDTH = "4" *) 
@@ -89,7 +88,6 @@ module embsys_rst_clk_wiz_1_100M_1_cdc_sync
   input aux_reset_in;
   input slowest_sync_clk;
 
-  wire asr_d1;
   wire [0:0]asr_lpf;
   wire aux_reset_in;
   wire lpf_asr;
@@ -110,14 +108,9 @@ module embsys_rst_clk_wiz_1_100M_1_cdc_sync
     \GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to 
        (.C(slowest_sync_clk),
         .CE(1'b1),
-        .D(asr_d1),
+        .D(aux_reset_in),
         .Q(s_level_out_d1_cdc_to),
         .R(1'b0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    \GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to_i_1__0 
-       (.I0(aux_reset_in),
-        .O(asr_d1));
   (* ASYNC_REG *) 
   (* XILINX_LEGACY_PRIM = "FDR" *) 
   (* box_type = "PRIMITIVE" *) 
@@ -267,7 +260,7 @@ module embsys_rst_clk_wiz_1_100M_1_lpf
   input aux_reset_in;
   input dcm_locked;
 
-  wire \ACTIVE_LOW_AUX.ACT_LO_AUX_n_0 ;
+  wire \ACTIVE_HIGH_AUX.ACT_HI_AUX_n_0 ;
   wire \ACTIVE_LOW_EXT.ACT_LO_EXT_n_0 ;
   wire Q;
   wire [0:0]asr_lpf;
@@ -288,11 +281,11 @@ module embsys_rst_clk_wiz_1_100M_1_lpf
   wire [3:0]p_3_out;
   wire slowest_sync_clk;
 
-  embsys_rst_clk_wiz_1_100M_1_cdc_sync \ACTIVE_LOW_AUX.ACT_LO_AUX 
+  embsys_rst_clk_wiz_1_100M_1_cdc_sync \ACTIVE_HIGH_AUX.ACT_HI_AUX 
        (.asr_lpf(asr_lpf),
         .aux_reset_in(aux_reset_in),
         .lpf_asr(lpf_asr),
-        .lpf_asr_reg(\ACTIVE_LOW_AUX.ACT_LO_AUX_n_0 ),
+        .lpf_asr_reg(\ACTIVE_HIGH_AUX.ACT_HI_AUX_n_0 ),
         .p_1_in(p_1_in),
         .p_2_in(p_2_in),
         .scndry_out(p_3_in1_in),
@@ -372,7 +365,7 @@ module embsys_rst_clk_wiz_1_100M_1_lpf
     lpf_asr_reg
        (.C(slowest_sync_clk),
         .CE(1'b1),
-        .D(\ACTIVE_LOW_AUX.ACT_LO_AUX_n_0 ),
+        .D(\ACTIVE_HIGH_AUX.ACT_HI_AUX_n_0 ),
         .Q(lpf_asr),
         .R(1'b0));
   FDRE #(
@@ -420,7 +413,7 @@ module embsys_rst_clk_wiz_1_100M_1_lpf
         .O(lpf_int0));
 endmodule
 
-(* C_AUX_RESET_HIGH = "1'b0" *) (* C_AUX_RST_WIDTH = "4" *) (* C_EXT_RESET_HIGH = "1'b0" *) 
+(* C_AUX_RESET_HIGH = "1'b1" *) (* C_AUX_RST_WIDTH = "4" *) (* C_EXT_RESET_HIGH = "1'b0" *) 
 (* C_EXT_RST_WIDTH = "4" *) (* C_FAMILY = "artix7" *) (* C_NUM_BUS_RST = "1" *) 
 (* C_NUM_INTERCONNECT_ARESETN = "1" *) (* C_NUM_PERP_ARESETN = "1" *) (* C_NUM_PERP_RST = "1" *) 
 (* ORIG_REF_NAME = "proc_sys_reset" *) 

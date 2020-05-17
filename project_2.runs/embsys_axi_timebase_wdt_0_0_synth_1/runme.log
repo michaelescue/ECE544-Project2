@@ -14,13 +14,13 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a50t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a50t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 1148 
+INFO: Helper process launched with PID 21104 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 413.680 ; gain = 102.973
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 414.152 ; gain = 102.852
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'embsys_axi_timebase_wdt_0_0' [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_timebase_wdt_0_0/synth/embsys_axi_timebase_wdt_0_0.vhd:87]
 	Parameter C_FAMILY bound to: artix7 - type: string 
-	Parameter C_WDT_INTERVAL bound to: 30 - type: integer 
+	Parameter C_WDT_INTERVAL bound to: 27 - type: integer 
 	Parameter C_WDT_ENABLE_ONCE bound to: 1 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
@@ -30,7 +30,7 @@ INFO: [Synth 8-638] synthesizing module 'embsys_axi_timebase_wdt_0_0' [c:/Users/
 INFO: [Synth 8-3491] module 'axi_timebase_wdt_top' declared at 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ipshared/1118/hdl/axi_timebase_wdt_v3_0_vh_rfs.vhd:2913' bound to instance 'U0' of component 'axi_timebase_wdt_top' [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_timebase_wdt_0_0/synth/embsys_axi_timebase_wdt_0_0.vhd:167]
 INFO: [Synth 8-638] synthesizing module 'axi_timebase_wdt_top' [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ipshared/1118/hdl/axi_timebase_wdt_v3_0_vh_rfs.vhd:2955]
 	Parameter C_FAMILY bound to: artix7 - type: string 
-	Parameter C_WDT_INTERVAL bound to: 30 - type: integer 
+	Parameter C_WDT_INTERVAL bound to: 27 - type: integer 
 	Parameter C_WDT_ENABLE_ONCE bound to: 1 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
@@ -39,7 +39,7 @@ INFO: [Synth 8-638] synthesizing module 'axi_timebase_wdt_top' [c:/Users/ME/Viva
 	Parameter C_MAX_COUNT_WIDTH bound to: 32 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'axi_timebase_wdt' [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ipshared/1118/hdl/axi_timebase_wdt_v3_0_vh_rfs.vhd:1301]
 	Parameter C_FAMILY bound to: artix7 - type: string 
-	Parameter C_WDT_INTERVAL bound to: 30 - type: integer 
+	Parameter C_WDT_INTERVAL bound to: 27 - type: integer 
 	Parameter C_WDT_ENABLE_ONCE bound to: 1 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
@@ -47,7 +47,7 @@ INFO: [Synth 8-5534] Detected attribute (* max_fanout = "10000" *) [c:/Users/ME/
 INFO: [Synth 8-5534] Detected attribute (* max_fanout = "10000" *) [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ipshared/1118/hdl/axi_timebase_wdt_v3_0_vh_rfs.vhd:1262]
 INFO: [Synth 8-638] synthesizing module 'timebase_wdt_core' [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ipshared/1118/hdl/axi_timebase_wdt_v3_0_vh_rfs.vhd:603]
 	Parameter C_FAMILY bound to: artix7 - type: string 
-	Parameter C_WDT_INTERVAL bound to: 30 - type: integer 
+	Parameter C_WDT_INTERVAL bound to: 27 - type: integer 
 	Parameter C_WDT_ENABLE_ONCE bound to: 1 - type: bool 
 	Parameter C_NATIVE_DWIDTH bound to: 32 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'cdc_sync' [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd:106]
@@ -203,7 +203,7 @@ WARNING: [Synth 8-3331] design axi_timebase_wdt_top has unconnected port wdt_sta
 WARNING: [Synth 8-3331] design axi_timebase_wdt_top has unconnected port wdt_state_vec[1]
 WARNING: [Synth 8-3331] design axi_timebase_wdt_top has unconnected port wdt_state_vec[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 470.543 ; gain = 159.836
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 470.746 ; gain = 159.445
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -216,10 +216,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 470.543 ; gain = 159.836
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 470.746 ; gain = 159.445
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 470.543 ; gain = 159.836
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 470.746 ; gain = 159.445
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -240,23 +240,23 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 6 instances were transformed.
   FDR => FDRE: 6 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 796.520 ; gain = 1.379
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 797.355 ; gain = 1.570
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 796.520 ; gain = 485.813
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 797.355 ; gain = 486.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a50tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 796.520 ; gain = 485.813
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 797.355 ; gain = 486.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property DONT_TOUCH = true for U0. (constraint file  C:/Users/ME/Vivado_Projects/project_2/project_2.runs/embsys_axi_timebase_wdt_0_0_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 796.520 ; gain = 485.813
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 797.355 ; gain = 486.055
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'WDT_Current_State_reg' in module 'timebase_wdt_core'
 INFO: [Synth 8-5544] ROM "iWDT_Reset" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
@@ -288,7 +288,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'WDT_Current_State_reg' usi
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'slave_attachment'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 796.520 ; gain = 485.813
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 797.355 ; gain = 486.055
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -431,7 +431,7 @@ WARNING: [Synth 8-3332] Sequential element (LEGACY_WDT.axi_timebase_wdt_i/AXI4_L
 WARNING: [Synth 8-3332] Sequential element (LEGACY_WDT.axi_timebase_wdt_i/AXI4_LITE_I/I_SLAVE_ATTACHMENT/bus2ip_addr_i_reg[1]) is unused and will be removed from module axi_timebase_wdt_top.
 WARNING: [Synth 8-3332] Sequential element (LEGACY_WDT.axi_timebase_wdt_i/AXI4_LITE_I/I_SLAVE_ATTACHMENT/bus2ip_addr_i_reg[0]) is unused and will be removed from module axi_timebase_wdt_top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 796.520 ; gain = 485.813
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 797.355 ; gain = 486.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -458,13 +458,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 796.520 ; gain = 485.813
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 797.355 ; gain = 486.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:42 . Memory (MB): peak = 828.242 ; gain = 517.535
+Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 829.332 ; gain = 518.031
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -716,8 +716,9 @@ INFO: [Synth 8-5816] Retiming module `embsys_axi_timebase_wdt_0_0' done
 
 
 INFO: [Synth 8-3886] merging instance 'U0/LEGACY_WDT.axi_timebase_wdt_i/TIMEBASE_WDT_CORE_I/wdt_Bitin_1d_reg_bret__4' (FD) to 'U0/LEGACY_WDT.axi_timebase_wdt_i/TIMEBASE_WDT_CORE_I/WDT_Reset_reg'
+INFO: [Synth 8-3886] merging instance 'U0/LEGACY_WDT.axi_timebase_wdt_i/TIMEBASE_WDT_CORE_I/wdt_Bitin_1d_reg_bret__2' (FD) to 'U0/LEGACY_WDT.axi_timebase_wdt_i/TIMEBASE_WDT_CORE_I/wdt_State_Reg_reg_bret__3'
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:38 ; elapsed = 00:00:42 . Memory (MB): peak = 828.242 ; gain = 517.535
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 829.332 ; gain = 518.031
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -744,7 +745,7 @@ INFO: [Synth 8-6069] LOCAL FORWARD RETIMING for instance U0/LEGACY_WDT.axi_timeb
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:39 ; elapsed = 00:00:43 . Memory (MB): peak = 828.242 ; gain = 517.535
+Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 829.332 ; gain = 518.031
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -757,7 +758,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:39 ; elapsed = 00:00:43 . Memory (MB): peak = 828.242 ; gain = 517.535
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 829.332 ; gain = 518.031
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -769,25 +770,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:39 ; elapsed = 00:00:43 . Memory (MB): peak = 828.242 ; gain = 517.535
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 829.332 ; gain = 518.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:39 ; elapsed = 00:00:43 . Memory (MB): peak = 828.242 ; gain = 517.535
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 829.332 ; gain = 518.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:39 ; elapsed = 00:00:43 . Memory (MB): peak = 828.242 ; gain = 517.535
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 829.332 ; gain = 518.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:39 ; elapsed = 00:00:44 . Memory (MB): peak = 828.242 ; gain = 517.535
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 829.332 ; gain = 518.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -812,31 +813,31 @@ Report Cell Usage:
 |7     |LUT6   |    71|
 |8     |MUXF7  |     5|
 |9     |FDR    |     4|
-|10    |FDRE   |   118|
-|11    |FDSE   |     9|
+|10    |FDRE   |   116|
+|11    |FDSE   |    10|
 +------+-------+------+
 
 Report Instance Areas: 
 +------+----------------------------------------------------------------------------+--------------------------+------+
 |      |Instance                                                                    |Module                    |Cells |
 +------+----------------------------------------------------------------------------+--------------------------+------+
-|1     |top                                                                         |                          |   268|
-|2     |  U0                                                                        |axi_timebase_wdt_top      |   268|
-|3     |    \LEGACY_WDT.axi_timebase_wdt_i                                          |axi_timebase_wdt          |   268|
+|1     |top                                                                         |                          |   267|
+|2     |  U0                                                                        |axi_timebase_wdt_top      |   267|
+|3     |    \LEGACY_WDT.axi_timebase_wdt_i                                          |axi_timebase_wdt          |   267|
 |4     |      AXI4_LITE_I                                                           |axi_lite_ipif             |   143|
 |5     |        I_SLAVE_ATTACHMENT                                                  |slave_attachment          |   143|
 |6     |          I_DECODER                                                         |address_decoder           |    69|
 |7     |            \MEM_DECODE_GEN[0].PER_CE_GEN[0].MULTIPLE_CES_THIS_CS_GEN.CE_I  |pselect_f                 |     1|
 |8     |            \MEM_DECODE_GEN[0].PER_CE_GEN[2].MULTIPLE_CES_THIS_CS_GEN.CE_I  |pselect_f__parameterized1 |     1|
-|9     |      TIMEBASE_WDT_CORE_I                                                   |timebase_wdt_core         |   124|
+|9     |      TIMEBASE_WDT_CORE_I                                                   |timebase_wdt_core         |   123|
 |10    |        INPUT_DOUBLE_REGS3                                                  |cdc_sync                  |     5|
 +------+----------------------------------------------------------------------------+--------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:39 ; elapsed = 00:00:44 . Memory (MB): peak = 828.242 ; gain = 517.535
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 829.332 ; gain = 518.031
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 43 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:32 . Memory (MB): peak = 828.242 ; gain = 191.559
-Synthesis Optimization Complete : Time (s): cpu = 00:00:39 ; elapsed = 00:00:44 . Memory (MB): peak = 828.242 ; gain = 517.535
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:21 . Memory (MB): peak = 829.332 ; gain = 191.422
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 829.332 ; gain = 518.031
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 17 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -847,9 +848,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   FDR => FDRE: 4 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-70 Infos, 110 Warnings, 0 Critical Warnings and 0 Errors encountered.
+71 Infos, 110 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:41 ; elapsed = 00:00:46 . Memory (MB): peak = 828.242 ; gain = 527.430
+synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:31 . Memory (MB): peak = 829.332 ; gain = 529.262
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/ME/Vivado_Projects/project_2/project_2.runs/embsys_axi_timebase_wdt_0_0_synth_1/embsys_axi_timebase_wdt_0_0.dcp' has been generated.
 INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_timebase_wdt_0_0/embsys_axi_timebase_wdt_0_0.xci
@@ -857,5 +858,5 @@ INFO: [Coretcl 2-1174] Renamed 9 cell refs.
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/ME/Vivado_Projects/project_2/project_2.runs/embsys_axi_timebase_wdt_0_0_synth_1/embsys_axi_timebase_wdt_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file embsys_axi_timebase_wdt_0_0_utilization_synth.rpt -pb embsys_axi_timebase_wdt_0_0_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.022 . Memory (MB): peak = 828.242 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sat May  9 19:48:29 2020...
+report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.023 . Memory (MB): peak = 829.332 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sat May 16 00:59:25 2020...

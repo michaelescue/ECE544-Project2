@@ -7,13 +7,13 @@ LD_SRCS += \
 ../src/lscript.ld 
 
 C_SRCS += \
-../src/FreeRTOS_Example.c 
+../src/myapp.c 
 
 OBJS += \
-./src/FreeRTOS_Example.o 
+./src/myapp.o 
 
 C_DEPS += \
-./src/FreeRTOS_Example.d 
+./src/myapp.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

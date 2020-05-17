@@ -1,11 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Mon Apr 13 12:02:19 2020
+-- Date        : Sun May 17 00:20:48 2020
 -- Host        : DESKTOP-J4B3MVP running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
---               {c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project
---               0-Getting_Started/project_0/project_0.srcs/sources_1/bd/embsys/ip/embsys_rst_clk_wiz_1_100M_1/embsys_rst_clk_wiz_1_100M_1_sim_netlist.vhdl}
+--               C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_rst_clk_wiz_1_100M_1/embsys_rst_clk_wiz_1_100M_1_sim_netlist.vhdl
 -- Design      : embsys_rst_clk_wiz_1_100M_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -31,7 +30,6 @@ entity embsys_rst_clk_wiz_1_100M_1_cdc_sync is
 end embsys_rst_clk_wiz_1_100M_1_cdc_sync;
 
 architecture STRUCTURE of embsys_rst_clk_wiz_1_100M_1_cdc_sync is
-  signal asr_d1 : STD_LOGIC;
   signal s_level_out_d1_cdc_to : STD_LOGIC;
   signal s_level_out_d2 : STD_LOGIC;
   signal s_level_out_d3 : STD_LOGIC;
@@ -60,17 +58,9 @@ begin
         port map (
       C => slowest_sync_clk,
       CE => '1',
-      D => asr_d1,
+      D => aux_reset_in,
       Q => s_level_out_d1_cdc_to,
       R => '0'
-    );
-\GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to_i_1__0\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => aux_reset_in,
-      O => asr_d1
     );
 \GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d2\: unisim.vcomponents.FDRE
     generic map(
@@ -407,7 +397,7 @@ entity embsys_rst_clk_wiz_1_100M_1_lpf is
 end embsys_rst_clk_wiz_1_100M_1_lpf;
 
 architecture STRUCTURE of embsys_rst_clk_wiz_1_100M_1_lpf is
-  signal \ACTIVE_LOW_AUX.ACT_LO_AUX_n_0\ : STD_LOGIC;
+  signal \ACTIVE_HIGH_AUX.ACT_HI_AUX_n_0\ : STD_LOGIC;
   signal \ACTIVE_LOW_EXT.ACT_LO_EXT_n_0\ : STD_LOGIC;
   signal Q : STD_LOGIC;
   signal asr_lpf : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -430,12 +420,12 @@ architecture STRUCTURE of embsys_rst_clk_wiz_1_100M_1_lpf is
   attribute KEEP : string;
   attribute KEEP of lpf_int_reg_bret : label is "yes";
 begin
-\ACTIVE_LOW_AUX.ACT_LO_AUX\: entity work.embsys_rst_clk_wiz_1_100M_1_cdc_sync
+\ACTIVE_HIGH_AUX.ACT_HI_AUX\: entity work.embsys_rst_clk_wiz_1_100M_1_cdc_sync
      port map (
       asr_lpf(0) => asr_lpf(0),
       aux_reset_in => aux_reset_in,
       lpf_asr => lpf_asr,
-      lpf_asr_reg => \ACTIVE_LOW_AUX.ACT_LO_AUX_n_0\,
+      lpf_asr_reg => \ACTIVE_HIGH_AUX.ACT_HI_AUX_n_0\,
       p_1_in => p_1_in,
       p_2_in => p_2_in,
       scndry_out => p_3_in1_in,
@@ -538,7 +528,7 @@ lpf_asr_reg: unisim.vcomponents.FDRE
         port map (
       C => slowest_sync_clk,
       CE => '1',
-      D => \ACTIVE_LOW_AUX.ACT_LO_AUX_n_0\,
+      D => \ACTIVE_HIGH_AUX.ACT_HI_AUX_n_0\,
       Q => lpf_asr,
       R => '0'
     );
@@ -937,7 +927,7 @@ entity embsys_rst_clk_wiz_1_100M_1_proc_sys_reset is
     peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute C_AUX_RESET_HIGH : string;
-  attribute C_AUX_RESET_HIGH of embsys_rst_clk_wiz_1_100M_1_proc_sys_reset : entity is "1'b0";
+  attribute C_AUX_RESET_HIGH of embsys_rst_clk_wiz_1_100M_1_proc_sys_reset : entity is "1'b1";
   attribute C_AUX_RST_WIDTH : integer;
   attribute C_AUX_RST_WIDTH of embsys_rst_clk_wiz_1_100M_1_proc_sys_reset : entity is 4;
   attribute C_EXT_RESET_HIGH : string;
@@ -1096,7 +1086,7 @@ end embsys_rst_clk_wiz_1_100M_1;
 
 architecture STRUCTURE of embsys_rst_clk_wiz_1_100M_1 is
   attribute C_AUX_RESET_HIGH : string;
-  attribute C_AUX_RESET_HIGH of U0 : label is "1'b0";
+  attribute C_AUX_RESET_HIGH of U0 : label is "1'b1";
   attribute C_AUX_RST_WIDTH : integer;
   attribute C_AUX_RST_WIDTH of U0 : label is 4;
   attribute C_EXT_RESET_HIGH : string;
@@ -1116,7 +1106,7 @@ architecture STRUCTURE of embsys_rst_clk_wiz_1_100M_1 is
   attribute x_interface_info : string;
   attribute x_interface_info of aux_reset_in : signal is "xilinx.com:signal:reset:1.0 aux_reset RST";
   attribute x_interface_parameter : string;
-  attribute x_interface_parameter of aux_reset_in : signal is "XIL_INTERFACENAME aux_reset, POLARITY ACTIVE_LOW";
+  attribute x_interface_parameter of aux_reset_in : signal is "XIL_INTERFACENAME aux_reset, POLARITY ACTIVE_HIGH";
   attribute x_interface_info of ext_reset_in : signal is "xilinx.com:signal:reset:1.0 ext_reset RST";
   attribute x_interface_parameter of ext_reset_in : signal is "XIL_INTERFACENAME ext_reset, BOARD.ASSOCIATED_PARAM RESET_BOARD_INTERFACE, POLARITY ACTIVE_LOW";
   attribute x_interface_info of mb_debug_sys_rst : signal is "xilinx.com:signal:reset:1.0 dbg_reset RST";

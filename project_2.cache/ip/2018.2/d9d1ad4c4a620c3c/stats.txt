@@ -1,0 +1,4 @@
+NumberHits:0
+Timestamp: Sat May 16 23:37:17 UTC 2020
+VLNV: xilinx.com:user:hb3:1.0
+SynthRuntime: 43

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a50tcsg324-1" LaunchTime="1589082881">
+<GenRun Id="synth_1" LaunchPart="xc7a50tcsg324-1" LaunchTime="1589700006">
   <File Type="PA-TCL" Name="nexysA7fpga.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="nexysA7fpga_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="nexysA7fpga_reports.tcl"/>
@@ -52,8 +52,8 @@
   <Strategy Version="1" Minor="2">
     <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
     <Step Id="synth_design">
-      <Option Id="Directive">6</Option>
       <Option Id="ReTiming">1</Option>
+      <Option Id="Directive">6</Option>
       <Option Id="RepFanoutThreshold">1000</Option>
     </Step>
   </Strategy>
@@ -66,4 +66,5 @@
   <BlockFileSet Type="BlockSrcs" Name="embsys_microblaze_0_xlconcat_1"/>
   <BlockFileSet Type="BlockSrcs" Name="embsys_axi_timebase_wdt_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="embsys_xbar_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="embsys_rst_clk_wiz_1_100M_1"/>
 </GenRun>

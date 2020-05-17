@@ -304,6 +304,9 @@ proc create_root_design { parentCell } {
 
   # Create instance: axi_timebase_wdt_0, and set properties
   set axi_timebase_wdt_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_timebase_wdt:3.0 axi_timebase_wdt_0 ]
+  set_property -dict [ list \
+   CONFIG.C_WDT_INTERVAL {27} \
+ ] $axi_timebase_wdt_0
 
   # Create instance: axi_timer_0, and set properties
   set axi_timer_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_timer:2.0 axi_timer_0 ]
@@ -408,6 +411,7 @@ proc create_root_design { parentCell } {
   # Create port connections
   connect_bd_net -net axi_gpio_1_ip2intc_irpt [get_bd_pins axi_gpio_1/ip2intc_irpt] [get_bd_pins microblaze_0_xlconcat/In2]
   connect_bd_net -net axi_timebase_wdt_0_wdt_interrupt [get_bd_pins axi_timebase_wdt_0/wdt_interrupt] [get_bd_pins microblaze_0_xlconcat/In3]
+  connect_bd_net -net axi_timebase_wdt_0_wdt_reset [get_bd_pins axi_timebase_wdt_0/wdt_reset] [get_bd_pins rst_clk_wiz_1_100M/aux_reset_in]
   connect_bd_net -net axi_timer_0_generateout0 [get_bd_pins axi_timer_0/generateout0] [get_bd_pins nexys4IO_0/Clock]
   connect_bd_net -net axi_timer_0_interrupt [get_bd_pins axi_timer_0/interrupt] [get_bd_pins microblaze_0_xlconcat/In1]
   connect_bd_net -net btnC_0_1 [get_bd_ports btnC_0] [get_bd_pins nexys4IO_0/btnC]
