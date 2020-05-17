@@ -39,6 +39,12 @@
 #define GPIO1_SW_CHANNEL 		2U
 #define GPIO1_BTNS_CHANNEL 		1U
 #define MASK_SW15 				0x8000U
+#define MASK_SW5				0x20
+#define MASK_SW4				0x10
+#define MASK_SW3				0x8
+#define MASK_SW2				0x4
+#define MASK_SW1				0x2
+#define MASK_SW0				0x1
 #define SET_GPIO_INPUT 			0U
 #define SET_GPIO_OUTPUT 		0xFFU
 #define GPIO1_INTERRUPT_EN_ALL 	3U
@@ -64,6 +70,14 @@
 /* ENC Macros	*/
 #define SHIFT_ENC_SW			3
 
+/*	PID Macros	*/
+#define PID_KP_MAX				127
+#define PID_KP_MIN				1
+#define PID_KI_MAX				PID_KP_MAX
+#define PID_KI_MIN				PID_KP_MIN
+#define PID_KD_MAX				PID_KP_MAX
+#define PID_KD_MIN				PID_KP_MIN
+
 /* Data Structures	*/
 // ENC
 typedef struct enc_wrap{
@@ -82,6 +96,15 @@ typedef struct board_io{
 	u8 btnc;
 	u16 sw;
 }io_data;
+
+// GAIN
+typedef struct gain{
+	s8 kp;
+	s8 ki;
+	s8 kd;
+	u8 ms_multiplier;
+	u8 k_increment;
+}gain_data;
 
 // Create config instances
 static XWdtTb_Config *wdtConfig;
@@ -112,8 +135,9 @@ void input_param_thread(void *p);
 void master_thread(void *p);
 
 // Sub-Tasks
-void update_enc_state(enc_data * enc);
 void update_a7io_state(io_data * a7io);
+void update_enc_state(enc_data * enc, gain_data *gain_coe);
+void update_gains(io_data *a7io, gain_data *gain_coe);
 
 //Declare a Semaphore
 xSemaphoreHandle binary_sem;
@@ -142,13 +166,13 @@ static void gpio_intr (void *pvUnused)
 // ISR, handles WDT interrupt.
 static void wdt_intr(void *pvUnused){
 
-	print("WDT: ISR Start.\r\n");
+	// print("WDT: ISR Start.\r\n");
 
 	/* Check for crash conditions	*/
 
 	if(!force_crash){
 		// No force crash enabled, restart normally.
-		print("WDT: Timer Restarted.\r\n");
+		// print("WDT: Timer Restarted.\r\n");
 		XWdtTb_RestartWdt(&xWatchDogTimerInstance);
 	}
 	else if(health_check){
@@ -167,21 +191,36 @@ void input_param_thread(void *p){
 
 	enc_data enc;
 	io_data a7io;
+	gain_data gain_coe;
+
+	/* Initialize Data Structures	*/
+	gain_coe.kp = PID_KP_MIN;
+	gain_coe.ki = PID_KI_MIN;
+	gain_coe.kd = PID_KD_MIN;
 
 	while(1){
 		if(xSemaphoreTake(binary_sem,500)){
 
 			// Read ENC inputs
-			update_enc_state(&enc);
+			update_enc_state(&enc, &gain_coe);
 
 			// Read BTN and SW inputs
 			update_a7io_state(&a7io);
 
+			// Update gain values
+			update_gains(&a7io, &gain_coe);
+
+			xil_printf("s8 kp = %d\r\n", gain_coe.kp);
+			xil_printf("s8 ki = %d\r\n", gain_coe.ki);
+			xil_printf("s8 kd = %d\r\n", gain_coe.kd);
+			xil_printf("u8 ms_multiplier = %d\r\n", gain_coe.ms_multiplier);
+			xil_printf("u8 k_increment = %d\r\n", gain_coe.k_increment);
+						
 			// Update Display Task
-			xQueueSend( xQueue, &ulValueToSend, mainDONT_BLOCK );
+			//xQueueSend( xQueue, &ulValueToSend, mainDONT_BLOCK );
 
 			// Update PID Task
-			xQueueSend( xQueue, &ulValueToSend, mainDONT_BLOCK );
+			//xQueueSend( xQueue, &ulValueToSend, mainDONT_BLOCK );
 
 			
 		}
@@ -219,14 +258,6 @@ void master_thread(void *p){
 
 
 	/* Enable WDT	*/
-	// Program WDT width.
-	if(XWdtTb_ProgramWDTWidth(&xWatchDogTimerInstance, 0x200U)!=XST_SUCCESS)
-		print("WDT: Failed to write width.\r\n");
-
-	/*
-	 * Start the watchdog timer, the timebase is automatically reset
-	 * when this occurs.
-	 */
 	XWdtTb_Start(&xWatchDogTimerInstance);
 	print("WDT: Started.\r\n");
 	
@@ -446,15 +477,14 @@ void initializenc( void ){
 
 }
 
-void update_enc_state(enc_data * enc){
-
+void update_enc_state(enc_data * enc, gain_data *gain_coe){
 	// Read state of ENC.
 	enc->nextstate = ENC_getState(&pmodENC_inst);
 
 	if(enc->nextstate != enc->state){
 
 		// Has encoder value changed? Update ticks
-		enc->motor_speed = enc->motor_speed + ENC_getRotation(enc->nextstate, enc->state);
+		enc->motor_speed = enc->motor_speed + (gain_coe->ms_multiplier * ENC_getRotation(enc->nextstate, enc->state));
 		xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
 
 		// Has switch value changed? Update direction
@@ -486,4 +516,82 @@ void update_a7io_state(io_data *a7io){
 	// Update SWs
 	a7io->sw = XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_SW_CHANNEL);
 	xil_printf("a7io SW Value = %x\r\n", a7io->sw);
+}
+
+void update_gains(io_data *a7io,gain_data *gain_coe){
+
+	// Switches [5:4] control the gain increment value
+	u16 sw5to4 = (a7io->sw & (MASK_SW5 | MASK_SW4)) >> 4;
+	switch(sw5to4){
+		case(0):
+			gain_coe->k_increment = 1;
+			break;
+		case(1):
+			gain_coe->k_increment = 5;
+			break;
+		default:
+			gain_coe->k_increment = 10;
+			break;
+	}
+
+	// Switches [3:2] select which gain coe to modify
+	u16 sw3to2 = (a7io->sw & (MASK_SW3 | MASK_SW2)) >> 2;
+	// xil_printf("sw3to2 = %x\r\n",sw3to2);
+	switch(sw3to2){
+		case(0):	
+			// Change kp
+			if(a7io->btnc) gain_coe->kp = PID_KP_MIN;
+			else if(a7io->btnu){
+				gain_coe->kp = gain_coe->kp + gain_coe->k_increment;
+				// Set maximum kp
+				if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+			}
+			else if(a7io->btnd){
+				gain_coe->kp = gain_coe->kp - gain_coe->k_increment;
+				// Set minimum kp			
+				if(gain_coe->kp < PID_KP_MIN) gain_coe->kp = PID_KP_MIN;
+			}
+			break;
+		case(1):	
+			// Change ki
+			if(a7io->btnc) gain_coe->ki = PID_KI_MIN;
+			else if(a7io->btnu){
+				gain_coe->ki = gain_coe->ki + gain_coe->k_increment;
+				// Set maximum k
+				if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+			}
+			else if(a7io->btnd){
+				gain_coe->ki = gain_coe->ki - gain_coe->k_increment;
+				// Set minimum k			
+				if(gain_coe->ki < PID_KI_MIN) gain_coe->ki = PID_KI_MIN;
+			}
+			break;
+		default:	// Change kd
+			if(a7io->btnc) gain_coe->kd = PID_KD_MIN;
+			else if(a7io->btnu){
+				gain_coe->kd = gain_coe->kd + gain_coe->k_increment;
+				// Set maximum kd
+				if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+			}
+			else if(a7io->btnd){
+				gain_coe->kd = gain_coe->kd - gain_coe->k_increment;
+				// Set minimum kd			
+				if(gain_coe->kd < PID_KD_MIN) gain_coe->kd = PID_KD_MIN;
+			}
+			break;
+	}
+
+	// Switches [1:0] control the motor speed multiplier value
+	u16 sw1to0 = (a7io->sw & (MASK_SW1 | MASK_SW0)) >> 0;
+	switch(sw1to0){
+		case(0):
+			gain_coe->ms_multiplier = 1;
+			break;
+		case(1):
+			gain_coe->ms_multiplier = 5;
+			break;
+		default:
+			gain_coe->ms_multiplier = 10;
+			break;
+	}
 }

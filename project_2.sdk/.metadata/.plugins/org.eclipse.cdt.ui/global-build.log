@@ -8682,3 +8682,1650 @@ Finished building: project2.elf.size
 06:37:37 **** Incremental Build of configuration Debug for project project2 ****
 make all 
 make: Nothing to be done for `all'.
+11:16:09 **** Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+In file included from ../src/myapp.c:19:0:
+../src/myapp.c: In function 'input_param_thread':
+../src/myapp.c:181:16: error: 'xQueue' undeclared (first use in this function)
+    xQueueSend( xQueue, &ulValueToSend, mainDONT_BLOCK );
+                ^
+../../freertos10_xilinx_bsp_0/microblaze_0/include/queue.h:478:80: note: in definition of macro 'xQueueSend'
+ #define xQueueSend( xQueue, pvItemToQueue, xTicksToWait ) xQueueGenericSend( ( xQueue ), ( pvItemToQueue ), ( xTicksToWait ), queueSEND_TO_BACK )
+                                                                                ^~~~~~
+../src/myapp.c:181:16: note: each undeclared identifier is reported only once for each function it appears in
+    xQueueSend( xQueue, &ulValueToSend, mainDONT_BLOCK );
+                ^
+../../freertos10_xilinx_bsp_0/microblaze_0/include/queue.h:478:80: note: in definition of macro 'xQueueSend'
+ #define xQueueSend( xQueue, pvItemToQueue, xTicksToWait ) xQueueGenericSend( ( xQueue ), ( pvItemToQueue ), ( xTicksToWait ), queueSEND_TO_BACK )
+                                                                                ^~~~~~
+../src/myapp.c:181:25: error: 'ulValueToSend' undeclared (first use in this function)
+    xQueueSend( xQueue, &ulValueToSend, mainDONT_BLOCK );
+                         ^
+../../freertos10_xilinx_bsp_0/microblaze_0/include/queue.h:478:92: note: in definition of macro 'xQueueSend'
+ #define xQueueSend( xQueue, pvItemToQueue, xTicksToWait ) xQueueGenericSend( ( xQueue ), ( pvItemToQueue ), ( xTicksToWait ), queueSEND_TO_BACK )
+                                                                                            ^~~~~~~~~~~~~
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:194:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:301:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:413:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:401:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:423:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:401:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:432:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:401:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+../src/myapp.c: In function 'update_enc_state':
+../src/myapp.c:458:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
+                                            ^
+make: *** [src/myapp.o] Error 1
+12:12:25 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'input_param_thread':
+../src/myapp.c:200:4: error: too many arguments to function 'update_enc_state'
+    update_enc_state(&enc, &gain_coe);
+    ^~~~~~~~~~~~~~~~
+../src/myapp.c:138:6: note: declared here
+ void update_enc_state(enc_data * enc);
+      ^~~~~~~~~~~~~~~~
+../src/myapp.c:206:17: warning: passing argument 1 of 'update_gains' from incompatible pointer type [-Wincompatible-pointer-types]
+    update_gains(&a7io, &gain_coe);
+                 ^
+../src/myapp.c:140:6: note: expected 'gain_data * {aka struct gain *}' but argument is of type 'io_data * {aka struct board_io *}'
+ void update_gains(gain_data *gain_coe);
+      ^~~~~~~~~~~~
+../src/myapp.c:206:4: error: too many arguments to function 'update_gains'
+    update_gains(&a7io, &gain_coe);
+    ^~~~~~~~~~~~
+../src/myapp.c:140:6: note: declared here
+ void update_gains(gain_data *gain_coe);
+      ^~~~~~~~~~~~
+../src/myapp.c:208:15: warning: missing terminating " character
+    xil_printf("s8 kp = %d\r\n
+               ^
+../src/myapp.c:208:15: error: missing terminating " character
+    xil_printf("s8 kp = %d\r\n
+               ^~~~~~~~~~~~~~~
+../src/myapp.c:209:7: error: expected expression before 's8'
+       s8 ki = %d\r\n
+       ^~
+../src/myapp.c:209:17: error: stray '\' in program
+       s8 ki = %d\r\n
+                 ^
+../src/myapp.c:209:19: error: stray '\' in program
+       s8 ki = %d\r\n
+                   ^
+../src/myapp.c:210:17: error: stray '\' in program
+       s8 kd = %d\r\n
+                 ^
+../src/myapp.c:210:19: error: stray '\' in program
+       s8 kd = %d\r\n
+                   ^
+../src/myapp.c:211:28: error: stray '\' in program
+       u8 ms_multiplier = %d\r\n
+                            ^
+../src/myapp.c:211:30: error: stray '\' in program
+       u8 ms_multiplier = %d\r\n
+                              ^
+../src/myapp.c:212:26: error: stray '\' in program
+       u8 k_increment = %d\r\n",
+                          ^
+../src/myapp.c:212:28: error: stray '\' in program
+       u8 k_increment = %d\r\n",
+                            ^
+../src/myapp.c:212:30: warning: missing terminating " character
+       u8 k_increment = %d\r\n",
+                              ^
+../src/myapp.c:212:30: error: missing terminating " character
+       u8 k_increment = %d\r\n",
+                              ^~
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:233:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:340:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:452:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:440:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:462:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:440:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:471:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:440:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+../src/myapp.c: At top level:
+../src/myapp.c:488:6: error: conflicting types for 'update_enc_state'
+ void update_enc_state(enc_data * enc, gain_data *gain_coe){
+      ^~~~~~~~~~~~~~~~
+../src/myapp.c:138:6: note: previous declaration of 'update_enc_state' was here
+ void update_enc_state(enc_data * enc);
+      ^~~~~~~~~~~~~~~~
+../src/myapp.c: In function 'update_enc_state':
+../src/myapp.c:497:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
+                                            ^
+../src/myapp.c: At top level:
+../src/myapp.c:530:6: error: conflicting types for 'update_gains'
+ void update_gains(io_data *a7io,gain_data *gain_coe){
+      ^~~~~~~~~~~~
+../src/myapp.c:140:6: note: previous declaration of 'update_gains' was here
+ void update_gains(gain_data *gain_coe);
+      ^~~~~~~~~~~~
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:547:6: warning: unused variable 'sw3to2' [-Wunused-variable]
+  u16 sw3to2 = a7io->sw & (MASK_SW3 | MASK_SW2) >> 2;
+      ^~~~~~
+make: *** [src/myapp.o] Error 1
+12:12:58 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'input_param_thread':
+../src/myapp.c:199:4: error: too many arguments to function 'update_enc_state'
+    update_enc_state(&enc, &gain_coe);
+    ^~~~~~~~~~~~~~~~
+../src/myapp.c:138:6: note: declared here
+ void update_enc_state(enc_data * enc);
+      ^~~~~~~~~~~~~~~~
+../src/myapp.c:207:15: warning: missing terminating " character
+    xil_printf("s8 kp = %d\r\n
+               ^
+../src/myapp.c:207:15: error: missing terminating " character
+    xil_printf("s8 kp = %d\r\n
+               ^~~~~~~~~~~~~~~
+../src/myapp.c:208:7: error: expected expression before 's8'
+       s8 ki = %d\r\n
+       ^~
+../src/myapp.c:208:17: error: stray '\' in program
+       s8 ki = %d\r\n
+                 ^
+../src/myapp.c:208:19: error: stray '\' in program
+       s8 ki = %d\r\n
+                   ^
+../src/myapp.c:209:17: error: stray '\' in program
+       s8 kd = %d\r\n
+                 ^
+../src/myapp.c:209:19: error: stray '\' in program
+       s8 kd = %d\r\n
+                   ^
+../src/myapp.c:210:28: error: stray '\' in program
+       u8 ms_multiplier = %d\r\n
+                            ^
+../src/myapp.c:210:30: error: stray '\' in program
+       u8 ms_multiplier = %d\r\n
+                              ^
+../src/myapp.c:211:26: error: stray '\' in program
+       u8 k_increment = %d\r\n",
+                          ^
+../src/myapp.c:211:28: error: stray '\' in program
+       u8 k_increment = %d\r\n",
+                            ^
+../src/myapp.c:211:30: warning: missing terminating " character
+       u8 k_increment = %d\r\n",
+                              ^
+../src/myapp.c:211:30: error: missing terminating " character
+       u8 k_increment = %d\r\n",
+                              ^~
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:232:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:339:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:451:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:439:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:461:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:439:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:470:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:439:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+../src/myapp.c: At top level:
+../src/myapp.c:487:6: error: conflicting types for 'update_enc_state'
+ void update_enc_state(enc_data * enc, gain_data *gain_coe){
+      ^~~~~~~~~~~~~~~~
+../src/myapp.c:138:6: note: previous declaration of 'update_enc_state' was here
+ void update_enc_state(enc_data * enc);
+      ^~~~~~~~~~~~~~~~
+../src/myapp.c: In function 'update_enc_state':
+../src/myapp.c:496:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
+                                            ^
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:546:6: warning: unused variable 'sw3to2' [-Wunused-variable]
+  u16 sw3to2 = a7io->sw & (MASK_SW3 | MASK_SW2) >> 2;
+      ^~~~~~
+make: *** [src/myapp.o] Error 1
+12:13:50 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c:140:6: error: conflicting types for 'update_enc_state'
+ void update_enc_state(enc_data * enc, gain_data *gain_coe);
+      ^~~~~~~~~~~~~~~~
+../src/myapp.c:138:6: note: previous declaration of 'update_enc_state' was here
+ void update_enc_state(enc_data * enc);
+      ^~~~~~~~~~~~~~~~
+../src/myapp.c: In function 'input_param_thread':
+../src/myapp.c:209:15: warning: missing terminating " character
+    xil_printf("s8 kp = %d\r\n
+               ^
+../src/myapp.c:209:15: error: missing terminating " character
+    xil_printf("s8 kp = %d\r\n
+               ^~~~~~~~~~~~~~~
+../src/myapp.c:210:7: error: expected expression before 's8'
+       s8 ki = %d\r\n
+       ^~
+../src/myapp.c:210:17: error: stray '\' in program
+       s8 ki = %d\r\n
+                 ^
+../src/myapp.c:210:19: error: stray '\' in program
+       s8 ki = %d\r\n
+                   ^
+../src/myapp.c:211:17: error: stray '\' in program
+       s8 kd = %d\r\n
+                 ^
+../src/myapp.c:211:19: error: stray '\' in program
+       s8 kd = %d\r\n
+                   ^
+../src/myapp.c:212:28: error: stray '\' in program
+       u8 ms_multiplier = %d\r\n
+                            ^
+../src/myapp.c:212:30: error: stray '\' in program
+       u8 ms_multiplier = %d\r\n
+                              ^
+../src/myapp.c:213:26: error: stray '\' in program
+       u8 k_increment = %d\r\n",
+                          ^
+../src/myapp.c:213:28: error: stray '\' in program
+       u8 k_increment = %d\r\n",
+                            ^
+../src/myapp.c:213:30: warning: missing terminating " character
+       u8 k_increment = %d\r\n",
+                              ^
+../src/myapp.c:213:30: error: missing terminating " character
+       u8 k_increment = %d\r\n",
+                              ^~
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:234:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:341:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:453:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:441:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:463:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:441:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:472:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:441:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+../src/myapp.c: At top level:
+../src/myapp.c:489:6: error: conflicting types for 'update_enc_state'
+ void update_enc_state(enc_data * enc, gain_data *gain_coe){
+      ^~~~~~~~~~~~~~~~
+../src/myapp.c:138:6: note: previous declaration of 'update_enc_state' was here
+ void update_enc_state(enc_data * enc);
+      ^~~~~~~~~~~~~~~~
+../src/myapp.c: In function 'update_enc_state':
+../src/myapp.c:498:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
+                                            ^
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:548:6: warning: unused variable 'sw3to2' [-Wunused-variable]
+  u16 sw3to2 = a7io->sw & (MASK_SW3 | MASK_SW2) >> 2;
+      ^~~~~~
+make: *** [src/myapp.o] Error 1
+12:14:33 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'input_param_thread':
+../src/myapp.c:208:15: warning: missing terminating " character
+    xil_printf("s8 kp = %d\r\n
+               ^
+../src/myapp.c:208:15: error: missing terminating " character
+    xil_printf("s8 kp = %d\r\n
+               ^~~~~~~~~~~~~~~
+../src/myapp.c:209:7: error: expected expression before 's8'
+       s8 ki = %d\r\n
+       ^~
+../src/myapp.c:209:17: error: stray '\' in program
+       s8 ki = %d\r\n
+                 ^
+../src/myapp.c:209:19: error: stray '\' in program
+       s8 ki = %d\r\n
+                   ^
+../src/myapp.c:210:17: error: stray '\' in program
+       s8 kd = %d\r\n
+                 ^
+../src/myapp.c:210:19: error: stray '\' in program
+       s8 kd = %d\r\n
+                   ^
+../src/myapp.c:211:28: error: stray '\' in program
+       u8 ms_multiplier = %d\r\n
+                            ^
+../src/myapp.c:211:30: error: stray '\' in program
+       u8 ms_multiplier = %d\r\n
+                              ^
+../src/myapp.c:212:26: error: stray '\' in program
+       u8 k_increment = %d\r\n",
+                          ^
+../src/myapp.c:212:28: error: stray '\' in program
+       u8 k_increment = %d\r\n",
+                            ^
+../src/myapp.c:212:30: warning: missing terminating " character
+       u8 k_increment = %d\r\n",
+                              ^
+../src/myapp.c:212:30: error: missing terminating " character
+       u8 k_increment = %d\r\n",
+                              ^~
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:233:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:340:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:452:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:440:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:462:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:440:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:471:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:440:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+../src/myapp.c: In function 'update_enc_state':
+../src/myapp.c:497:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
+                                            ^
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:547:6: warning: unused variable 'sw3to2' [-Wunused-variable]
+  u16 sw3to2 = a7io->sw & (MASK_SW3 | MASK_SW2) >> 2;
+      ^~~~~~
+make: *** [src/myapp.o] Error 1
+12:15:32 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'input_param_thread':
+../src/myapp.c:208:15: warning: missing terminating " character
+    xil_printf("s8 kp = %d\r\n\
+               ^
+../src/myapp.c:208:15: error: missing terminating " character
+    xil_printf("s8 kp = %d\r\n\
+               ^~~~~~~~~~~~~~~~
+       s8 ki = %d\r\n
+       ~~~~~~~~~~~~~~
+../src/myapp.c:210:7: error: expected expression before 's8'
+       s8 kd = %d\r\n
+       ^~
+../src/myapp.c:210:17: error: stray '\' in program
+       s8 kd = %d\r\n
+                 ^
+../src/myapp.c:210:19: error: stray '\' in program
+       s8 kd = %d\r\n
+                   ^
+../src/myapp.c:211:28: error: stray '\' in program
+       u8 ms_multiplier = %d\r\n
+                            ^
+../src/myapp.c:211:30: error: stray '\' in program
+       u8 ms_multiplier = %d\r\n
+                              ^
+../src/myapp.c:212:26: error: stray '\' in program
+       u8 k_increment = %d\r\n",
+                          ^
+../src/myapp.c:212:28: error: stray '\' in program
+       u8 k_increment = %d\r\n",
+                            ^
+../src/myapp.c:212:30: warning: missing terminating " character
+       u8 k_increment = %d\r\n",
+                              ^
+../src/myapp.c:212:30: error: missing terminating " character
+       u8 k_increment = %d\r\n",
+                              ^~
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:233:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:340:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:452:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:440:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:462:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:440:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:471:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:440:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+../src/myapp.c: In function 'update_enc_state':
+../src/myapp.c:497:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
+                                            ^
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:547:6: warning: unused variable 'sw3to2' [-Wunused-variable]
+  u16 sw3to2 = a7io->sw & (MASK_SW3 | MASK_SW2) >> 2;
+      ^~~~~~
+make: *** [src/myapp.o] Error 1
+12:17:23 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:228:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:335:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:447:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:435:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:457:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:435:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:466:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:435:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+../src/myapp.c: In function 'update_enc_state':
+../src/myapp.c:492:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
+                                            ^
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:542:6: warning: unused variable 'sw3to2' [-Wunused-variable]
+  u16 sw3to2 = a7io->sw & (MASK_SW3 | MASK_SW2) >> 2;
+      ^~~~~~
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: project2.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size project2.elf  |tee "project2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48480	   1516	  68636	 118632	  1cf68	project2.elf
+Finished building: project2.elf.size
+ 
+12:17:30 **** Incremental Build of configuration Debug for project project2 ****
+make all 
+make: Nothing to be done for `all'.
+12:22:37 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:228:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:335:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:447:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:435:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:457:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:435:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:466:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:435:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+../src/myapp.c: In function 'update_enc_state':
+../src/myapp.c:491:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
+                                            ^
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: project2.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size project2.elf  |tee "project2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48480	   1516	  68636	 118632	  1cf68	project2.elf
+Finished building: project2.elf.size
+ 
+12:23:16 **** Incremental Build of configuration Debug for project project2 ****
+make all 
+make: Nothing to be done for `all'.
+12:27:30 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:228:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:335:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:447:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:435:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:457:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:435:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:466:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:435:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+../src/myapp.c: In function 'update_enc_state':
+../src/myapp.c:491:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
+                                            ^
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: project2.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size project2.elf  |tee "project2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48532	   1516	  68640	 118688	  1cfa0	project2.elf
+Finished building: project2.elf.size
+ 
+12:27:38 **** Incremental Build of configuration Debug for project project2 ****
+make all 
+make: Nothing to be done for `all'.
+12:27:51 **** Incremental Build of configuration Debug for project project2 ****
+make all 
+make: Nothing to be done for `all'.
+12:30:05 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:228:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:335:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:447:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:435:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:457:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:435:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:466:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:435:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+../src/myapp.c: In function 'update_enc_state':
+../src/myapp.c:491:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
+                                            ^
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: project2.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size project2.elf  |tee "project2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48588	   1516	  68640	 118744	  1cfd8	project2.elf
+Finished building: project2.elf.size
+ 
+12:30:33 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:228:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:335:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:447:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:435:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:457:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:435:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:466:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:435:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+../src/myapp.c: In function 'update_enc_state':
+../src/myapp.c:491:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
+                                            ^
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: project2.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size project2.elf  |tee "project2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48504	   1516	  68636	 118656	  1cf80	project2.elf
+Finished building: project2.elf.size
+ 
+12:30:40 **** Incremental Build of configuration Debug for project project2 ****
+make all 
+make: Nothing to be done for `all'.
+12:32:44 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:228:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:327:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:439:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:427:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:449:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:427:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:458:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:427:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+../src/myapp.c: In function 'update_enc_state':
+../src/myapp.c:483:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
+                                            ^
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: project2.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size project2.elf  |tee "project2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48312	   1516	  68636	 118464	  1cec0	project2.elf
+Finished building: project2.elf.size
+ 
+12:32:48 **** Incremental Build of configuration Debug for project project2 ****
+make all 
+make: Nothing to be done for `all'.
+12:36:27 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:228:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:327:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:439:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:427:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:449:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:427:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:458:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:427:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+../src/myapp.c: In function 'update_enc_state':
+../src/myapp.c:483:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
+                                            ^
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:544:39: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    else if(gain_coe->kp > PID_KP_MAX) (u8*) gain_coe->kp = PID_KP_MAX;
+                                       ^
+../src/myapp.c:544:58: error: lvalue required as left operand of assignment
+    else if(gain_coe->kp > PID_KP_MAX) (u8*) gain_coe->kp = PID_KP_MAX;
+                                                          ^
+../src/myapp.c:554:39: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    else if(gain_coe->ki > PID_KI_MAX) (u8*) gain_coe->ki = PID_KI_MAX;
+                                       ^
+../src/myapp.c:554:58: error: lvalue required as left operand of assignment
+    else if(gain_coe->ki > PID_KI_MAX) (u8*) gain_coe->ki = PID_KI_MAX;
+                                                          ^
+../src/myapp.c:563:39: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    else if(gain_coe->kd > PID_KD_MAX) (u8*) gain_coe->kd = PID_KD_MAX;
+                                       ^
+../src/myapp.c:563:58: error: lvalue required as left operand of assignment
+    else if(gain_coe->kd > PID_KD_MAX) (u8*) gain_coe->kd = PID_KD_MAX;
+                                                          ^
+make: *** [src/myapp.o] Error 1
+12:36:33 **** Incremental Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:228:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:327:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:439:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:427:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:449:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:427:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:458:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:427:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+../src/myapp.c: In function 'update_enc_state':
+../src/myapp.c:483:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
+                                            ^
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:544:39: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    else if(gain_coe->kp > PID_KP_MAX) (u8*) gain_coe->kp = PID_KP_MAX;
+                                       ^
+../src/myapp.c:544:58: error: lvalue required as left operand of assignment
+    else if(gain_coe->kp > PID_KP_MAX) (u8*) gain_coe->kp = PID_KP_MAX;
+                                                          ^
+../src/myapp.c:554:39: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    else if(gain_coe->ki > PID_KI_MAX) (u8*) gain_coe->ki = PID_KI_MAX;
+                                       ^
+../src/myapp.c:554:58: error: lvalue required as left operand of assignment
+    else if(gain_coe->ki > PID_KI_MAX) (u8*) gain_coe->ki = PID_KI_MAX;
+                                                          ^
+../src/myapp.c:563:39: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    else if(gain_coe->kd > PID_KD_MAX) (u8*) gain_coe->kd = PID_KD_MAX;
+                                       ^
+../src/myapp.c:563:58: error: lvalue required as left operand of assignment
+    else if(gain_coe->kd > PID_KD_MAX) (u8*) gain_coe->kd = PID_KD_MAX;
+                                                          ^
+make: *** [src/myapp.o] Error 1
+12:42:43 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:228:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:327:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:439:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:427:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:449:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:427:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:458:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:427:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+../src/myapp.c: In function 'update_enc_state':
+../src/myapp.c:483:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
+                                            ^
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:542:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:542:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: project2.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size project2.elf  |tee "project2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48300	   1516	  68640	 118456	  1ceb8	project2.elf
+Finished building: project2.elf.size
+ 
+12:42:51 **** Incremental Build of configuration Debug for project project2 ****
+make all 
+make: Nothing to be done for `all'.
+12:46:20 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:228:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:327:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:439:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:427:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:449:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:427:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:458:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:427:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+../src/myapp.c: In function 'update_enc_state':
+../src/myapp.c:483:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
+                                            ^
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:542:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:542:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:554:15: error: 'gain_data {aka struct gain}' has no member named 'k'; did you mean 'kp'?
+     gain_coe->k = gain_coe->k + gain_coe->k_increment;
+               ^
+               kp
+../src/myapp.c:554:29: error: 'gain_data {aka struct gain}' has no member named 'k'; did you mean 'kp'?
+     gain_coe->k = gain_coe->k + gain_coe->k_increment;
+                             ^
+                             kp
+../src/myapp.c:556:23: error: 'gain_data {aka struct gain}' has no member named 'k'; did you mean 'kp'?
+     if((u8*)gain_coe->k > PID_KI_MAX) gain_coe->k = PID_KI_MAX;
+                       ^
+                       kp
+../src/myapp.c:556:49: error: 'gain_data {aka struct gain}' has no member named 'k'; did you mean 'kp'?
+     if((u8*)gain_coe->k > PID_KI_MAX) gain_coe->k = PID_KI_MAX;
+                                                 ^
+                                                 kp
+../src/myapp.c:559:15: error: 'gain_data {aka struct gain}' has no member named 'k'; did you mean 'kp'?
+     gain_coe->k = gain_coe->k - gain_coe->k_increment;
+               ^
+               kp
+../src/myapp.c:559:29: error: 'gain_data {aka struct gain}' has no member named 'k'; did you mean 'kp'?
+     gain_coe->k = gain_coe->k - gain_coe->k_increment;
+                             ^
+                             kp
+../src/myapp.c:561:18: error: 'gain_data {aka struct gain}' has no member named 'k'; did you mean 'kp'?
+     if(gain_coe->k < PID_KI_MIN) gain_coe->k = PID_KI_MIN;
+                  ^
+                  kp
+../src/myapp.c:561:44: error: 'gain_data {aka struct gain}' has no member named 'k'; did you mean 'kp'?
+     if(gain_coe->k < PID_KI_MIN) gain_coe->k = PID_KI_MIN;
+                                            ^
+                                            kp
+../src/myapp.c:569:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:569:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+make: *** [src/myapp.o] Error 1
+12:46:54 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:228:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:327:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:439:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:427:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:449:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:427:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:458:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:427:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+../src/myapp.c: In function 'update_enc_state':
+../src/myapp.c:483:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
+                                            ^
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:542:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:542:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:556:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+        ^
+../src/myapp.c:556:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+                          ^
+../src/myapp.c:569:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:569:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: project2.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size project2.elf  |tee "project2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48380	   1516	  68640	 118536	  1cf08	project2.elf
+Finished building: project2.elf.size
+ 
+12:47:00 **** Incremental Build of configuration Debug for project project2 ****
+make all 
+make: Nothing to be done for `all'.
+12:50:11 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'input_param_thread':
+../src/myapp.c:197:13: error: expected expression before '{' token
+  gain_coe = {.kp = PID_KP_MIN, .ki = PID_KI_MIN, .kd = PID_KD_MIN};
+             ^
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:231:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:330:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:442:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:430:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:452:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:430:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:461:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:430:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+../src/myapp.c: In function 'update_enc_state':
+../src/myapp.c:486:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
+                                            ^
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:545:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:545:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:559:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+        ^
+../src/myapp.c:559:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+                          ^
+../src/myapp.c:572:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:572:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+make: *** [src/myapp.o] Error 1
+12:50:13 **** Incremental Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'input_param_thread':
+../src/myapp.c:197:13: error: expected expression before '{' token
+  gain_coe = {.kp = PID_KP_MIN, .ki = PID_KI_MIN, .kd = PID_KD_MIN};
+             ^
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:231:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:330:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:442:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:430:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:452:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:430:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:461:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:430:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+../src/myapp.c: In function 'update_enc_state':
+../src/myapp.c:486:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
+                                            ^
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:545:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:545:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:559:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+        ^
+../src/myapp.c:559:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+                          ^
+../src/myapp.c:572:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:572:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+make: *** [src/myapp.o] Error 1
+12:51:06 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:233:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:332:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:444:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:432:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:454:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:432:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:463:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:432:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+../src/myapp.c: In function 'update_enc_state':
+../src/myapp.c:488:44: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
+                                            ^
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:547:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:547:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:561:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+        ^
+../src/myapp.c:561:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+                          ^
+../src/myapp.c:574:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:574:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: project2.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size project2.elf  |tee "project2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48404	   1516	  68640	 118560	  1cf20	project2.elf
+Finished building: project2.elf.size
+ 
+12:51:10 **** Incremental Build of configuration Debug for project project2 ****
+make all 
+make: Nothing to be done for `all'.
