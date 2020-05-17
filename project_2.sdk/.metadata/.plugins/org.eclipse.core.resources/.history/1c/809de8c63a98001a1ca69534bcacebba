@@ -45,50 +45,26 @@
 #define GPIO1_INTERRUPT_EN_1	1U
 #define GPIO1_INTERRUPT_EN_2	2U
 #define MASK_GPIO1_INTR_ALL		3U
-#define MASK_GPIO1_BTNR			0x8
-#define MASK_GPIO1_BTND			0x4
-#define MASK_GPIO1_BTNL			0x2
-#define MASK_GPIO1_BTNU			0x10
-#define MASK_GPIO1_BTNC			0x1
-#define SHIFT_GPIO1_BTNR		3
-#define SHIFT_GPIO1_BTND		2
-#define SHIFT_GPIO1_BTNL		1
-#define SHIFT_GPIO1_BTNU		4
-#define SHIFT_GPIO1_BTNC		0
 
 /*	WDT Macros	*/
 #define MASK_TWCSR0_WRS 		0x8U
 #define MASK_TWCSR0_WDS 		0x4U
 #define SHIFT_TWCSR0_WRS 		8U
 
-/* ENC Macros	*/
-#define SHIFT_ENC_SW			3
-
 /* Data Structures	*/
-// ENC
 typedef struct enc_wrap{
 	u32 state;
  	u32 nextstate;
 	u8 motor_speed;
-	u32 dir;
+	u8 dir;
 } enc_data;
-
-// NX4IO
-typedef struct board_io{
-	u8 btnu;
-	u8 btnr;
-	u8 btnd;
-	u8 btnl;
-	u8 btnc;
-	u16 sw;
-}io_data;
 
 // Create config instances
 static XWdtTb_Config *wdtConfig;
 
 /* Peripheral Instances	*/
 // Gpio Instances
-static XGpio xOutputGPIOInstance, xGPIO_1_instance;
+static XGpio xOutputGPIOInstance, xInputGPIOInstance;
 static XWdtTb xWatchDogTimerInstance;
 
 // ENC instances
@@ -113,7 +89,6 @@ void master_thread(void *p);
 
 // Sub-Tasks
 void update_enc_state(enc_data * enc);
-void update_a7io_state(io_data * a7io);
 
 //Declare a Semaphore
 xSemaphoreHandle binary_sem;
@@ -135,7 +110,7 @@ static void gpio_intr (void *pvUnused)
 	print("GPIO1: ISR Start.\r\n");
 	xSemaphoreGiveFromISR(binary_sem,NULL);
 
-	XGpio_InterruptClear( &xGPIO_1_instance, MASK_GPIO1_INTR_ALL );
+	XGpio_InterruptClear( &xInputGPIOInstance, MASK_GPIO1_INTR_ALL );
 
 }
 
@@ -166,25 +141,18 @@ static void wdt_intr(void *pvUnused){
 void input_param_thread(void *p){
 
 	enc_data enc;
-	io_data a7io;
 
 	while(1){
-		if(xSemaphoreTake(binary_sem,500)){
+		// Read ENC inputs
+		update_enc_state(&enc);
+		xil_printf("enc->motor_speed = %u \r\n" (u32)* enc.motor_speed);
 
-			// Read ENC inputs
-			update_enc_state(&enc);
+		// Read BTN and SW inputs
 
-			// Read BTN and SW inputs
-			update_a7io_state(&a7io);
+		// Update Display Task
 
-			// Update Display Task
-			xQueueSend( xQueue, &ulValueToSend, mainDONT_BLOCK );
+		// Update PID Task
 
-			// Update PID Task
-			xQueueSend( xQueue, &ulValueToSend, mainDONT_BLOCK );
-
-			
-		}
 	}
 
 }
@@ -238,7 +206,7 @@ void master_thread(void *p){
 		health_check = TRUE;
 
 		/* Check for forced crash	*/
-		if(XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_SW_CHANNEL) & MASK_SW15)
+		if(XGpio_DiscreteRead(&xInputGPIOInstance, GPIO1_SW_CHANNEL) & MASK_SW15)
 			force_crash = TRUE;		
 		else
 			force_crash = FALSE; // If sw[15] is low, no crash forced.
@@ -293,6 +261,7 @@ int main(void)
 
 	return -1;
 }
+
 
 void prvSetupHardware( void )
 {
@@ -357,8 +326,8 @@ void register_gpio_interrupt_handler(void){
 		vPortEnableInterrupt( XPAR_MICROBLAZE_0_AXI_INTC_AXI_GPIO_1_IP2INTC_IRPT_INTR );
 
 		/* Enable GPIO channel interrupts. */
-		XGpio_InterruptEnable( &xGPIO_1_instance, GPIO1_INTERRUPT_EN_ALL);
-		XGpio_InterruptGlobalEnable( &xGPIO_1_instance );
+		XGpio_InterruptEnable( &xInputGPIOInstance, GPIO1_INTERRUPT_EN_ALL);
+		XGpio_InterruptGlobalEnable( &xInputGPIOInstance );
 	}
 
 
@@ -384,13 +353,13 @@ void initializegpio(void){
 	}
 
 	/* Initialise the GPIO for the button inputs. */
-	xStatus = XGpio_Initialize( &xGPIO_1_instance, XPAR_AXI_GPIO_1_DEVICE_ID );
+	xStatus = XGpio_Initialize( &xInputGPIOInstance, XPAR_AXI_GPIO_1_DEVICE_ID );
 
 	if( xStatus == XST_SUCCESS )
 	{
 		/* Set switches and buttons to input. */
-		XGpio_SetDataDirection( &xGPIO_1_instance, 1,  SET_GPIO_INPUT);
-		XGpio_SetDataDirection( &xGPIO_1_instance, 2, SET_GPIO_INPUT );
+		XGpio_SetDataDirection( &xInputGPIOInstance, 1,  SET_GPIO_INPUT);
+		XGpio_SetDataDirection( &xInputGPIOInstance, 2, SET_GPIO_INPUT );
 		print("GPIO1: Data direction set.\r\n");
 
 	}
@@ -448,42 +417,13 @@ void initializenc( void ){
 
 void update_enc_state(enc_data * enc){
 
-	// Read state of ENC.
+	// Has encoder value changed? Update ticks
 	enc->nextstate = ENC_getState(&pmodENC_inst);
 
 	if(enc->nextstate != enc->state){
-
-		// Has encoder value changed? Update ticks
 		enc->motor_speed = enc->motor_speed + ENC_getRotation(enc->nextstate, enc->state);
-		xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
-
-		// Has switch value changed? Update direction
-		enc->dir = ENC_switchOn(enc->nextstate) >> SHIFT_ENC_SW;
-		xil_printf("enc->dir = %u \r\n", enc->dir);
 	}
 
-	// Update enc_state
-	enc->state = enc->nextstate;
-}
+	// Has switch value changed? Update direction
 
-void update_a7io_state(io_data *a7io){
-	// Update Btns
-	a7io->btnr = (XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_BTNS_CHANNEL) & MASK_GPIO1_BTNR) >> SHIFT_GPIO1_BTNR;
-	xil_printf("btnr = %x\r\n", a7io->btnr);
-
-	a7io->btnd = (XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_BTNS_CHANNEL) & MASK_GPIO1_BTND) >> SHIFT_GPIO1_BTND;
-	xil_printf("btnd = %x\r\n", a7io->btnd);
-
-	a7io->btnl = (XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_BTNS_CHANNEL) & MASK_GPIO1_BTNL) >> SHIFT_GPIO1_BTNL;
-	xil_printf("btnl = %x\r\n", a7io->btnl);
-
-	a7io->btnu = (XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_BTNS_CHANNEL) & MASK_GPIO1_BTNU) >> SHIFT_GPIO1_BTNU;
-	xil_printf("btnu = %x\r\n", a7io->btnu);
-
-	a7io->btnc = (XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_BTNS_CHANNEL) & MASK_GPIO1_BTNC) >> SHIFT_GPIO1_BTNC;
-	xil_printf("btnc = %x\r\n", a7io->btnc);
-
-	// Update SWs
-	a7io->sw = XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_SW_CHANNEL);
-	xil_printf("a7io SW Value = %x\r\n", a7io->sw);
 }

@@ -45,16 +45,6 @@
 #define GPIO1_INTERRUPT_EN_1	1U
 #define GPIO1_INTERRUPT_EN_2	2U
 #define MASK_GPIO1_INTR_ALL		3U
-#define MASK_GPIO1_BTNR			0x8
-#define MASK_GPIO1_BTND			0x4
-#define MASK_GPIO1_BTNL			0x2
-#define MASK_GPIO1_BTNU			0x10
-#define MASK_GPIO1_BTNC			0x1
-#define SHIFT_GPIO1_BTNR		3
-#define SHIFT_GPIO1_BTND		2
-#define SHIFT_GPIO1_BTNL		1
-#define SHIFT_GPIO1_BTNU		4
-#define SHIFT_GPIO1_BTNC		0
 
 /*	WDT Macros	*/
 #define MASK_TWCSR0_WRS 		0x8U
@@ -113,7 +103,7 @@ void master_thread(void *p);
 
 // Sub-Tasks
 void update_enc_state(enc_data * enc);
-void update_a7io_state(io_data * a7io);
+void update_io_state(io_data * a7io);
 
 //Declare a Semaphore
 xSemaphoreHandle binary_sem;
@@ -175,14 +165,11 @@ void input_param_thread(void *p){
 			update_enc_state(&enc);
 
 			// Read BTN and SW inputs
-			update_a7io_state(&a7io);
+			update_nx4io_state(&nx4io);
 
 			// Update Display Task
-			xQueueSend( xQueue, &ulValueToSend, mainDONT_BLOCK );
 
 			// Update PID Task
-			xQueueSend( xQueue, &ulValueToSend, mainDONT_BLOCK );
-
 			
 		}
 	}
@@ -466,22 +453,10 @@ void update_enc_state(enc_data * enc){
 	enc->state = enc->nextstate;
 }
 
-void update_a7io_state(io_data *a7io){
+void update_nx4io_state(io_data *a7io){
 	// Update Btns
-	a7io->btnr = (XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_BTNS_CHANNEL) & MASK_GPIO1_BTNR) >> SHIFT_GPIO1_BTNR;
-	xil_printf("btnr = %x\r\n", a7io->btnr);
-
-	a7io->btnd = (XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_BTNS_CHANNEL) & MASK_GPIO1_BTND) >> SHIFT_GPIO1_BTND;
-	xil_printf("btnd = %x\r\n", a7io->btnd);
-
-	a7io->btnl = (XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_BTNS_CHANNEL) & MASK_GPIO1_BTNL) >> SHIFT_GPIO1_BTNL;
-	xil_printf("btnl = %x\r\n", a7io->btnl);
-
-	a7io->btnu = (XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_BTNS_CHANNEL) & MASK_GPIO1_BTNU) >> SHIFT_GPIO1_BTNU;
-	xil_printf("btnu = %x\r\n", a7io->btnu);
-
-	a7io->btnc = (XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_BTNS_CHANNEL) & MASK_GPIO1_BTNC) >> SHIFT_GPIO1_BTNC;
-	xil_printf("btnc = %x\r\n", a7io->btnc);
+	a7io->btnc = XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_BTNS_CHANNEL);
+	xil_printf("a7io Btn Value = %x\r\n", a7io->btnc);
 
 	// Update SWs
 	a7io->sw = XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_SW_CHANNEL);
