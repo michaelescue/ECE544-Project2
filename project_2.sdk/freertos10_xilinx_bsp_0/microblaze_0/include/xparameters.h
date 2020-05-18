@@ -660,8 +660,8 @@
 
 /* Definitions for peripheral NEXYS4IO_0 */
 #define XPAR_NEXYS4IO_0_DEVICE_ID 0
-#define XPAR_NEXYS4IO_0_S00_AXI_BASEADDR 0xFFFFFFFF
-#define XPAR_NEXYS4IO_0_S00_AXI_HIGHADDR 0x00000000
+#define XPAR_NEXYS4IO_0_S00_AXI_BASEADDR 0x44a00000
+#define XPAR_NEXYS4IO_0_S00_AXI_HIGHADDR 0x44a0ffff
 
 
 /******************************************************************/

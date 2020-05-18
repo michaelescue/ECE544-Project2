@@ -185,7 +185,7 @@ embsys EMBSYS
         // GPIO pins 
 //       .gpio_rtl_0_tri_i(gpio_in),    // Project 1
 //       .gpio_rtl_1_tri_o(gpio_out),   // Project 1
-        .gpio_rtl_0_tri_o(led_int),     // GPIO 0: 16 bits wide (LEDS)
+        .gpio_rtl_0_tri_o(/*led_int*/),     // GPIO 0: 16 bits wide (LEDS)
         .gpio_rtl_2_tri_i(btns),        // GPIO 1: 5 bits wide. (BTNS)
         .gpio_rtl_3_tri_i(sw),          // GPIO 1: 16 bits wide (SW)
         // RGB1/2 Led's 
@@ -198,7 +198,7 @@ embsys EMBSYS
         // Seven Segment Display anode control  
         .an_0(an),
         .dp_0(dp),
-        .led_0(/* led_int */),  // Left unconnected for project 2 example.
+        .led_0(led_int),  // Left unconnected for project 2 example.
         .seg_0(seg),
         // Push buttons and switches  
         .btnC_0(/* btnC */),   // Left unconnected for project 2 example.

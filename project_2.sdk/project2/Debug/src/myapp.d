@@ -32,9 +32,8 @@ src/myapp.o src/myapp.o: ../src/myapp.c \
  ../../freertos10_xilinx_bsp_0/microblaze_0/include/xwdttb.h \
  ../../freertos10_xilinx_bsp_0/microblaze_0/include/xwdttb_l.h \
  ../../freertos10_xilinx_bsp_0/microblaze_0/include/xwdttb_hw.h \
- ../../freertos10_xilinx_bsp_0/microblaze_0/include/nexys4io.h \
- ../../freertos10_xilinx_bsp_0/microblaze_0/include/nexys4IO_l.h \
  ../../freertos10_xilinx_bsp_0/microblaze_0/include/nexys4IO.h \
+ ../../freertos10_xilinx_bsp_0/microblaze_0/include/nexys4IO_l.h \
  ../../freertos10_xilinx_bsp_0/microblaze_0/include/PmodOLEDrgb.h \
  ../../freertos10_xilinx_bsp_0/microblaze_0/include/xspi.h \
  ../../freertos10_xilinx_bsp_0/microblaze_0/include/xspi_l.h \
@@ -106,11 +105,9 @@ src/myapp.o src/myapp.o: ../src/myapp.c \
 
 ../../freertos10_xilinx_bsp_0/microblaze_0/include/xwdttb_hw.h:
 
-../../freertos10_xilinx_bsp_0/microblaze_0/include/nexys4io.h:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/nexys4IO.h:
 
 ../../freertos10_xilinx_bsp_0/microblaze_0/include/nexys4IO_l.h:
-
-../../freertos10_xilinx_bsp_0/microblaze_0/include/nexys4IO.h:
 
 ../../freertos10_xilinx_bsp_0/microblaze_0/include/PmodOLEDrgb.h:
 

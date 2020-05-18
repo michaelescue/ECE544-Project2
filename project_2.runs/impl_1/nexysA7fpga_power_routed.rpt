@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date             : Sun May 17 00:24:42 2020
+| Date             : Sun May 17 15:36:49 2020
 | Host             : DESKTOP-J4B3MVP running 64-bit major release  (build 9200)
 | Command          : report_power -file nexysA7fpga_power_routed.rpt -pb nexysA7fpga_power_summary_routed.pb -rpx nexysA7fpga_power_routed.rpx
 | Design           : nexysA7fpga
@@ -52,16 +52,16 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.021 |       12 |       --- |             --- |
+| Clocks                   |     0.022 |       12 |       --- |             --- |
 | Slice Logic              |     0.009 |    10228 |       --- |             --- |
-|   LUT as Logic           |     0.007 |     3861 |     32600 |           11.84 |
+|   LUT as Logic           |     0.007 |     3858 |     32600 |           11.83 |
 |   LUT as Distributed RAM |    <0.001 |      112 |      9600 |            1.17 |
 |   CARRY4                 |    <0.001 |      143 |      8150 |            1.75 |
 |   Register               |    <0.001 |     4349 |     65200 |            6.67 |
 |   F7/F8 Muxes            |    <0.001 |      200 |     32600 |            0.61 |
-|   LUT as Shift Register  |    <0.001 |      106 |      9600 |            1.10 |
+|   LUT as Shift Register  |    <0.001 |      107 |      9600 |            1.11 |
 |   Others                 |    <0.001 |      830 |       --- |             --- |
-| Signals                  |     0.015 |     7096 |       --- |             --- |
+| Signals                  |     0.014 |     7089 |       --- |             --- |
 | Block RAM                |     0.017 |       32 |        75 |           42.67 |
 | MMCM                     |     0.106 |        1 |         5 |           20.00 |
 | DSPs                     |     0.002 |        2 |       120 |            1.67 |
@@ -182,9 +182,9 @@ Table of Contents
 |                 I_DECODER                                                                       |    <0.001 |
 |             gpio_core_1                                                                         |    <0.001 |
 |               Not_Dual.INPUT_DOUBLE_REGS3                                                       |    <0.001 |
-|         axi_quad_spi_0                                                                          |     0.004 |
-|           U0                                                                                    |     0.004 |
-|             NO_DUAL_QUAD_MODE.QSPI_NORMAL                                                       |     0.004 |
+|         axi_quad_spi_0                                                                          |     0.005 |
+|           U0                                                                                    |     0.005 |
+|             NO_DUAL_QUAD_MODE.QSPI_NORMAL                                                       |     0.005 |
 |               QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I                                                |    <0.001 |
 |                 I_SLAVE_ATTACHMENT                                                              |    <0.001 |
 |                   I_DECODER                                                                     |    <0.001 |
@@ -417,8 +417,8 @@ Table of Contents
 |     microblaze_0                                                                                |     0.025 |
 |       U0                                                                                        |     0.025 |
 |         MicroBlaze_Core_I                                                                       |     0.025 |
-|           Performance.Core                                                                      |     0.025 |
-|             Data_Flow_I                                                                         |     0.017 |
+|           Performance.Core                                                                      |     0.024 |
+|             Data_Flow_I                                                                         |     0.016 |
 |               ALU_I                                                                             |     0.002 |
 |                 Using_FPGA.ALL_Bits[0].ALU_Bit_I1                                               |    <0.001 |
 |                   Last_Bit.I_ALU_LUT_2                                                          |    <0.001 |
@@ -887,7 +887,7 @@ Table of Contents
 |                 OF_EX_MSR_Bits[29].Using_FDR.MSR_ex_I                                           |    <0.001 |
 |                 OF_EX_MSR_Bits[30].Using_FDR.MSR_ex_I                                           |    <0.001 |
 |                 OF_EX_MSR_Bits[30].Using_FDR.MSR_of_I                                           |    <0.001 |
-|             Decode_I                                                                            |     0.007 |
+|             Decode_I                                                                            |     0.006 |
 |               PC_Module_I                                                                       |    <0.001 |
 |                 Instruction_Prefetch_Mux[0].Gen_Instr_DFF                                       |    <0.001 |
 |                 Instruction_Prefetch_Mux[0].PC_Mux_MUXF7                                        |    <0.001 |
@@ -1136,13 +1136,13 @@ Table of Contents
 |                 MUXCY_I                                                                         |    <0.001 |
 |               if_pc_incr_carry_and_3                                                            |     0.000 |
 |                 MUXCY_I                                                                         |     0.000 |
-|               jump_logic_I1                                                                     |     0.003 |
+|               jump_logic_I1                                                                     |     0.002 |
 |                 MUXCY_JUMP_CARRY                                                                |     0.000 |
 |                 MUXCY_JUMP_CARRY2                                                               |    <0.001 |
 |                 MUXCY_JUMP_CARRY3                                                               |    <0.001 |
 |                 MUXCY_JUMP_CARRY4                                                               |    <0.001 |
 |                 MUXCY_JUMP_CARRY5                                                               |     0.000 |
-|                 MUXCY_JUMP_CARRY6                                                               |     0.003 |
+|                 MUXCY_JUMP_CARRY6                                                               |     0.002 |
 |               mem_PipeRun_carry_and                                                             |    <0.001 |
 |                 MUXCY_I                                                                         |    <0.001 |
 |               mem_wait_on_ready_N_carry_or                                                      |    <0.001 |
@@ -1361,9 +1361,9 @@ Table of Contents
 |                 ramloop[9].ram.r                                                                |    <0.001 |
 |                   prim_noinit.ram                                                               |    <0.001 |
 |     microblaze_0_xlconcat                                                                       |     0.000 |
-|     nexys4IO_0                                                                                  |     0.003 |
-|       inst                                                                                      |     0.003 |
-|         nexys4IO_v2_0_S00_AXI_inst                                                              |     0.003 |
+|     nexys4IO_0                                                                                  |     0.004 |
+|       inst                                                                                      |     0.004 |
+|         nexys4IO_v2_0_S00_AXI_inst                                                              |     0.004 |
 |           DB                                                                                    |     0.000 |
 |           RGB1B                                                                                 |    <0.001 |
 |           RGB2B                                                                                 |    <0.001 |

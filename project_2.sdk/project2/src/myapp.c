@@ -25,7 +25,6 @@
 #include "xgpio.h"
 #include "sleep.h"
 #include "xwdttb.h"	// Watchdog Timer
-#include "nexys4io.h"
 #include "nexys4IO.h"
 #include "PmodOLEDrgb.h"
 #include "PmodENC.h"
@@ -69,14 +68,32 @@
 
 /* ENC Macros	*/
 #define SHIFT_ENC_SW			3
+#define ENC_MOTOR_SPEED_WIDTH	8
+#define ENC_DIR_WIDTH			1
+#define ENC_MOTOR_SPEED_MASK	0xFF
+#define ENC_MOTOR_SPEED_MAX		0x0FFFFFFFF >> (32 - (ENC_MOTOR_SPEED_WIDTH-1))
 
 /*	PID Macros	*/
 #define PID_KP_MAX				127
-#define PID_KP_MIN				1
+#define PID_KP_MIN				0
 #define PID_KI_MAX				PID_KP_MAX
 #define PID_KI_MIN				PID_KP_MIN
 #define PID_KD_MAX				PID_KP_MAX
 #define PID_KD_MIN				PID_KP_MIN
+#define PID_KP_WIDTH			8
+#define PID_KI_WIDTH			PID_KP_WIDTH
+#define PID_KD_WIDTH			PID_KP_WIDTH
+#define PID_KP_MASK				0xFF
+#define PID_KI_MASK				PID_KP_MASK
+#define PID_KD_MASK				PID_KP_MASK
+
+/* NX4IO Macros	*/
+#define NX4IO_LED0_MASK			0x1
+#define NX4IO_LED1_MASK			0x2
+#define NX4IO_LED2_MASK			0x4
+
+/* Timer Macros	*/
+#define TIMER0					0
 
 /* Data Structures	*/
 // ENC
@@ -114,9 +131,11 @@ static XWdtTb_Config *wdtConfig;
 static XGpio xOutputGPIOInstance, xGPIO_1_instance;
 static XWdtTb xWatchDogTimerInstance;
 
-// ENC instances
+// ENC Instances
 static PmodENC pmodENC_inst;
 
+// AXI Timer Instances
+static XTmrCtr	AXITimerInst;				// PWM timer instance
 
 /*	Function Declarations	*/
 void prvSetupHardware( void );
@@ -125,6 +144,9 @@ void prvSetupHardware( void );
 void initializegpio( void );
 void initializewdt( void );
 void initializenc( void );
+void initializetimer( void );
+int AXI_Timer_initialize(void);
+void initialize_states(enc_data *enc, gain_data *gain_coe);
 
 // ISRs
 void register_wdt_interrupt_handler( void );
@@ -133,11 +155,15 @@ void register_gpio_interrupt_handler( void );
 // Tasks
 void input_param_thread(void *p);
 void master_thread(void *p);
+void display_thread(void *p);
 
 // Sub-Tasks
 void update_a7io_state(io_data * a7io);
 void update_enc_state(enc_data * enc, gain_data *gain_coe);
 void update_gains(io_data *a7io, gain_data *gain_coe);
+int get_rpm(u8 duty);
+void update_sseg(enc_data *enc);
+
 
 //Declare a Semaphore
 xSemaphoreHandle binary_sem;
@@ -156,7 +182,7 @@ static volatile unsigned int health_check = FALSE;
 //Give a Semaphore
 static void gpio_intr (void *pvUnused)
 {
-	print("GPIO1: ISR Start.\r\n");
+	// print("GPIO1: ISR Start.\r\n");
 	xSemaphoreGiveFromISR(binary_sem,NULL);
 
 	XGpio_InterruptClear( &xGPIO_1_instance, MASK_GPIO1_INTR_ALL );
@@ -187,22 +213,96 @@ static void wdt_intr(void *pvUnused){
 
 }
 
+void display_thread(void *p){
+
+	/* Queue data	*/
+	unsigned long ulReceivedValue = 0xAAA;
+	unsigned long ulReceivedValue_last = 0xAAA;
+
+	/* Data structures	*/
+	enc_data rx_enc;
+	gain_data rx_gain;
+
+	/* Display variables	*/
+	u32 leds = 0;
+
+	// Initialize SSEG
+	NX410_SSEG_setAllDigits(SSEGLO, CC_BLANK, CC_BLANK, CC_BLANK, CC_BLANK, DP_NONE);
+	NX410_SSEG_setAllDigits(SSEGHI, CC_BLANK, CC_BLANK, CC_BLANK, CC_BLANK, DP_NONE);
+	print("SSEG: Initialized\r\n");
+
+
+	while(1){
+
+		// Receive queue data
+		xQueueReceive( xQueue_param2disp, &ulReceivedValue, portMAX_DELAY );
+
+		if(ulReceivedValue != ulReceivedValue_last){
+			ulReceivedValue_last = ulReceivedValue;
+
+			// Extract kd
+			rx_gain.kd = ulReceivedValue & PID_KD_MASK;
+			ulReceivedValue = (ulReceivedValue >> PID_KD_WIDTH);
+
+			// Extract Ki
+			rx_gain.ki =  ulReceivedValue & PID_KI_MASK;
+			ulReceivedValue = (ulReceivedValue >> PID_KI_WIDTH);		
+			
+			// Extract Kp
+			rx_gain.kp = ulReceivedValue & PID_KP_MASK;
+			ulReceivedValue = (ulReceivedValue >> PID_KD_WIDTH);		
+
+			// Extract Motor speed setpoint
+			rx_enc.motor_speed = ulReceivedValue & ENC_MOTOR_SPEED_MASK;
+			ulReceivedValue = (ulReceivedValue >> ENC_MOTOR_SPEED_WIDTH);
+
+			// xil_printf("rx_gain.kd = %u\r\n", rx_gain.kd);
+			// xil_printf("rx_gain.ki = %u\r\n", rx_gain.ki);
+			// xil_printf("rx_gain.kp = %u\r\n", rx_gain.kp);
+			// xil_printf("rx_enc.motor_speed = %u\r\n", rx_enc.motor_speed);
+
+			// Construct led signal
+			if(rx_gain.kp != 0) leds = leds | NX4IO_LED2_MASK;
+			else leds = leds & (!NX4IO_LED2_MASK);
+			if(rx_gain.ki != 0) leds = leds | NX4IO_LED1_MASK;
+			else leds = leds & (!NX4IO_LED1_MASK);
+			if(rx_gain.kd != 0) leds = leds | NX4IO_LED0_MASK;
+			else leds = leds & (!NX4IO_LED0_MASK);
+			
+			xil_printf("leds = %x\r\n", leds);
+
+			// Set LEDs with led signal constructed above.
+			NX4IO_setLEDs(leds);
+
+			// Display requested RPM.
+			update_sseg(&rx_enc);
+		}
+	}
+}
+
 void input_param_thread(void *p){
 
+	/* Data Structures	*/
 	enc_data enc;
 	io_data a7io;
 	gain_data gain_coe;
 
 	/* Initialize Data Structures	*/
-	gain_coe.kp = PID_KP_MIN;
-	gain_coe.ki = PID_KI_MIN;
-	gain_coe.kd = PID_KD_MIN;
+	initialize_states(&enc, &gain_coe);
+
+	/* Queue Variable	*/
+	unsigned long ulValueToSend = 0xAA5;
+
+	/* Task variables	*/
+	u32 last_enc_sw = 0;
+
 
 	while(1){
-		if(xSemaphoreTake(binary_sem,500)){
+		
+		// Update ENC state
+		update_enc_state(&enc, &gain_coe);
 
-			// Read ENC inputs
-			update_enc_state(&enc, &gain_coe);
+		if(xSemaphoreTake(binary_sem,7)){
 
 			// Read BTN and SW inputs
 			update_a7io_state(&a7io);
@@ -210,22 +310,39 @@ void input_param_thread(void *p){
 			// Update gain values
 			update_gains(&a7io, &gain_coe);
 
-			xil_printf("s8 kp = %d\r\n", gain_coe.kp);
-			xil_printf("s8 ki = %d\r\n", gain_coe.ki);
-			xil_printf("s8 kd = %d\r\n", gain_coe.kd);
-			xil_printf("u8 ms_multiplier = %d\r\n", gain_coe.ms_multiplier);
-			xil_printf("u8 k_increment = %d\r\n", gain_coe.k_increment);
+			// xil_printf("s8 kp = %d\r\n", gain_coe.kp);
+			// xil_printf("s8 ki = %d\r\n", gain_coe.ki);
+			// xil_printf("s8 kd = %d\r\n", gain_coe.kd);
+			// xil_printf("u8 ms_multiplier = %d\r\n", gain_coe.ms_multiplier);
+			// xil_printf("u8 k_increment = %d\r\n", gain_coe.k_increment);
 						
-			// Update Display Task
-			//xQueueSend( xQueue, &ulValueToSend, mainDONT_BLOCK );
-
-			// Update PID Task
-			//xQueueSend( xQueue, &ulValueToSend, mainDONT_BLOCK );
-
+			// Check for btnc to reset constants
+			if(a7io.btnc) initialize_states(&enc, &gain_coe);
 			
 		}
-	}
 
+		// Check for change in the ENC switch (safety!)
+		if(enc.dir != last_enc_sw) enc.motor_speed = 0;
+
+		/* Construct message.	*/
+		// Assign motor_speed setpoint.
+		ulValueToSend = enc.motor_speed;
+
+		// Shift in kp,
+		ulValueToSend = (ulValueToSend << PID_KP_WIDTH) | gain_coe.kp;
+		
+		// Shift in ki,
+		ulValueToSend = (ulValueToSend << PID_KI_WIDTH) | gain_coe.ki;
+
+		// Shift in kd. done.
+		ulValueToSend = (ulValueToSend << PID_KD_WIDTH) | gain_coe.kd;
+
+		// Update Display Task
+		xQueueSend( xQueue_param2disp, &ulValueToSend, mainDONT_BLOCK );
+
+		// Update PID Task
+		//xQueueSend( xQueue, &ulValueToSend, mainDONT_BLOCK );
+	}
 }
 
 void master_thread(void *p){
@@ -316,6 +433,14 @@ int main(void)
 			2,
 			NULL );
 
+	// Create Input Parameter Thread
+		xTaskCreate( display_thread,
+			"DISPLAY",
+			2048,
+			NULL,
+			2,
+			NULL );
+
 	// Start the Scheduler
 	print("Starting the scheduler.\r\n");
 	vTaskStartScheduler();
@@ -334,6 +459,8 @@ void prvSetupHardware( void )
 	initializegpio();
 	initializewdt();
 	initializenc();
+	initializetimer();
+	initializenx4io();
 	
 }
 
@@ -477,6 +604,31 @@ void initializenc( void ){
 
 }
 
+void initializetimer( void ){
+	
+	portBASE_TYPE xStatus;
+
+	// Initialize AXI Timer
+	xStatus = AXI_Timer_initialize();
+	if (xStatus != XST_SUCCESS)
+	{
+		return XST_FAILURE;
+	}
+	print("TIMER: AXI Timer Initialized.\r\n");
+
+}
+
+void initializenx4io( void ){
+
+	portBASE_TYPE xStatus;
+
+	xStatus = (uint32_t) NX4IO_initialize(XPAR_NEXYS4IO_0_S00_AXI_BASEADDR);
+	if (xStatus != XST_SUCCESS)
+	{
+		return XST_FAILURE;
+	}
+}
+
 void update_enc_state(enc_data * enc, gain_data *gain_coe){
 	// Read state of ENC.
 	enc->nextstate = ENC_getState(&pmodENC_inst);
@@ -485,11 +637,11 @@ void update_enc_state(enc_data * enc, gain_data *gain_coe){
 
 		// Has encoder value changed? Update ticks
 		enc->motor_speed = enc->motor_speed + (gain_coe->ms_multiplier * ENC_getRotation(enc->nextstate, enc->state));
-		xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
+		// xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
 
 		// Has switch value changed? Update direction
 		enc->dir = ENC_switchOn(enc->nextstate) >> SHIFT_ENC_SW;
-		xil_printf("enc->dir = %u \r\n", enc->dir);
+		// xil_printf("enc->dir = %u \r\n", enc->dir);
 	}
 
 	// Update enc_state
@@ -499,23 +651,23 @@ void update_enc_state(enc_data * enc, gain_data *gain_coe){
 void update_a7io_state(io_data *a7io){
 	// Update Btns
 	a7io->btnr = (XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_BTNS_CHANNEL) & MASK_GPIO1_BTNR) >> SHIFT_GPIO1_BTNR;
-	xil_printf("btnr = %x\r\n", a7io->btnr);
+	// xil_printf("btnr = %x\r\n", a7io->btnr);
 
 	a7io->btnd = (XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_BTNS_CHANNEL) & MASK_GPIO1_BTND) >> SHIFT_GPIO1_BTND;
-	xil_printf("btnd = %x\r\n", a7io->btnd);
+	// xil_printf("btnd = %x\r\n", a7io->btnd);
 
 	a7io->btnl = (XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_BTNS_CHANNEL) & MASK_GPIO1_BTNL) >> SHIFT_GPIO1_BTNL;
-	xil_printf("btnl = %x\r\n", a7io->btnl);
+	// xil_printf("btnl = %x\r\n", a7io->btnl);
 
 	a7io->btnu = (XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_BTNS_CHANNEL) & MASK_GPIO1_BTNU) >> SHIFT_GPIO1_BTNU;
-	xil_printf("btnu = %x\r\n", a7io->btnu);
+	// xil_printf("btnu = %x\r\n", a7io->btnu);
 
 	a7io->btnc = (XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_BTNS_CHANNEL) & MASK_GPIO1_BTNC) >> SHIFT_GPIO1_BTNC;
-	xil_printf("btnc = %x\r\n", a7io->btnc);
+	// xil_printf("btnc = %x\r\n", a7io->btnc);
 
 	// Update SWs
 	a7io->sw = XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_SW_CHANNEL);
-	xil_printf("a7io SW Value = %x\r\n", a7io->sw);
+	// xil_printf("a7io SW Value = %x\r\n", a7io->sw);
 }
 
 void update_gains(io_data *a7io,gain_data *gain_coe){
@@ -594,4 +746,69 @@ void update_gains(io_data *a7io,gain_data *gain_coe){
 			gain_coe->ms_multiplier = 10;
 			break;
 	}
+}
+
+void initialize_states(enc_data *enc, gain_data *gain_coe){
+
+	gain_coe->kp = PID_KP_MIN + 1;
+	gain_coe->ki = PID_KI_MIN + 1;
+	gain_coe->kd = PID_KD_MIN + 1;
+	gain_coe->ms_multiplier = 1;	
+	enc->motor_speed = 0;
+
+}
+
+int get_rpm(u8 duty){
+	return duty;
+}
+
+void update_sseg(enc_data *enc){
+
+	print("SSEG: Update\r\n");
+	
+	/* Sub task variables	*/
+	u32 duty = 0;
+	u32 rpm = 0;
+
+	// Calculate percentate of total
+	duty = (enc->motor_speed * 100) / ENC_MOTOR_SPEED_MAX;
+
+	xil_printf("duty = %d\r\n", duty);
+
+	// Get RPM from LUT
+	rpm = get_rpm(duty);
+
+	NX4IO_SSEG_putU32Dec(rpm, TRUE);
+}
+
+int AXI_Timer_initialize(void){
+
+	uint32_t status;				// status from Xilinx Lib calls
+	uint32_t		ctlsts;		// control/status register or mask
+
+	status = XTmrCtr_Initialize(&AXITimerInst,XPAR_AXI_TIMER_0_DEVICE_ID);
+		if (status != XST_SUCCESS) {
+			return XST_FAILURE;
+		}
+	status = XTmrCtr_SelfTest(&AXITimerInst, TIMER0);
+		if (status != XST_SUCCESS) {
+			return XST_FAILURE;
+		}
+	ctlsts = XTC_CSR_AUTO_RELOAD_MASK | XTC_CSR_EXT_GENERATE_MASK | XTC_CSR_LOAD_MASK |XTC_CSR_DOWN_COUNT_MASK ;
+	XTmrCtr_SetControlStatusReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0,ctlsts);
+
+	//Set the value that is loaded into the timer counter and cause it to be loaded into the timer counter
+	XTmrCtr_SetLoadReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0, 2498);
+	XTmrCtr_LoadTimerCounterReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0);
+	ctlsts = XTmrCtr_GetControlStatusReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0);
+	ctlsts &= (~XTC_CSR_LOAD_MASK);
+	XTmrCtr_SetControlStatusReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0, ctlsts);
+
+	ctlsts = XTmrCtr_GetControlStatusReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0);
+	ctlsts |= XTC_CSR_ENABLE_TMR_MASK;
+	XTmrCtr_SetControlStatusReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0, ctlsts);
+
+	XTmrCtr_Enable(XPAR_AXI_TIMER_0_BASEADDR, TIMER0);
+	return XST_SUCCESS;
+
 }
