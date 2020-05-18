@@ -71,7 +71,7 @@
 #define ENC_MOTOR_SPEED_WIDTH	8
 #define ENC_DIR_WIDTH			1
 #define ENC_MOTOR_SPEED_MASK	0xFF
-#define ENC_MOTOR_SPEED_MAX		0x0FFFFFFFF >> (32 - (ENC_MOTOR_SPEED_WIDTH-1))
+#define ENC_MOTOR_SPEED_MAX		(0x0FFFFFFFF >> (32 - (ENC_MOTOR_SPEED_WIDTH-1)))
 
 /*	PID Macros	*/
 #define PID_KP_MAX				127
@@ -223,8 +223,7 @@ void display_thread(void *p){
 	enc_data rx_enc;
 	gain_data rx_gain;
 
-	/* Display variables	*/
-	u32 leds = 0;
+
 
 	// Initialize SSEG
 	NX410_SSEG_setAllDigits(SSEGLO, CC_BLANK, CC_BLANK, CC_BLANK, CC_BLANK, DP_NONE);
@@ -238,6 +237,11 @@ void display_thread(void *p){
 		xQueueReceive( xQueue_param2disp, &ulReceivedValue, portMAX_DELAY );
 
 		if(ulReceivedValue != ulReceivedValue_last){
+
+			/* Display variables	*/
+			u32 leds = 0;
+
+			/* Update last data value	*/
 			ulReceivedValue_last = ulReceivedValue;
 
 			// Extract kd
@@ -256,18 +260,15 @@ void display_thread(void *p){
 			rx_enc.motor_speed = ulReceivedValue & ENC_MOTOR_SPEED_MASK;
 			ulReceivedValue = (ulReceivedValue >> ENC_MOTOR_SPEED_WIDTH);
 
-			// xil_printf("rx_gain.kd = %u\r\n", rx_gain.kd);
-			// xil_printf("rx_gain.ki = %u\r\n", rx_gain.ki);
-			// xil_printf("rx_gain.kp = %u\r\n", rx_gain.kp);
-			// xil_printf("rx_enc.motor_speed = %u\r\n", rx_enc.motor_speed);
+			xil_printf("rx_gain.kd = %u\r\n", rx_gain.kd);
+			xil_printf("rx_gain.ki = %u\r\n", rx_gain.ki);
+			xil_printf("rx_gain.kp = %u\r\n", rx_gain.kp);
+			xil_printf("rx_enc.motor_speed = %u\r\n", rx_enc.motor_speed);
 
 			// Construct led signal
-			if(rx_gain.kp != 0) leds = leds | NX4IO_LED2_MASK;
-			else leds = leds & (!NX4IO_LED2_MASK);
-			if(rx_gain.ki != 0) leds = leds | NX4IO_LED1_MASK;
-			else leds = leds & (!NX4IO_LED1_MASK);
-			if(rx_gain.kd != 0) leds = leds | NX4IO_LED0_MASK;
-			else leds = leds & (!NX4IO_LED0_MASK);
+			if(rx_gain.kp > 0) leds = leds | NX4IO_LED2_MASK;
+			if(rx_gain.ki > 0) leds = leds | NX4IO_LED1_MASK;
+			if(rx_gain.kd > 0) leds = leds | NX4IO_LED0_MASK;
 			
 			xil_printf("leds = %x\r\n", leds);
 
@@ -302,7 +303,7 @@ void input_param_thread(void *p){
 		// Update ENC state
 		update_enc_state(&enc, &gain_coe);
 
-		if(xSemaphoreTake(binary_sem,7)){
+		if(xSemaphoreTake(binary_sem,5)){
 
 			// Read BTN and SW inputs
 			update_a7io_state(&a7io);
@@ -764,19 +765,22 @@ int get_rpm(u8 duty){
 
 void update_sseg(enc_data *enc){
 
-	print("SSEG: Update\r\n");
+	// print("SSEG: Update\r\n");
 	
 	/* Sub task variables	*/
 	u32 duty = 0;
 	u32 rpm = 0;
 
 	// Calculate percentate of total
-	duty = (enc->motor_speed * 100) / ENC_MOTOR_SPEED_MAX;
+	duty = (enc->motor_speed * 100);
+	// xil_printf("duty1 = %u\r\n", duty);
 
-	xil_printf("duty = %d\r\n", duty);
+	duty = duty >> ENC_MOTOR_SPEED_WIDTH;
+	// xil_printf("duty2 = %u\r\n", duty);
 
 	// Get RPM from LUT
 	rpm = get_rpm(duty);
+	// xil_printf("rpm = %u\r\n", rpm);
 
 	NX4IO_SSEG_putU32Dec(rpm, TRUE);
 }

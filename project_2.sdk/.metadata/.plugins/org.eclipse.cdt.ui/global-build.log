@@ -14834,3 +14834,1954 @@ Finished building: project2.elf.size
 17:19:21 **** Incremental Build of configuration Debug for project project2 ****
 make all 
 make: Nothing to be done for `all'.
+17:21:24 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:350:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:463:2: warning: implicit declaration of function 'initializenx4io'; did you mean 'initializegpio'? [-Wimplicit-function-declaration]
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+  initializegpio
+../src/myapp.c:457:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:571:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:581:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:590:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializetimer':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:615:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:607:6: note: declared here
+ void initializetimer( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: At top level:
+../src/myapp.c:621:6: warning: conflicting types for 'initializenx4io'
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c:463:2: note: previous implicit declaration of 'initializenx4io' was here
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializenx4io':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:628:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:621:6: note: declared here
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:699:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:699:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:713:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+        ^
+../src/myapp.c:713:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+                          ^
+../src/myapp.c:726:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:726:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: project2.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size project2.elf  |tee "project2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  51976	   1516	  68684	 122176	  1dd40	project2.elf
+Finished building: project2.elf.size
+ 
+17:22:33 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:350:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:463:2: warning: implicit declaration of function 'initializenx4io'; did you mean 'initializegpio'? [-Wimplicit-function-declaration]
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+  initializegpio
+../src/myapp.c:457:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:571:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:581:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:590:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializetimer':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:615:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:607:6: note: declared here
+ void initializetimer( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: At top level:
+../src/myapp.c:621:6: warning: conflicting types for 'initializenx4io'
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c:463:2: note: previous implicit declaration of 'initializenx4io' was here
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializenx4io':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:628:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:621:6: note: declared here
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:699:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:699:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:713:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+        ^
+../src/myapp.c:713:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+                          ^
+../src/myapp.c:726:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:726:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: project2.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size project2.elf  |tee "project2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  52032	   1516	  68684	 122232	  1dd78	project2.elf
+Finished building: project2.elf.size
+ 
+17:22:40 **** Incremental Build of configuration Debug for project project2 ****
+make all 
+make: Nothing to be done for `all'.
+17:28:58 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:350:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:463:2: warning: implicit declaration of function 'initializenx4io'; did you mean 'initializegpio'? [-Wimplicit-function-declaration]
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+  initializegpio
+../src/myapp.c:457:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:571:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:581:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:590:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializetimer':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:615:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:607:6: note: declared here
+ void initializetimer( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: At top level:
+../src/myapp.c:621:6: warning: conflicting types for 'initializenx4io'
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c:463:2: note: previous implicit declaration of 'initializenx4io' was here
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializenx4io':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:628:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:621:6: note: declared here
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:699:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:699:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:713:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+        ^
+../src/myapp.c:713:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+                          ^
+../src/myapp.c:726:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:726:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+../src/myapp.c: In function 'update_sseg':
+../src/myapp.c:774:10: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  duty = ((float *) enc->motor_speed * 100.0) / ENC_MOTOR_SPEED_MAX;
+          ^
+../src/myapp.c:774:37: error: invalid operands to binary * (have 'float *' and 'double')
+  duty = ((float *) enc->motor_speed * 100.0) / ENC_MOTOR_SPEED_MAX;
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~ ^
+../src/myapp.c:776:67: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  xil_printf("enc->motor_speed = %d Max SPeed = %d duty = %d\r\n", (float*)enc->motor_speed, ENC_MOTOR_SPEED_MAX ,duty);
+                                                                   ^
+../src/myapp.c:779:2: error: cannot convert to a pointer type
+  rpm = get_rpm((u32*)duty);
+  ^~~
+../src/myapp.c:779:16: warning: passing argument 1 of 'get_rpm' makes integer from pointer without a cast [-Wint-conversion]
+  rpm = get_rpm((u32*)duty);
+                ^
+../src/myapp.c:761:5: note: expected 'u8 {aka unsigned char}' but argument is of type 'u32 * {aka long unsigned int *}'
+ int get_rpm(u8 duty){
+     ^~~~~~~
+make: *** [src/myapp.o] Error 1
+17:29:24 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:350:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:463:2: warning: implicit declaration of function 'initializenx4io'; did you mean 'initializegpio'? [-Wimplicit-function-declaration]
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+  initializegpio
+../src/myapp.c:457:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:571:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:581:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:590:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializetimer':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:615:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:607:6: note: declared here
+ void initializetimer( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: At top level:
+../src/myapp.c:621:6: warning: conflicting types for 'initializenx4io'
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c:463:2: note: previous implicit declaration of 'initializenx4io' was here
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializenx4io':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:628:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:621:6: note: declared here
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:699:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:699:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:713:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+        ^
+../src/myapp.c:713:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+                          ^
+../src/myapp.c:726:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:726:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+../src/myapp.c: In function 'update_sseg':
+../src/myapp.c:774:10: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  duty = ((float *) enc->motor_speed * 100.0) / ENC_MOTOR_SPEED_MAX;
+          ^
+../src/myapp.c:774:37: error: invalid operands to binary * (have 'float *' and 'double')
+  duty = ((float *) enc->motor_speed * 100.0) / ENC_MOTOR_SPEED_MAX;
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~ ^
+../src/myapp.c:776:67: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  xil_printf("enc->motor_speed = %d Max SPeed = %d duty = %d\r\n", (float*)enc->motor_speed, ENC_MOTOR_SPEED_MAX ,duty);
+                                                                   ^
+make: *** [src/myapp.o] Error 1
+17:30:24 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:350:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:463:2: warning: implicit declaration of function 'initializenx4io'; did you mean 'initializegpio'? [-Wimplicit-function-declaration]
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+  initializegpio
+../src/myapp.c:457:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:571:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:581:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:590:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializetimer':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:615:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:607:6: note: declared here
+ void initializetimer( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: At top level:
+../src/myapp.c:621:6: warning: conflicting types for 'initializenx4io'
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c:463:2: note: previous implicit declaration of 'initializenx4io' was here
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializenx4io':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:628:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:621:6: note: declared here
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:699:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:699:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:713:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+        ^
+../src/myapp.c:713:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+                          ^
+../src/myapp.c:726:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:726:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+../src/myapp.c: In function 'update_sseg':
+../src/myapp.c:774:10: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  duty = ((double *) enc->motor_speed * 100.0) / ENC_MOTOR_SPEED_MAX;
+          ^
+../src/myapp.c:774:38: error: invalid operands to binary * (have 'double *' and 'double')
+  duty = ((double *) enc->motor_speed * 100.0) / ENC_MOTOR_SPEED_MAX;
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^
+../src/myapp.c:776:67: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  xil_printf("enc->motor_speed = %d Max SPeed = %d duty = %d\r\n", (float*)enc->motor_speed, ENC_MOTOR_SPEED_MAX ,duty);
+                                                                   ^
+make: *** [src/myapp.o] Error 1
+17:31:42 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:350:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:463:2: warning: implicit declaration of function 'initializenx4io'; did you mean 'initializegpio'? [-Wimplicit-function-declaration]
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+  initializegpio
+../src/myapp.c:457:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:571:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:581:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:590:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializetimer':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:615:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:607:6: note: declared here
+ void initializetimer( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: At top level:
+../src/myapp.c:621:6: warning: conflicting types for 'initializenx4io'
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c:463:2: note: previous implicit declaration of 'initializenx4io' was here
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializenx4io':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:628:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:621:6: note: declared here
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:699:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:699:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:713:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+        ^
+../src/myapp.c:713:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+                          ^
+../src/myapp.c:726:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:726:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+../src/myapp.c: In function 'update_sseg':
+../src/myapp.c:775:10: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  duty = ((double *) enc->motor_speed * 100.0) / maxspd;
+          ^
+../src/myapp.c:775:38: error: invalid operands to binary * (have 'double *' and 'double')
+  duty = ((double *) enc->motor_speed * 100.0) / maxspd;
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^
+../src/myapp.c:777:67: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  xil_printf("enc->motor_speed = %d Max SPeed = %d duty = %d\r\n", (float*)enc->motor_speed, ENC_MOTOR_SPEED_MAX ,duty);
+                                                                   ^
+make: *** [src/myapp.o] Error 1
+17:31:56 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:350:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:463:2: warning: implicit declaration of function 'initializenx4io'; did you mean 'initializegpio'? [-Wimplicit-function-declaration]
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+  initializegpio
+../src/myapp.c:457:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:571:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:581:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:590:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializetimer':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:615:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:607:6: note: declared here
+ void initializetimer( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: At top level:
+../src/myapp.c:621:6: warning: conflicting types for 'initializenx4io'
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c:463:2: note: previous implicit declaration of 'initializenx4io' was here
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializenx4io':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:628:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:621:6: note: declared here
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:699:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:699:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:713:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+        ^
+../src/myapp.c:713:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+                          ^
+../src/myapp.c:726:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:726:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+../src/myapp.c: In function 'update_sseg':
+../src/myapp.c:777:67: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  xil_printf("enc->motor_speed = %d Max SPeed = %d duty = %d\r\n", (float*)enc->motor_speed, ENC_MOTOR_SPEED_MAX ,duty);
+                                                                   ^
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: project2.elf section `.heap' will not fit in region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem'
+c:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem' overflowed by 1200 bytes
+collect2.exe: error: ld returned 1 exit status
+make: *** [project2.elf] Error 1
+17:33:40 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:350:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:463:2: warning: implicit declaration of function 'initializenx4io'; did you mean 'initializegpio'? [-Wimplicit-function-declaration]
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+  initializegpio
+../src/myapp.c:457:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:571:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:581:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:590:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializetimer':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:615:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:607:6: note: declared here
+ void initializetimer( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: At top level:
+../src/myapp.c:621:6: warning: conflicting types for 'initializenx4io'
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c:463:2: note: previous implicit declaration of 'initializenx4io' was here
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializenx4io':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:628:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:621:6: note: declared here
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:699:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:699:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:713:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+        ^
+../src/myapp.c:713:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+                          ^
+../src/myapp.c:726:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:726:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+../src/myapp.c: In function 'update_sseg':
+../src/myapp.c:777:67: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  xil_printf("enc->motor_speed = %d Max SPeed = %d duty = %d\r\n", (float*)enc->motor_speed, ENC_MOTOR_SPEED_MAX ,duty);
+                                                                   ^
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: project2.elf section `.heap' will not fit in region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem'
+c:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem' overflowed by 1200 bytes
+collect2.exe: error: ld returned 1 exit status
+make: *** [project2.elf] Error 1
+17:46:24 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:350:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:463:2: warning: implicit declaration of function 'initializenx4io'; did you mean 'initializegpio'? [-Wimplicit-function-declaration]
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+  initializegpio
+../src/myapp.c:457:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:571:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:581:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:590:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializetimer':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:615:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:607:6: note: declared here
+ void initializetimer( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: At top level:
+../src/myapp.c:621:6: warning: conflicting types for 'initializenx4io'
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c:463:2: note: previous implicit declaration of 'initializenx4io' was here
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializenx4io':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:628:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:621:6: note: declared here
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:699:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:699:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:713:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+        ^
+../src/myapp.c:713:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+                          ^
+../src/myapp.c:726:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:726:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: project2.elf section `.stack' will not fit in region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem'
+c:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem' overflowed by 168 bytes
+collect2.exe: error: ld returned 1 exit status
+make: *** [project2.elf] Error 1
+17:47:14 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:350:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:463:2: warning: implicit declaration of function 'initializenx4io'; did you mean 'initializegpio'? [-Wimplicit-function-declaration]
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+  initializegpio
+../src/myapp.c:457:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:571:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:581:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:590:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializetimer':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:615:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:607:6: note: declared here
+ void initializetimer( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: At top level:
+../src/myapp.c:621:6: warning: conflicting types for 'initializenx4io'
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c:463:2: note: previous implicit declaration of 'initializenx4io' was here
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializenx4io':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:628:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:621:6: note: declared here
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:699:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:699:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:713:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+        ^
+../src/myapp.c:713:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+                          ^
+../src/myapp.c:726:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:726:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: project2.elf section `.stack' will not fit in region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem'
+c:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem' overflowed by 168 bytes
+collect2.exe: error: ld returned 1 exit status
+make: *** [project2.elf] Error 1
+17:48:22 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:350:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:463:2: warning: implicit declaration of function 'initializenx4io'; did you mean 'initializegpio'? [-Wimplicit-function-declaration]
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+  initializegpio
+../src/myapp.c:457:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:571:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:581:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:590:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializetimer':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:615:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:607:6: note: declared here
+ void initializetimer( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: At top level:
+../src/myapp.c:621:6: warning: conflicting types for 'initializenx4io'
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c:463:2: note: previous implicit declaration of 'initializenx4io' was here
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializenx4io':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:628:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:621:6: note: declared here
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:699:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:699:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:713:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+        ^
+../src/myapp.c:713:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+                          ^
+../src/myapp.c:726:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:726:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: project2.elf section `.stack' will not fit in region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem'
+c:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem' overflowed by 184 bytes
+collect2.exe: error: ld returned 1 exit status
+make: *** [project2.elf] Error 1
+17:48:37 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:350:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:463:2: warning: implicit declaration of function 'initializenx4io'; did you mean 'initializegpio'? [-Wimplicit-function-declaration]
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+  initializegpio
+../src/myapp.c:457:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:571:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:581:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:590:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializetimer':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:615:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:607:6: note: declared here
+ void initializetimer( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: At top level:
+../src/myapp.c:621:6: warning: conflicting types for 'initializenx4io'
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c:463:2: note: previous implicit declaration of 'initializenx4io' was here
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializenx4io':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:628:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:621:6: note: declared here
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:699:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:699:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:713:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+        ^
+../src/myapp.c:713:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+                          ^
+../src/myapp.c:726:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:726:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: project2.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size project2.elf  |tee "project2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  51932	   1516	  68688	 122136	  1dd18	project2.elf
+Finished building: project2.elf.size
+ 
+17:48:44 **** Incremental Build of configuration Debug for project project2 ****
+make all 
+make: Nothing to be done for `all'.
+17:49:46 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:350:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:463:2: warning: implicit declaration of function 'initializenx4io'; did you mean 'initializegpio'? [-Wimplicit-function-declaration]
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+  initializegpio
+../src/myapp.c:457:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:571:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:581:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:590:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializetimer':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:615:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:607:6: note: declared here
+ void initializetimer( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: At top level:
+../src/myapp.c:621:6: warning: conflicting types for 'initializenx4io'
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c:463:2: note: previous implicit declaration of 'initializenx4io' was here
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializenx4io':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:628:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:621:6: note: declared here
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:699:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:699:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:713:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+        ^
+../src/myapp.c:713:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+                          ^
+../src/myapp.c:726:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:726:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: project2.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size project2.elf  |tee "project2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  51972	   1516	  68688	 122176	  1dd40	project2.elf
+Finished building: project2.elf.size
+ 
+17:49:53 **** Incremental Build of configuration Debug for project project2 ****
+make all 
+make: Nothing to be done for `all'.
+17:55:38 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:350:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:463:2: warning: implicit declaration of function 'initializenx4io'; did you mean 'initializegpio'? [-Wimplicit-function-declaration]
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+  initializegpio
+../src/myapp.c:457:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:571:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:581:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:590:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializetimer':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:615:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:607:6: note: declared here
+ void initializetimer( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: At top level:
+../src/myapp.c:621:6: warning: conflicting types for 'initializenx4io'
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c:463:2: note: previous implicit declaration of 'initializenx4io' was here
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializenx4io':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:628:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:621:6: note: declared here
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:699:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:699:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:713:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+        ^
+../src/myapp.c:713:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+                          ^
+../src/myapp.c:726:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:726:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: project2.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size project2.elf  |tee "project2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  52432	   1516	  68684	 122632	  1df08	project2.elf
+Finished building: project2.elf.size
+ 
+17:55:46 **** Incremental Build of configuration Debug for project project2 ****
+make all 
+make: Nothing to be done for `all'.
+18:02:16 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:350:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:463:2: warning: implicit declaration of function 'initializenx4io'; did you mean 'initializegpio'? [-Wimplicit-function-declaration]
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+  initializegpio
+../src/myapp.c:457:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:571:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:581:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:590:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializetimer':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:615:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:607:6: note: declared here
+ void initializetimer( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: At top level:
+../src/myapp.c:621:6: warning: conflicting types for 'initializenx4io'
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c:463:2: note: previous implicit declaration of 'initializenx4io' was here
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializenx4io':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:628:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:621:6: note: declared here
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:699:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:699:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:713:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+        ^
+../src/myapp.c:713:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+                          ^
+../src/myapp.c:726:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:726:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: project2.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size project2.elf  |tee "project2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  52032	   1516	  68684	 122232	  1dd78	project2.elf
+Finished building: project2.elf.size
+ 
+18:02:25 **** Incremental Build of configuration Debug for project project2 ****
+make all 
+make: Nothing to be done for `all'.
+18:02:36 **** Incremental Build of configuration Debug for project project2 ****
+make all 
+make: Nothing to be done for `all'.
+18:04:22 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:350:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:463:2: warning: implicit declaration of function 'initializenx4io'; did you mean 'initializegpio'? [-Wimplicit-function-declaration]
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+  initializegpio
+../src/myapp.c:457:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:571:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:581:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:590:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:559:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializetimer':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:615:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:607:6: note: declared here
+ void initializetimer( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: At top level:
+../src/myapp.c:621:6: warning: conflicting types for 'initializenx4io'
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c:463:2: note: previous implicit declaration of 'initializenx4io' was here
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializenx4io':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:628:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:621:6: note: declared here
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:699:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:699:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:713:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+        ^
+../src/myapp.c:713:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+                          ^
+../src/myapp.c:726:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:726:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: project2.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size project2.elf  |tee "project2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  52052	   1516	  68688	 122256	  1dd90	project2.elf
+Finished building: project2.elf.size
+ 
+18:04:36 **** Incremental Build of configuration Debug for project project2 ****
+make all 
+make: Nothing to be done for `all'.
+18:08:17 **** Auto Build of configuration Debug for project project2 ****
+make all 
+Building file: ../src/myapp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/myapp.o" -I../../freertos10_xilinx_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/myapp.d" -MT"src/myapp.o" -o "src/myapp.o" "../src/myapp.c"
+../src/myapp.c: In function 'master_thread':
+../src/myapp.c:351:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+../src/myapp.c: In function 'prvSetupHardware':
+../src/myapp.c:464:2: warning: implicit declaration of function 'initializenx4io'; did you mean 'initializegpio'? [-Wimplicit-function-declaration]
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+  initializegpio
+../src/myapp.c:458:16: warning: unused variable 'xStatus' [-Wunused-variable]
+  portBASE_TYPE xStatus;
+                ^~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializewdt':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:572:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:560:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:582:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:560:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:591:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:560:6: note: declared here
+ void initializewdt(void){
+      ^~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializetimer':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:616:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:608:6: note: declared here
+ void initializetimer( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: At top level:
+../src/myapp.c:622:6: warning: conflicting types for 'initializenx4io'
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c:464:2: note: previous implicit declaration of 'initializenx4io' was here
+  initializenx4io();
+  ^~~~~~~~~~~~~~~
+In file included from ../../freertos10_xilinx_bsp_0/microblaze_0/include/xtmrctr.h:178:0,
+                 from ../src/myapp.c:24:
+../src/myapp.c: In function 'initializenx4io':
+../../freertos10_xilinx_bsp_0/microblaze_0/include/xstatus.h:65:41: warning: 'return' with a value, in function returning void
+ #define XST_FAILURE                     1L
+                                         ^
+../src/myapp.c:629:10: note: in expansion of macro 'XST_FAILURE'
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/myapp.c:622:6: note: declared here
+ void initializenx4io( void ){
+      ^~~~~~~~~~~~~~~
+../src/myapp.c: In function 'update_gains':
+../src/myapp.c:700:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+        ^
+../src/myapp.c:700:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kp > PID_KP_MAX) gain_coe->kp = PID_KP_MAX;
+                          ^
+../src/myapp.c:714:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+        ^
+../src/myapp.c:714:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->ki > PID_KI_MAX) gain_coe->ki = PID_KI_MAX;
+                          ^
+../src/myapp.c:727:8: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+        ^
+../src/myapp.c:727:26: warning: comparison between pointer and integer
+     if((u8*)gain_coe->kd > PID_KD_MAX) gain_coe->kd = PID_KD_MAX;
+                          ^
+Finished building: ../src/myapp.c
+ 
+Building target: project2.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "project2.elf"  ./src/myapp.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+Finished building target: project2.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size project2.elf  |tee "project2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  52008	   1516	  68684	 122208	  1dd60	project2.elf
+Finished building: project2.elf.size
+ 
+18:11:59 **** Incremental Build of configuration Debug for project project2 ****
+make all 
+make: Nothing to be done for `all'.

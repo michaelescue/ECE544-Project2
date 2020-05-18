@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date             : Sun May 17 15:36:49 2020
+| Date             : Sun May 17 17:59:45 2020
 | Host             : DESKTOP-J4B3MVP running 64-bit major release  (build 9200)
 | Command          : report_power -file nexysA7fpga_power_routed.rpt -pb nexysA7fpga_power_summary_routed.pb -rpx nexysA7fpga_power_routed.rpx
 | Design           : nexysA7fpga
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.251        |
+| Total On-Chip Power (W)  | 0.244        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.178        |
+| Dynamic (W)              | 0.171        |
 | Device Static (W)        | 0.074        |
 | Effective TJA (C/W)      | 4.8          |
 | Max Ambient (C)          | 83.8         |
@@ -52,22 +52,22 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.022 |       12 |       --- |             --- |
-| Slice Logic              |     0.009 |    10228 |       --- |             --- |
-|   LUT as Logic           |     0.007 |     3858 |     32600 |           11.83 |
+| Clocks                   |     0.023 |       12 |       --- |             --- |
+| Slice Logic              |     0.008 |    11493 |       --- |             --- |
+|   LUT as Logic           |     0.007 |     4456 |     32600 |           13.67 |
+|   CARRY4                 |    <0.001 |      193 |      8150 |            2.37 |
 |   LUT as Distributed RAM |    <0.001 |      112 |      9600 |            1.17 |
-|   CARRY4                 |    <0.001 |      143 |      8150 |            1.75 |
-|   Register               |    <0.001 |     4349 |     65200 |            6.67 |
-|   F7/F8 Muxes            |    <0.001 |      200 |     32600 |            0.61 |
-|   LUT as Shift Register  |    <0.001 |      107 |      9600 |            1.11 |
-|   Others                 |    <0.001 |      830 |       --- |             --- |
-| Signals                  |     0.014 |     7089 |       --- |             --- |
-| Block RAM                |     0.017 |       32 |        75 |           42.67 |
+|   Register               |    <0.001 |     4773 |     65200 |            7.32 |
+|   F7/F8 Muxes            |    <0.001 |      223 |     32600 |            0.68 |
+|   LUT as Shift Register  |    <0.001 |      104 |      9600 |            1.08 |
+|   Others                 |    <0.001 |     1003 |       --- |             --- |
+| Signals                  |     0.013 |     7822 |       --- |             --- |
+| Block RAM                |     0.011 |       32 |        75 |           42.67 |
 | MMCM                     |     0.106 |        1 |         5 |           20.00 |
 | DSPs                     |     0.002 |        2 |       120 |            1.67 |
-| I/O                      |     0.009 |       95 |       210 |           45.24 |
+| I/O                      |     0.007 |       95 |       210 |           45.24 |
 | Static Power             |     0.074 |          |           |                 |
-| Total                    |     0.251 |          |           |                 |
+| Total                    |     0.244 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -77,7 +77,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.073 |       0.062 |      0.011 |
+| Vccint    |       1.000 |     0.068 |       0.057 |      0.011 |
 | Vccaux    |       1.800 |     0.072 |       0.059 |      0.013 |
 | Vcco33    |       3.300 |     0.003 |       0.002 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -155,8 +155,8 @@ Table of Contents
 +-------------------------------------------------------------------------------------------------+-----------+
 | Name                                                                                            | Power (W) |
 +-------------------------------------------------------------------------------------------------+-----------+
-| nexysA7fpga                                                                                     |     0.178 |
-|   EMBSYS                                                                                        |     0.169 |
+| nexysA7fpga                                                                                     |     0.171 |
+|   EMBSYS                                                                                        |     0.163 |
 |     PmodENC_0                                                                                   |    <0.001 |
 |       inst                                                                                      |    <0.001 |
 |         axi_gpio_0                                                                              |    <0.001 |
@@ -182,9 +182,9 @@ Table of Contents
 |                 I_DECODER                                                                       |    <0.001 |
 |             gpio_core_1                                                                         |    <0.001 |
 |               Not_Dual.INPUT_DOUBLE_REGS3                                                       |    <0.001 |
-|         axi_quad_spi_0                                                                          |     0.005 |
-|           U0                                                                                    |     0.005 |
-|             NO_DUAL_QUAD_MODE.QSPI_NORMAL                                                       |     0.005 |
+|         axi_quad_spi_0                                                                          |     0.004 |
+|           U0                                                                                    |     0.004 |
+|             NO_DUAL_QUAD_MODE.QSPI_NORMAL                                                       |     0.004 |
 |               QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I                                                |    <0.001 |
 |                 I_SLAVE_ATTACHMENT                                                              |    <0.001 |
 |                   I_DECODER                                                                     |    <0.001 |
@@ -314,8 +314,8 @@ Table of Contents
 |                 MEM_DECODE_GEN[0].PER_CE_GEN[2].MULTIPLE_CES_THIS_CS_GEN.CE_I                   |     0.000 |
 |           TIMEBASE_WDT_CORE_I                                                                   |    <0.001 |
 |             INPUT_DOUBLE_REGS3                                                                  |    <0.001 |
-|     axi_timer_0                                                                                 |     0.003 |
-|       U0                                                                                        |     0.003 |
+|     axi_timer_0                                                                                 |     0.004 |
+|       U0                                                                                        |     0.004 |
 |         AXI4_LITE_I                                                                             |    <0.001 |
 |           I_SLAVE_ATTACHMENT                                                                    |    <0.001 |
 |             I_DECODER                                                                           |    <0.001 |
@@ -329,7 +329,7 @@ Table of Contents
 |           COUNTER_0_I                                                                           |     0.001 |
 |             COUNTER_I                                                                           |     0.001 |
 |           GEN_SECOND_TIMER.COUNTER_1_I                                                          |     0.001 |
-|             COUNTER_I                                                                           |    <0.001 |
+|             COUNTER_I                                                                           |     0.001 |
 |           READ_MUX_I                                                                            |    <0.001 |
 |           TIMER_CONTROL_I                                                                       |    <0.001 |
 |             INPUT_DOUBLE_REGS                                                                   |    <0.001 |
@@ -417,8 +417,8 @@ Table of Contents
 |     microblaze_0                                                                                |     0.025 |
 |       U0                                                                                        |     0.025 |
 |         MicroBlaze_Core_I                                                                       |     0.025 |
-|           Performance.Core                                                                      |     0.024 |
-|             Data_Flow_I                                                                         |     0.016 |
+|           Performance.Core                                                                      |     0.025 |
+|             Data_Flow_I                                                                         |     0.018 |
 |               ALU_I                                                                             |     0.002 |
 |                 Using_FPGA.ALL_Bits[0].ALU_Bit_I1                                               |    <0.001 |
 |                   Last_Bit.I_ALU_LUT_2                                                          |    <0.001 |
@@ -488,11 +488,11 @@ Table of Contents
 |                 Using_FPGA.ALL_Bits[24].ALU_Bit_I1                                              |    <0.001 |
 |                   Not_Last_Bit.I_ALU_LUT_V5                                                     |    <0.001 |
 |                     Using_FPGA.Native                                                           |    <0.001 |
-|                   Not_Last_Bit.MUXCY_XOR_I                                                      |    <0.001 |
+|                   Not_Last_Bit.MUXCY_XOR_I                                                      |     0.000 |
 |                 Using_FPGA.ALL_Bits[25].ALU_Bit_I1                                              |    <0.001 |
 |                   Not_Last_Bit.I_ALU_LUT_V5                                                     |    <0.001 |
 |                     Using_FPGA.Native                                                           |    <0.001 |
-|                   Not_Last_Bit.MUXCY_XOR_I                                                      |    <0.001 |
+|                   Not_Last_Bit.MUXCY_XOR_I                                                      |     0.000 |
 |                 Using_FPGA.ALL_Bits[26].ALU_Bit_I1                                              |    <0.001 |
 |                   Not_Last_Bit.I_ALU_LUT_V5                                                     |    <0.001 |
 |                     Using_FPGA.Native                                                           |    <0.001 |
@@ -500,15 +500,15 @@ Table of Contents
 |                 Using_FPGA.ALL_Bits[27].ALU_Bit_I1                                              |    <0.001 |
 |                   Not_Last_Bit.I_ALU_LUT_V5                                                     |    <0.001 |
 |                     Using_FPGA.Native                                                           |    <0.001 |
-|                   Not_Last_Bit.MUXCY_XOR_I                                                      |    <0.001 |
+|                   Not_Last_Bit.MUXCY_XOR_I                                                      |     0.000 |
 |                 Using_FPGA.ALL_Bits[28].ALU_Bit_I1                                              |    <0.001 |
 |                   Not_Last_Bit.I_ALU_LUT_V5                                                     |    <0.001 |
 |                     Using_FPGA.Native                                                           |    <0.001 |
-|                   Not_Last_Bit.MUXCY_XOR_I                                                      |    <0.001 |
+|                   Not_Last_Bit.MUXCY_XOR_I                                                      |     0.000 |
 |                 Using_FPGA.ALL_Bits[29].ALU_Bit_I1                                              |    <0.001 |
 |                   Not_Last_Bit.I_ALU_LUT_V5                                                     |    <0.001 |
 |                     Using_FPGA.Native                                                           |    <0.001 |
-|                   Not_Last_Bit.MUXCY_XOR_I                                                      |    <0.001 |
+|                   Not_Last_Bit.MUXCY_XOR_I                                                      |     0.000 |
 |                 Using_FPGA.ALL_Bits[2].ALU_Bit_I1                                               |    <0.001 |
 |                   Not_Last_Bit.I_ALU_LUT_V5                                                     |    <0.001 |
 |                     Using_FPGA.Native                                                           |    <0.001 |
@@ -520,7 +520,7 @@ Table of Contents
 |                 Using_FPGA.ALL_Bits[31].ALU_Bit_I1                                              |    <0.001 |
 |                   Not_Last_Bit.I_ALU_LUT_V5                                                     |    <0.001 |
 |                     Using_FPGA.Native                                                           |    <0.001 |
-|                   Not_Last_Bit.MUXCY_XOR_I                                                      |    <0.001 |
+|                   Not_Last_Bit.MUXCY_XOR_I                                                      |     0.000 |
 |                 Using_FPGA.ALL_Bits[3].ALU_Bit_I1                                               |    <0.001 |
 |                   Not_Last_Bit.I_ALU_LUT_V5                                                     |    <0.001 |
 |                     Using_FPGA.Native                                                           |    <0.001 |
@@ -583,14 +583,14 @@ Table of Contents
 |                 Gen_Bits[7].MEM_EX_Result_Inst                                                  |    <0.001 |
 |                 Gen_Bits[8].MEM_EX_Result_Inst                                                  |    <0.001 |
 |                 Gen_Bits[9].MEM_EX_Result_Inst                                                  |    <0.001 |
-|               FPU_I                                                                             |     0.008 |
+|               FPU_I                                                                             |     0.010 |
 |                 Use_FPU.FPU_ADDSUB_I                                                            |     0.003 |
 |                 Use_FPU.FPU_DIV_I                                                               |    <0.001 |
 |                 Use_FPU.FPU_MUL_I                                                               |     0.002 |
 |                   Use_DSP48E1.dsp_module_lower                                                  |    <0.001 |
 |                     Using_DSP48E1.DSP48E1_I1                                                    |    <0.001 |
-|                   Use_DSP48E1.dsp_module_upper                                                  |     0.002 |
-|                     Using_DSP48E1.DSP48E1_I1                                                    |     0.002 |
+|                   Use_DSP48E1.dsp_module_upper                                                  |     0.001 |
+|                     Using_DSP48E1.DSP48E1_I1                                                    |     0.001 |
 |                 Use_FPU.Stage3_Add_Sub_With_Const.AddSub_Pass[10].AddSub_MULT_AND               |    <0.001 |
 |                 Use_FPU.Stage3_Add_Sub_With_Const.AddSub_Pass[10].I_ALU_LUT                     |    <0.001 |
 |                 Use_FPU.Stage3_Add_Sub_With_Const.AddSub_Pass[10].MUXCY_XOR_I                   |    <0.001 |
@@ -624,9 +624,108 @@ Table of Contents
 |                 Use_FPU.Using_FPGA_3.Gen_Bits[2].mem_fpu_norm_delay_Inst                        |    <0.001 |
 |                 Use_FPU.Using_FPGA_3.Gen_Bits[3].mem_fpu_norm_delay_Inst                        |    <0.001 |
 |                 Use_FPU.Using_FPGA_3.first_mem_fpu_norm_delay_Inst                              |    <0.001 |
+|                 Use_FPU.Using_FPU_Extended.fpu_conv_I1                                          |     0.002 |
+|                   Int_Result_ALU.INT_Result_ALU[0].MUXCY_XOR_I                                  |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[10].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[11].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[12].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[13].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[14].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[15].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[16].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[17].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[18].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[19].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[1].MUXCY_XOR_I                                  |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[20].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[21].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[22].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[23].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[24].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[25].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[26].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[27].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[28].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[29].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[2].MUXCY_XOR_I                                  |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[30].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[31].MUXCY_XOR_I                                 |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[3].MUXCY_XOR_I                                  |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[4].MUXCY_XOR_I                                  |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[5].MUXCY_XOR_I                                  |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[6].MUXCY_XOR_I                                  |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[7].MUXCY_XOR_I                                  |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[8].MUXCY_XOR_I                                  |    <0.001 |
+|                   Int_Result_ALU.INT_Result_ALU[9].MUXCY_XOR_I                                  |    <0.001 |
+|                   abs_op1.fconv_op1_abs_GEN[0].MUXCY_XOR_I                                      |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[10].MUXCY_XOR_I                                     |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[11].MUXCY_XOR_I                                     |    <0.001 |
+|                   abs_op1.fconv_op1_abs_GEN[12].MUXCY_XOR_I                                     |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[13].MUXCY_XOR_I                                     |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[14].MUXCY_XOR_I                                     |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[15].MUXCY_XOR_I                                     |    <0.001 |
+|                   abs_op1.fconv_op1_abs_GEN[16].MUXCY_XOR_I                                     |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[17].MUXCY_XOR_I                                     |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[18].MUXCY_XOR_I                                     |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[19].MUXCY_XOR_I                                     |    <0.001 |
+|                   abs_op1.fconv_op1_abs_GEN[1].MUXCY_XOR_I                                      |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[20].MUXCY_XOR_I                                     |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[21].MUXCY_XOR_I                                     |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[22].MUXCY_XOR_I                                     |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[23].MUXCY_XOR_I                                     |    <0.001 |
+|                   abs_op1.fconv_op1_abs_GEN[24].MUXCY_XOR_I                                     |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[25].MUXCY_XOR_I                                     |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[26].MUXCY_XOR_I                                     |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[27].MUXCY_XOR_I                                     |    <0.001 |
+|                   abs_op1.fconv_op1_abs_GEN[28].MUXCY_XOR_I                                     |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[29].MUXCY_XOR_I                                     |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[2].MUXCY_XOR_I                                      |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[30].MUXCY_XOR_I                                     |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[31].MUXCY_XOR_I                                     |    <0.001 |
+|                   abs_op1.fconv_op1_abs_GEN[3].MUXCY_XOR_I                                      |    <0.001 |
+|                   abs_op1.fconv_op1_abs_GEN[4].MUXCY_XOR_I                                      |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[5].MUXCY_XOR_I                                      |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[6].MUXCY_XOR_I                                      |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[7].MUXCY_XOR_I                                      |    <0.001 |
+|                   abs_op1.fconv_op1_abs_GEN[8].MUXCY_XOR_I                                      |     0.000 |
+|                   abs_op1.fconv_op1_abs_GEN[9].MUXCY_XOR_I                                      |     0.000 |
+|                 Use_FPU.Using_FPU_Extended.fpu_sqrt_I1                                          |    <0.001 |
+|                   AddSub_Gen[0].MUXCY_XOR_I                                                     |    <0.001 |
+|                   AddSub_Gen[10].MUXCY_XOR_I                                                    |    <0.001 |
+|                   AddSub_Gen[11].MUXCY_XOR_I                                                    |    <0.001 |
+|                   AddSub_Gen[12].MUXCY_XOR_I                                                    |    <0.001 |
+|                   AddSub_Gen[13].MUXCY_XOR_I                                                    |    <0.001 |
+|                   AddSub_Gen[14].MUXCY_XOR_I                                                    |    <0.001 |
+|                   AddSub_Gen[15].MUXCY_XOR_I                                                    |    <0.001 |
+|                   AddSub_Gen[16].MUXCY_XOR_I                                                    |    <0.001 |
+|                   AddSub_Gen[17].MUXCY_XOR_I                                                    |    <0.001 |
+|                   AddSub_Gen[18].MUXCY_XOR_I                                                    |    <0.001 |
+|                   AddSub_Gen[19].MUXCY_XOR_I                                                    |    <0.001 |
+|                   AddSub_Gen[1].MUXCY_XOR_I                                                     |    <0.001 |
+|                   AddSub_Gen[20].MUXCY_XOR_I                                                    |    <0.001 |
+|                   AddSub_Gen[21].MUXCY_XOR_I                                                    |    <0.001 |
+|                   AddSub_Gen[22].MUXCY_XOR_I                                                    |    <0.001 |
+|                   AddSub_Gen[23].MUXCY_XOR_I                                                    |    <0.001 |
+|                   AddSub_Gen[24].MUXCY_XOR_I                                                    |    <0.001 |
+|                   AddSub_Gen[2].MUXCY_XOR_I                                                     |    <0.001 |
+|                   AddSub_Gen[3].MUXCY_XOR_I                                                     |    <0.001 |
+|                   AddSub_Gen[4].MUXCY_XOR_I                                                     |    <0.001 |
+|                   AddSub_Gen[5].MUXCY_XOR_I                                                     |    <0.001 |
+|                   AddSub_Gen[6].MUXCY_XOR_I                                                     |    <0.001 |
+|                   AddSub_Gen[7].MUXCY_XOR_I                                                     |    <0.001 |
+|                   AddSub_Gen[8].MUXCY_XOR_I                                                     |    <0.001 |
+|                   AddSub_Gen[9].MUXCY_XOR_I                                                     |    <0.001 |
+|                   exp_add_gen[0].MUXCY_XOR_I                                                    |     0.000 |
+|                   exp_add_gen[1].MUXCY_XOR_I                                                    |     0.000 |
+|                   exp_add_gen[2].MUXCY_XOR_I                                                    |     0.000 |
+|                   exp_add_gen[3].MUXCY_XOR_I                                                    |    <0.001 |
+|                   exp_add_gen[4].MUXCY_XOR_I                                                    |     0.000 |
+|                   exp_add_gen[5].MUXCY_XOR_I                                                    |     0.000 |
+|                   exp_add_gen[6].MUXCY_XOR_I                                                    |     0.000 |
+|                   exp_add_gen[7].MUXCY_XOR_I                                                    |    <0.001 |
 |                 Use_FPU.ex_Exp_Equal_2                                                          |    <0.001 |
-|                   The_Compare[0].carry_and_I1                                                   |     0.000 |
-|                     MUXCY_I                                                                     |     0.000 |
+|                   The_Compare[0].carry_and_I1                                                   |    <0.001 |
+|                     MUXCY_I                                                                     |    <0.001 |
 |                   The_Compare[1].carry_and_I1                                                   |     0.000 |
 |                     MUXCY_I                                                                     |     0.000 |
 |                   The_Compare[2].carry_and_I1                                                   |    <0.001 |
@@ -674,7 +773,7 @@ Table of Contents
 |                     MUXCY_I                                                                     |     0.000 |
 |                   The_Compare[5].carry_and_I1                                                   |    <0.001 |
 |                     MUXCY_I                                                                     |    <0.001 |
-|               Operand_Select_I                                                                  |     0.002 |
+|               Operand_Select_I                                                                  |     0.001 |
 |                 Gen_Bit[0].MUXF7_I1                                                             |    <0.001 |
 |                 Gen_Bit[10].MUXF7_I1                                                            |    <0.001 |
 |                 Gen_Bit[11].MUXF7_I1                                                            |    <0.001 |
@@ -707,7 +806,7 @@ Table of Contents
 |                 Gen_Bit[7].MUXF7_I1                                                             |    <0.001 |
 |                 Gen_Bit[8].MUXF7_I1                                                             |    <0.001 |
 |                 Gen_Bit[9].MUXF7_I1                                                             |    <0.001 |
-|               Register_File_I                                                                   |     0.002 |
+|               Register_File_I                                                                   |     0.001 |
 |                 Using_LUT6.All_RAM32M[0].ram32m_i                                               |    <0.001 |
 |                   Using_FPGA.Native                                                             |    <0.001 |
 |                 Using_LUT6.All_RAM32M[10].ram32m_i                                              |    <0.001 |
@@ -744,10 +843,108 @@ Table of Contents
 |               Using_DAXI_ALU_Carry.Direct_MUXCY_I                                               |    <0.001 |
 |               Using_DAXI_ALU_Carry.Post_MUXCY_I                                                 |     0.000 |
 |               Using_DAXI_ALU_Carry.direct_lut_INST                                              |     0.000 |
+|               Using_Div_Unit.Div_unit_I1                                                        |    <0.001 |
+|                 FPGA_Impl1.D_Handle[0].MUXCY_XOR_I                                              |     0.000 |
+|                 FPGA_Impl1.D_Handle[10].MUXCY_XOR_I                                             |     0.000 |
+|                 FPGA_Impl1.D_Handle[11].MUXCY_XOR_I                                             |    <0.001 |
+|                 FPGA_Impl1.D_Handle[12].MUXCY_XOR_I                                             |     0.000 |
+|                 FPGA_Impl1.D_Handle[13].MUXCY_XOR_I                                             |     0.000 |
+|                 FPGA_Impl1.D_Handle[14].MUXCY_XOR_I                                             |     0.000 |
+|                 FPGA_Impl1.D_Handle[15].MUXCY_XOR_I                                             |    <0.001 |
+|                 FPGA_Impl1.D_Handle[16].MUXCY_XOR_I                                             |     0.000 |
+|                 FPGA_Impl1.D_Handle[17].MUXCY_XOR_I                                             |     0.000 |
+|                 FPGA_Impl1.D_Handle[18].MUXCY_XOR_I                                             |     0.000 |
+|                 FPGA_Impl1.D_Handle[19].MUXCY_XOR_I                                             |    <0.001 |
+|                 FPGA_Impl1.D_Handle[1].MUXCY_XOR_I                                              |     0.000 |
+|                 FPGA_Impl1.D_Handle[20].MUXCY_XOR_I                                             |     0.000 |
+|                 FPGA_Impl1.D_Handle[21].MUXCY_XOR_I                                             |     0.000 |
+|                 FPGA_Impl1.D_Handle[22].MUXCY_XOR_I                                             |     0.000 |
+|                 FPGA_Impl1.D_Handle[23].MUXCY_XOR_I                                             |    <0.001 |
+|                 FPGA_Impl1.D_Handle[24].MUXCY_XOR_I                                             |     0.000 |
+|                 FPGA_Impl1.D_Handle[25].MUXCY_XOR_I                                             |     0.000 |
+|                 FPGA_Impl1.D_Handle[26].MUXCY_XOR_I                                             |     0.000 |
+|                 FPGA_Impl1.D_Handle[27].MUXCY_XOR_I                                             |    <0.001 |
+|                 FPGA_Impl1.D_Handle[28].MUXCY_XOR_I                                             |     0.000 |
+|                 FPGA_Impl1.D_Handle[29].MUXCY_XOR_I                                             |     0.000 |
+|                 FPGA_Impl1.D_Handle[2].MUXCY_XOR_I                                              |     0.000 |
+|                 FPGA_Impl1.D_Handle[30].MUXCY_XOR_I                                             |     0.000 |
+|                 FPGA_Impl1.D_Handle[31].MUXCY_XOR_I                                             |    <0.001 |
+|                 FPGA_Impl1.D_Handle[3].MUXCY_XOR_I                                              |    <0.001 |
+|                 FPGA_Impl1.D_Handle[4].MUXCY_XOR_I                                              |     0.000 |
+|                 FPGA_Impl1.D_Handle[5].MUXCY_XOR_I                                              |     0.000 |
+|                 FPGA_Impl1.D_Handle[6].MUXCY_XOR_I                                              |     0.000 |
+|                 FPGA_Impl1.D_Handle[7].MUXCY_XOR_I                                              |    <0.001 |
+|                 FPGA_Impl1.D_Handle[8].MUXCY_XOR_I                                              |     0.000 |
+|                 FPGA_Impl1.D_Handle[9].MUXCY_XOR_I                                              |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[0].MUXCY_XOR_I                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[0].New_Q_LUT4                                           |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[10].MUXCY_XOR_I                                         |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[10].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[11].MUXCY_XOR_I                                         |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[11].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[12].MUXCY_XOR_I                                         |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[12].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[13].MUXCY_XOR_I                                         |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[13].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[14].MUXCY_XOR_I                                         |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[14].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[15].MUXCY_XOR_I                                         |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[15].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[16].MUXCY_XOR_I                                         |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[16].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[17].MUXCY_XOR_I                                         |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[17].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[18].MUXCY_XOR_I                                         |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[18].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[19].MUXCY_XOR_I                                         |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[19].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[1].MUXCY_XOR_I                                          |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[1].New_Q_LUT4                                           |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[20].MUXCY_XOR_I                                         |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[20].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[21].MUXCY_XOR_I                                         |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[21].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[22].MUXCY_XOR_I                                         |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[22].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[23].MUXCY_XOR_I                                         |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[23].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[24].MUXCY_XOR_I                                         |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[24].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[25].MUXCY_XOR_I                                         |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[25].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[26].MUXCY_XOR_I                                         |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[26].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[27].MUXCY_XOR_I                                         |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[27].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[28].MUXCY_XOR_I                                         |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[28].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[29].MUXCY_XOR_I                                         |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[29].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[2].MUXCY_XOR_I                                          |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[2].New_Q_LUT4                                           |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[30].MUXCY_XOR_I                                         |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[30].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[31].MUXCY_XOR_I                                         |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[31].New_Q_LUT4                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[3].MUXCY_XOR_I                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[3].New_Q_LUT4                                           |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[4].MUXCY_XOR_I                                          |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[4].New_Q_LUT4                                           |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[5].MUXCY_XOR_I                                          |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[5].New_Q_LUT4                                           |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[6].MUXCY_XOR_I                                          |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[6].New_Q_LUT4                                           |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[7].MUXCY_XOR_I                                          |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[7].New_Q_LUT4                                           |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[8].MUXCY_XOR_I                                          |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[8].New_Q_LUT4                                           |    <0.001 |
+|                 FPGA_Impl2.New_Q_Handle[9].MUXCY_XOR_I                                          |     0.000 |
+|                 FPGA_Impl2.New_Q_Handle[9].New_Q_LUT4                                           |    <0.001 |
 |               Zero_Detect_I                                                                     |    <0.001 |
 |                 Part_Of_Zero_Carry_Start                                                        |    <0.001 |
 |                 Zero_Detecting[2].I_Part_Of_Zero_Detect                                         |     0.000 |
 |                 Zero_Detecting[3].I_Part_Of_Zero_Detect                                         |    <0.001 |
+|                 Zero_Detecting[5].I_Part_Of_Zero_Detect                                         |    <0.001 |
 |               exception_registers_I1                                                            |     0.001 |
 |                 CarryIn_MUXCY                                                                   |    <0.001 |
 |                 Using_FPGA_LUT6.Gen_Ret_Addr[0].I_RET_ADDR_WB                                   |    <0.001 |
@@ -879,15 +1076,17 @@ Table of Contents
 |                 Using_FPGA_LUT6.Gen_Ret_Addr[9].MUXCY_XOR_I                                     |    <0.001 |
 |                 Using_FPGA_LUT6.Gen_Ret_Addr[9].WB_PC_FDE                                       |    <0.001 |
 |               msr_reg_i                                                                         |    <0.001 |
+|                 MEM_MSR_Bits[25].Using_FDR.MSR_I                                                |    <0.001 |
 |                 MEM_MSR_Bits[28].Using_FDR.MSR_I                                                |    <0.001 |
 |                 MEM_MSR_Bits[29].Using_FDR.MSR_I                                                |    <0.001 |
 |                 MEM_MSR_Bits[30].Using_FDR.MSR_I                                                |    <0.001 |
+|                 OF_EX_MSR_Bits[25].Using_FDR.MSR_ex_I                                           |    <0.001 |
 |                 OF_EX_MSR_Bits[28].Using_FDR.MSR_ex_I                                           |    <0.001 |
 |                 OF_EX_MSR_Bits[28].Using_FDR.MSR_of_I                                           |    <0.001 |
 |                 OF_EX_MSR_Bits[29].Using_FDR.MSR_ex_I                                           |    <0.001 |
 |                 OF_EX_MSR_Bits[30].Using_FDR.MSR_ex_I                                           |    <0.001 |
 |                 OF_EX_MSR_Bits[30].Using_FDR.MSR_of_I                                           |    <0.001 |
-|             Decode_I                                                                            |     0.006 |
+|             Decode_I                                                                            |     0.005 |
 |               PC_Module_I                                                                       |    <0.001 |
 |                 Instruction_Prefetch_Mux[0].Gen_Instr_DFF                                       |    <0.001 |
 |                 Instruction_Prefetch_Mux[0].PC_Mux_MUXF7                                        |    <0.001 |
@@ -983,7 +1182,7 @@ Table of Contents
 |                 Using_FPGA.Incr_PC[7].MUXCY_XOR_I                                               |     0.000 |
 |                 Using_FPGA.Incr_PC[8].MUXCY_XOR_I                                               |    <0.001 |
 |                 Using_FPGA.Incr_PC[9].MUXCY_XOR_I                                               |     0.000 |
-|               PreFetch_Buffer_I1                                                                |     0.002 |
+|               PreFetch_Buffer_I1                                                                |     0.001 |
 |                 Gen_Mux_Select_LUT6[1].Gen_Sel_DFF                                              |    <0.001 |
 |                 Gen_Mux_Select_LUT6[1].Mux_Select_LUT6                                          |    <0.001 |
 |                 Gen_Mux_Select_LUT6[2].Gen_Sel_DFF                                              |    <0.001 |
@@ -1140,7 +1339,7 @@ Table of Contents
 |                 MUXCY_JUMP_CARRY                                                                |     0.000 |
 |                 MUXCY_JUMP_CARRY2                                                               |    <0.001 |
 |                 MUXCY_JUMP_CARRY3                                                               |    <0.001 |
-|                 MUXCY_JUMP_CARRY4                                                               |    <0.001 |
+|                 MUXCY_JUMP_CARRY4                                                               |     0.000 |
 |                 MUXCY_JUMP_CARRY5                                                               |     0.000 |
 |                 MUXCY_JUMP_CARRY6                                                               |     0.002 |
 |               mem_PipeRun_carry_and                                                             |    <0.001 |
@@ -1282,7 +1481,7 @@ Table of Contents
 |             reg_slice_r                                                                         |    <0.001 |
 |             splitter_ar                                                                         |    <0.001 |
 |             splitter_aw                                                                         |    <0.001 |
-|     microblaze_0_local_memory                                                                   |     0.017 |
+|     microblaze_0_local_memory                                                                   |     0.011 |
 |       dlmb_bram_if_cntlr                                                                        |    <0.001 |
 |         U0                                                                                      |    <0.001 |
 |       dlmb_v10                                                                                  |     0.000 |
@@ -1291,11 +1490,11 @@ Table of Contents
 |         U0                                                                                      |    <0.001 |
 |       ilmb_v10                                                                                  |     0.000 |
 |         U0                                                                                      |     0.000 |
-|       lmb_bram                                                                                  |     0.017 |
-|         U0                                                                                      |     0.017 |
-|           inst_blk_mem_gen                                                                      |     0.017 |
-|             gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen                               |     0.017 |
-|               valid.cstr                                                                        |     0.017 |
+|       lmb_bram                                                                                  |     0.011 |
+|         U0                                                                                      |     0.011 |
+|           inst_blk_mem_gen                                                                      |     0.011 |
+|             gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen                               |     0.011 |
+|               valid.cstr                                                                        |     0.011 |
 |                 ramloop[0].ram.r                                                                |    <0.001 |
 |                   prim_noinit.ram                                                               |    <0.001 |
 |                 ramloop[10].ram.r                                                               |    <0.001 |

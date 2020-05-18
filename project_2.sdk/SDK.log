@@ -2311,3 +2311,147 @@ targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag
 dow C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/project2/Debug/project2.elf
 ----------------End of Script----------------
 
+17:22:42 INFO  : Disconnected from the channel tcfchan#9.
+17:22:43 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:22:43 INFO  : Jtag cable 'Digilent Nexys A7 -50T 210292AA7EAAA' is selected.
+17:22:43 INFO  : 'jtag frequency' command is executed.
+17:22:43 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA" && level==0} -index 0' command is executed.
+17:22:44 INFO  : FPGA configured successfully with bitstream "C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/nexysA7fpga_hw_platform_0/download.bit"
+17:22:44 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+17:22:44 INFO  : Context for processor 'microblaze_0' is selected.
+17:22:44 INFO  : System reset is completed.
+17:22:47 INFO  : 'after 3000' command is executed.
+17:22:47 INFO  : Context for processor 'microblaze_0' is selected.
+17:22:48 INFO  : The application 'C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/project2/Debug/project2.elf' is downloaded to processor 'microblaze_0'.
+17:22:48 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA" && level==0} -index 0
+fpga -file C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/nexysA7fpga_hw_platform_0/download.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA"} -index 0
+dow C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/project2/Debug/project2.elf
+----------------End of Script----------------
+
+17:48:46 INFO  : Disconnected from the channel tcfchan#10.
+17:48:47 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:48:47 INFO  : Jtag cable 'Digilent Nexys A7 -50T 210292AA7EAAA' is selected.
+17:48:47 INFO  : 'jtag frequency' command is executed.
+17:48:47 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA" && level==0} -index 0' command is executed.
+17:48:48 INFO  : FPGA configured successfully with bitstream "C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/nexysA7fpga_hw_platform_0/download.bit"
+17:48:48 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+17:48:48 INFO  : Context for processor 'microblaze_0' is selected.
+17:48:48 INFO  : System reset is completed.
+17:48:51 INFO  : 'after 3000' command is executed.
+17:48:51 INFO  : Context for processor 'microblaze_0' is selected.
+17:48:52 INFO  : The application 'C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/project2/Debug/project2.elf' is downloaded to processor 'microblaze_0'.
+17:48:52 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA" && level==0} -index 0
+fpga -file C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/nexysA7fpga_hw_platform_0/download.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA"} -index 0
+dow C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/project2/Debug/project2.elf
+----------------End of Script----------------
+
+17:49:55 INFO  : Disconnected from the channel tcfchan#11.
+17:49:56 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:49:56 INFO  : Jtag cable 'Digilent Nexys A7 -50T 210292AA7EAAA' is selected.
+17:49:56 INFO  : 'jtag frequency' command is executed.
+17:49:56 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA" && level==0} -index 0' command is executed.
+17:49:58 INFO  : FPGA configured successfully with bitstream "C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/nexysA7fpga_hw_platform_0/download.bit"
+17:49:58 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+17:49:58 INFO  : Context for processor 'microblaze_0' is selected.
+17:49:58 INFO  : System reset is completed.
+17:50:01 INFO  : 'after 3000' command is executed.
+17:50:01 INFO  : Context for processor 'microblaze_0' is selected.
+17:50:01 INFO  : The application 'C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/project2/Debug/project2.elf' is downloaded to processor 'microblaze_0'.
+17:50:01 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA" && level==0} -index 0
+fpga -file C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/nexysA7fpga_hw_platform_0/download.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA"} -index 0
+dow C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/project2/Debug/project2.elf
+----------------End of Script----------------
+
+17:55:48 INFO  : Disconnected from the channel tcfchan#12.
+17:55:49 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:55:49 INFO  : Jtag cable 'Digilent Nexys A7 -50T 210292AA7EAAA' is selected.
+17:55:49 INFO  : 'jtag frequency' command is executed.
+17:55:50 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA" && level==0} -index 0' command is executed.
+17:55:51 INFO  : FPGA configured successfully with bitstream "C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/nexysA7fpga_hw_platform_0/download.bit"
+17:55:51 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+17:55:51 INFO  : Context for processor 'microblaze_0' is selected.
+17:55:51 INFO  : System reset is completed.
+17:55:54 INFO  : 'after 3000' command is executed.
+17:55:54 INFO  : Context for processor 'microblaze_0' is selected.
+17:55:54 INFO  : The application 'C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/project2/Debug/project2.elf' is downloaded to processor 'microblaze_0'.
+17:55:54 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA" && level==0} -index 0
+fpga -file C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/nexysA7fpga_hw_platform_0/download.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA"} -index 0
+dow C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/project2/Debug/project2.elf
+----------------End of Script----------------
+
+18:02:38 INFO  : Disconnected from the channel tcfchan#13.
+18:02:39 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:02:39 INFO  : Jtag cable 'Digilent Nexys A7 -50T 210292AA7EAAA' is selected.
+18:02:39 INFO  : 'jtag frequency' command is executed.
+18:02:39 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA" && level==0} -index 0' command is executed.
+18:02:41 INFO  : FPGA configured successfully with bitstream "C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/nexysA7fpga_hw_platform_0/download.bit"
+18:02:41 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+18:02:41 INFO  : Context for processor 'microblaze_0' is selected.
+18:02:41 INFO  : System reset is completed.
+18:02:44 INFO  : 'after 3000' command is executed.
+18:02:44 INFO  : Context for processor 'microblaze_0' is selected.
+18:02:44 INFO  : The application 'C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/project2/Debug/project2.elf' is downloaded to processor 'microblaze_0'.
+18:02:44 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA" && level==0} -index 0
+fpga -file C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/nexysA7fpga_hw_platform_0/download.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA"} -index 0
+dow C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/project2/Debug/project2.elf
+----------------End of Script----------------
+
+18:04:37 INFO  : Disconnected from the channel tcfchan#14.
+18:04:38 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:04:39 INFO  : Jtag cable 'Digilent Nexys A7 -50T 210292AA7EAAA' is selected.
+18:04:39 INFO  : 'jtag frequency' command is executed.
+18:04:39 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA" && level==0} -index 0' command is executed.
+18:04:40 INFO  : FPGA configured successfully with bitstream "C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/nexysA7fpga_hw_platform_0/download.bit"
+18:04:40 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+18:04:40 INFO  : Context for processor 'microblaze_0' is selected.
+18:04:40 INFO  : System reset is completed.
+18:04:43 INFO  : 'after 3000' command is executed.
+18:04:43 INFO  : Context for processor 'microblaze_0' is selected.
+18:04:43 INFO  : The application 'C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/project2/Debug/project2.elf' is downloaded to processor 'microblaze_0'.
+18:04:43 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA" && level==0} -index 0
+fpga -file C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/nexysA7fpga_hw_platform_0/download.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA"} -index 0
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys A7 -50T 210292AA7EAAA"} -index 0
+dow C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/project2/Debug/project2.elf
+----------------End of Script----------------
+

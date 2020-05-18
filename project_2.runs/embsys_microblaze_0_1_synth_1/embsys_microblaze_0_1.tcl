@@ -32,6 +32,7 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_repo_paths {
   {c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project Source Files/ece544ip-library-master}
+  c:/Users/ME/Vivado_Projects/myip
   {c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project Source Files/vivado-library-v2019.1-1}
 } [current_project]
 set_property ip_output_repo c:/Users/ME/Vivado_Projects/project_2/project_2.cache/ip [current_project]
