@@ -20,51 +20,27 @@ clients =
 	{ client_name = "sdk"; 
 		rules = (
 			{
-				context="sdk\\\\hardware/1589087415086";
-				xml_map="sdk\\\\hardware/1589087415086";
-				html_map="sdk\\\\hardware/1589087415086";
+				context="sdk\\\\hardware/1590028637106";
+				xml_map="sdk\\\\hardware/1590028637106";
+				html_map="sdk\\\\hardware/1590028637106";
 				html_format="UnisimStatsStyle";
 			},
 			{
-				context="sdk\\\\bsp/1589087455323";
-				xml_map="sdk\\\\bsp/1589087455323";
-				html_map="sdk\\\\bsp/1589087455323";
+				context="sdk\\\\bsp/1590028648324";
+				xml_map="sdk\\\\bsp/1590028648324";
+				html_map="sdk\\\\bsp/1590028648324";
 				html_format="UnisimStatsStyle";
 			},
 			{
-				context="sdk\\\\application/1589087459092";
-				xml_map="sdk\\\\application/1589087459092";
-				html_map="sdk\\\\application/1589087459092";
+				context="sdk\\\\application/1590028919555";
+				xml_map="sdk\\\\application/1590028919555";
+				html_map="sdk\\\\application/1590028919555";
 				html_format="UnisimStatsStyle";
 			},
 			{
-				context="sdk\\\\bsp/1589087564653";
-				xml_map="sdk\\\\bsp/1589087564653";
-				html_map="sdk\\\\bsp/1589087564653";
-				html_format="UnisimStatsStyle";
-			},
-			{
-				context="sdk\\\\application/1589087567164";
-				xml_map="sdk\\\\application/1589087567164";
-				html_map="sdk\\\\application/1589087567164";
-				html_format="UnisimStatsStyle";
-			},
-			{
-				context="sdk\\\\bsp/1589087881365";
-				xml_map="sdk\\\\bsp/1589087881365";
-				html_map="sdk\\\\bsp/1589087881365";
-				html_format="UnisimStatsStyle";
-			},
-			{
-				context="sdk\\\\application/1589088161221";
-				xml_map="sdk\\\\application/1589088161221";
-				html_map="sdk\\\\application/1589088161221";
-				html_format="UnisimStatsStyle";
-			},
-			{
-				context="sdk\\\\bsp/1589090282730";
-				xml_map="sdk\\\\bsp/1589090282730";
-				html_map="sdk\\\\bsp/1589090282730";
+				context="sdk\\\\bsp/1590031743074";
+				xml_map="sdk\\\\bsp/1590031743074";
+				html_map="sdk\\\\bsp/1590031743074";
 				html_format="UnisimStatsStyle";
 			}
 		);

@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
 -- Date        : Sat May  9 19:46:06 2020
 -- Host        : DESKTOP-J4B3MVP running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_uartlite_0_1/embsys_axi_uartlite_0_1_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top embsys_axi_uartlite_0_1 -prefix
+--               embsys_axi_uartlite_0_1_ embsys_axi_uartlite_0_1_sim_netlist.vhdl
 -- Design      : embsys_axi_uartlite_0_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -20,8 +20,6 @@ entity embsys_axi_uartlite_0_1_baudrate is
     s_axi_aresetn : in STD_LOGIC;
     s_axi_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_uartlite_0_1_baudrate : entity is "baudrate";
 end embsys_axi_uartlite_0_1_baudrate;
 
 architecture STRUCTURE of embsys_axi_uartlite_0_1_baudrate is
@@ -332,8 +330,6 @@ entity embsys_axi_uartlite_0_1_cdc_sync is
     rx : in STD_LOGIC;
     s_axi_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_uartlite_0_1_cdc_sync : entity is "cdc_sync";
 end embsys_axi_uartlite_0_1_cdc_sync;
 
 architecture STRUCTURE of embsys_axi_uartlite_0_1_cdc_sync is
@@ -476,8 +472,6 @@ entity embsys_axi_uartlite_0_1_cntr_incr_decr_addn_f is
     tx_Start : in STD_LOGIC;
     s_axi_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_uartlite_0_1_cntr_incr_decr_addn_f : entity is "cntr_incr_decr_addn_f";
 end embsys_axi_uartlite_0_1_cntr_incr_decr_addn_f;
 
 architecture STRUCTURE of embsys_axi_uartlite_0_1_cntr_incr_decr_addn_f is
@@ -899,8 +893,6 @@ entity embsys_axi_uartlite_0_1_dynshreg_f is
     Q : in STD_LOGIC_VECTOR ( 3 downto 0 );
     s_axi_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_uartlite_0_1_dynshreg_f : entity is "dynshreg_f";
 end embsys_axi_uartlite_0_1_dynshreg_f;
 
 architecture STRUCTURE of embsys_axi_uartlite_0_1_dynshreg_f is
@@ -1208,8 +1200,6 @@ entity embsys_axi_uartlite_0_1_pselect_f is
     \bus2ip_addr_i_reg[2]\ : in STD_LOGIC;
     \bus2ip_addr_i_reg[3]\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_uartlite_0_1_pselect_f : entity is "pselect_f";
 end embsys_axi_uartlite_0_1_pselect_f;
 
 architecture STRUCTURE of embsys_axi_uartlite_0_1_pselect_f is
@@ -1300,8 +1290,6 @@ entity embsys_axi_uartlite_0_1_address_decoder is
     \bus2ip_addr_i_reg[3]\ : in STD_LOGIC;
     \bus2ip_addr_i_reg[2]\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_uartlite_0_1_address_decoder : entity is "address_decoder";
 end embsys_axi_uartlite_0_1_address_decoder;
 
 architecture STRUCTURE of embsys_axi_uartlite_0_1_address_decoder is
@@ -1705,8 +1693,6 @@ entity embsys_axi_uartlite_0_1_srl_fifo_rbu_f is
     fifo_wr : in STD_LOGIC;
     s_axi_wdata : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_uartlite_0_1_srl_fifo_rbu_f : entity is "srl_fifo_rbu_f";
 end embsys_axi_uartlite_0_1_srl_fifo_rbu_f;
 
 architecture STRUCTURE of embsys_axi_uartlite_0_1_srl_fifo_rbu_f is
@@ -1907,8 +1893,6 @@ entity embsys_axi_uartlite_0_1_slave_attachment is
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_araddr : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_uartlite_0_1_slave_attachment : entity is "slave_attachment";
 end embsys_axi_uartlite_0_1_slave_attachment;
 
 architecture STRUCTURE of embsys_axi_uartlite_0_1_slave_attachment is
@@ -2502,8 +2486,6 @@ entity embsys_axi_uartlite_0_1_srl_fifo_f is
     fifo_wr : in STD_LOGIC;
     s_axi_wdata : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_uartlite_0_1_srl_fifo_f : entity is "srl_fifo_f";
 end embsys_axi_uartlite_0_1_srl_fifo_f;
 
 architecture STRUCTURE of embsys_axi_uartlite_0_1_srl_fifo_f is
@@ -2632,8 +2614,6 @@ entity embsys_axi_uartlite_0_1_axi_lite_ipif is
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_araddr : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_uartlite_0_1_axi_lite_ipif : entity is "axi_lite_ipif";
 end embsys_axi_uartlite_0_1_axi_lite_ipif;
 
 architecture STRUCTURE of embsys_axi_uartlite_0_1_axi_lite_ipif is
@@ -2710,8 +2690,6 @@ entity embsys_axi_uartlite_0_1_uartlite_rx is
     tx_Buffer_Empty_Pre : in STD_LOGIC;
     rx : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_uartlite_0_1_uartlite_rx : entity is "uartlite_rx";
 end embsys_axi_uartlite_0_1_uartlite_rx;
 
 architecture STRUCTURE of embsys_axi_uartlite_0_1_uartlite_rx is
@@ -3360,8 +3338,6 @@ entity embsys_axi_uartlite_0_1_uartlite_tx is
     fifo_wr : in STD_LOGIC;
     s_axi_wdata : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_uartlite_0_1_uartlite_tx : entity is "uartlite_tx";
 end embsys_axi_uartlite_0_1_uartlite_tx;
 
 architecture STRUCTURE of embsys_axi_uartlite_0_1_uartlite_tx is
@@ -3804,8 +3780,6 @@ entity embsys_axi_uartlite_0_1_uartlite_core is
     fifo_wr : in STD_LOGIC;
     s_axi_wdata : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_uartlite_0_1_uartlite_core : entity is "uartlite_core";
 end embsys_axi_uartlite_0_1_uartlite_core;
 
 architecture STRUCTURE of embsys_axi_uartlite_0_1_uartlite_core is
@@ -4001,8 +3975,6 @@ entity embsys_axi_uartlite_0_1_axi_uartlite is
   attribute C_S_AXI_DATA_WIDTH of embsys_axi_uartlite_0_1_axi_uartlite : entity is 32;
   attribute C_USE_PARITY : integer;
   attribute C_USE_PARITY of embsys_axi_uartlite_0_1_axi_uartlite : entity is 0;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_uartlite_0_1_axi_uartlite : entity is "axi_uartlite";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of embsys_axi_uartlite_0_1_axi_uartlite : entity is "yes";
 end embsys_axi_uartlite_0_1_axi_uartlite;

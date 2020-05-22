@@ -1,0 +1,4 @@
+NumberHits:2
+Timestamp: Wed May 20 00:14:05 UTC 2020
+VLNV: xilinx.com:user:pmod_hb3:1.0
+SynthRuntime: 41

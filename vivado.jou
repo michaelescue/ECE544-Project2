@@ -2,13 +2,235 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Sat May 16 17:15:07 2020
-# Process ID: 6688
+# Start of session at: Tue May 19 11:14:45 2020
+# Process ID: 9800
 # Current directory: C:/Users/ME/Vivado_Projects/project_2
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15932 C:\Users\ME\Vivado_Projects\project_2\project_2.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7220 C:\Users\ME\Vivado_Projects\project_2\project_2.xpr
 # Log file: C:/Users/ME/Vivado_Projects/project_2/vivado.log
 # Journal file: C:/Users/ME/Vivado_Projects/project_2\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/ME/Vivado_Projects/project_2/project_2.xpr
 update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_bd_design {C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd}
+file copy -force C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.sysdef C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/nexysA7fpga.hdf
+
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.bit} [get_hw_devices xc7a50t_0]
+current_hw_device [get_hw_devices xc7a50t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a50t_0] 0]
+open_bd_design {C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd}
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:ila:6.2 ila_0
+endgroup
+set_property location {2 345 570} [get_bd_cells ila_0]
+connect_bd_net [get_bd_ports SA_0] [get_bd_pins ila_0/probe0]
+connect_bd_net [get_bd_pins ila_0/clk] [get_bd_pins clk_wiz_1/clk_out1]
+startgroup
+set_property -dict [list CONFIG.C_SLOT_0_AXI_ID_WIDTH.VALUE_SRC PROPAGATED] [get_bd_cells ila_0]
+set_property -dict [list CONFIG.C_PROBE43_MU_CNT {1} CONFIG.C_PROBE42_MU_CNT {1} CONFIG.C_PROBE41_MU_CNT {1} CONFIG.C_PROBE40_MU_CNT {1} CONFIG.C_PROBE39_MU_CNT {1} CONFIG.C_PROBE38_MU_CNT {1} CONFIG.C_PROBE37_MU_CNT {1} CONFIG.C_PROBE36_MU_CNT {1} CONFIG.C_PROBE35_MU_CNT {1} CONFIG.C_PROBE34_MU_CNT {1} CONFIG.C_PROBE33_MU_CNT {1} CONFIG.C_PROBE32_MU_CNT {1} CONFIG.C_PROBE31_MU_CNT {1} CONFIG.C_PROBE30_MU_CNT {1} CONFIG.C_PROBE29_MU_CNT {1} CONFIG.C_PROBE28_MU_CNT {1} CONFIG.C_PROBE27_MU_CNT {1} CONFIG.C_PROBE26_MU_CNT {1} CONFIG.C_PROBE25_MU_CNT {1} CONFIG.C_PROBE24_MU_CNT {1} CONFIG.C_PROBE23_MU_CNT {1} CONFIG.C_PROBE22_MU_CNT {1} CONFIG.C_PROBE21_MU_CNT {1} CONFIG.C_PROBE20_MU_CNT {1} CONFIG.C_PROBE19_MU_CNT {1} CONFIG.C_PROBE18_MU_CNT {1} CONFIG.C_PROBE17_MU_CNT {1} CONFIG.C_PROBE16_MU_CNT {1} CONFIG.C_PROBE15_MU_CNT {1} CONFIG.C_PROBE14_MU_CNT {1} CONFIG.C_PROBE13_MU_CNT {1} CONFIG.C_PROBE12_MU_CNT {1} CONFIG.C_PROBE11_MU_CNT {1} CONFIG.C_PROBE10_MU_CNT {1} CONFIG.C_PROBE9_MU_CNT {1} CONFIG.C_PROBE8_MU_CNT {1} CONFIG.C_PROBE7_MU_CNT {1} CONFIG.C_PROBE6_MU_CNT {1} CONFIG.C_PROBE5_MU_CNT {1} CONFIG.C_PROBE4_MU_CNT {1} CONFIG.C_PROBE3_MU_CNT {1} CONFIG.C_PROBE2_MU_CNT {1} CONFIG.C_PROBE1_MU_CNT {1} CONFIG.C_PROBE0_MU_CNT {1} CONFIG.C_TRIGIN_EN {false} CONFIG.ALL_PROBE_SAME_MU_CNT {1}] [get_bd_cells ila_0]
+endgroup
+validate_bd_design
+generate_target all [get_files  C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd]
+catch { config_ip_cache -export [get_ips -all embsys_ila_0_0] }
+export_ip_user_files -of_objects [get_files C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd]
+launch_runs -jobs 4 embsys_ila_0_0_synth_1
+export_simulation -of_objects [get_files C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd] -directory C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files -ipstatic_source_dir C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/modelsim} {questa=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/questa} {riviera=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/riviera} {activehdl=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+close_hw_target {localhost:3121/xilinx_tcf/Digilent/210292AA7EAAA}
+disconnect_hw_server localhost:3121
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.bit} [get_hw_devices xc7a50t_0]
+set_property PROBES.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.ltx} [get_hw_devices xc7a50t_0]
+set_property FULL_PROBES.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.ltx} [get_hw_devices xc7a50t_0]
+current_hw_device [get_hw_devices xc7a50t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a50t_0] 0]
+set_property PROBES.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.ltx} [get_hw_devices xc7a50t_0]
+set_property FULL_PROBES.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.ltx} [get_hw_devices xc7a50t_0]
+set_property PROGRAM.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.bit} [get_hw_devices xc7a50t_0]
+program_hw_devices [get_hw_devices xc7a50t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a50t_0] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+add_wave -into {hw_ila_data_1.wcfg} -radix hex { {EMBSYS/SA_0_1} }
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq1'b1 [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE neq1'b1 [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE neq1'b0 [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+open_bd_design {C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd}
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+set_property TRIGGER_COMPARE_VALUE eq1'b0 [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq1'bX [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+open_run synth_1 -name synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd]
+refresh_design
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+reset_run impl_1
+open_bd_design {C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd}
+update_ip_catalog -rebuild -scan_changes
+report_ip_status -name ip_status
+upgrade_ip -vlnv xilinx.com:user:pmod_hb3:1.0 [get_ips  embsys_pmod_hb3_0_0] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips embsys_pmod_hb3_0_0] -no_script -sync -force -quiet
+generate_target all [get_files  C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd]
+catch { config_ip_cache -export [get_ips -all embsys_pmod_hb3_0_0] }
+export_ip_user_files -of_objects [get_files C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd]
+launch_runs -jobs 4 embsys_pmod_hb3_0_0_synth_1
+export_simulation -of_objects [get_files C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd] -directory C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files -ipstatic_source_dir C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/modelsim} {questa=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/questa} {riviera=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/riviera} {activehdl=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+report_ip_status -name ip_status 
+reset_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+close_design
+open_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.ltx} [get_hw_devices xc7a50t_0]
+set_property FULL_PROBES.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.ltx} [get_hw_devices xc7a50t_0]
+set_property PROGRAM.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.bit} [get_hw_devices xc7a50t_0]
+program_hw_devices [get_hw_devices xc7a50t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a50t_0] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq1'b0 [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE neq1'b0 [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+update_ip_catalog -rebuild -scan_changes
+report_ip_status -name ip_status
+upgrade_ip -vlnv xilinx.com:user:pmod_hb3:1.0 [get_ips  embsys_pmod_hb3_0_0] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips embsys_pmod_hb3_0_0] -no_script -sync -force -quiet
+generate_target all [get_files  C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd]
+catch { config_ip_cache -export [get_ips -all embsys_pmod_hb3_0_0] }
+export_ip_user_files -of_objects [get_files C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd]
+launch_runs -jobs 4 embsys_pmod_hb3_0_0_synth_1
+export_simulation -of_objects [get_files C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd] -directory C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files -ipstatic_source_dir C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/modelsim} {questa=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/questa} {riviera=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/riviera} {activehdl=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+generate_target all [get_files  C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd]
+export_ip_user_files -of_objects [get_files C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd]
+export_simulation -of_objects [get_files C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd] -directory C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files -ipstatic_source_dir C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/modelsim} {questa=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/questa} {riviera=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/riviera} {activehdl=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+close_design
+set_property PROBES.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.ltx} [get_hw_devices xc7a50t_0]
+set_property FULL_PROBES.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.ltx} [get_hw_devices xc7a50t_0]
+set_property PROGRAM.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.bit} [get_hw_devices xc7a50t_0]
+program_hw_devices [get_hw_devices xc7a50t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a50t_0] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+report_ip_status -name ip_status 
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}] -trigger_now
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE {neq1'b0 eq1'bX} [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE {eq1'b0 eq1'bX} [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE {eq1'b0 eq1'b1} [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+set_property TRIGGER_COMPARE_VALUE eq1'b0 [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq1'b1 [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+save_wave_config {C:/Users/ME/Vivado_Projects/project_2/project_2.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wcfg}
+file copy -force C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.sysdef C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/nexysA7fpga.hdf
+
+open_run impl_1
+archive_project C:/Users/ME/Vivado_Projects/project_2.xpr.zip -temp_dir C:/Users/ME/Vivado_Projects/project_2/.Xil/Vivado-9800-DESKTOP-J4B3MVP -force -include_local_ip_cache -include_config_settings

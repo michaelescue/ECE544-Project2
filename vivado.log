@@ -2,10 +2,10 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Sat May 16 17:15:07 2020
-# Process ID: 6688
+# Start of session at: Tue May 19 11:14:45 2020
+# Process ID: 9800
 # Current directory: C:/Users/ME/Vivado_Projects/project_2
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15932 C:\Users\ME\Vivado_Projects\project_2\project_2.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7220 C:\Users\ME\Vivado_Projects\project_2\project_2.xpr
 # Log file: C:/Users/ME/Vivado_Projects/project_2/vivado.log
 # Journal file: C:/Users/ME/Vivado_Projects/project_2\vivado.jou
 #-----------------------------------------------------------
@@ -15,12 +15,996 @@ Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project Source Files/ece544ip-library-master'.
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/ME/Vivado_Projects/myip'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project2/pmodhb3/pmod_hb3_1.0'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project Source Files/vivado-library-v2019.1-1'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
-CRITICAL WARNING: [IP_Flow 19-1663] Duplicate IP found for 'digilentinc.com:IP:PWM:2.0'. The one found in IP location 'c:/Users/ME/Vivado_Projects/myip/legacyrepo/PWM_2.0' will take precedence over the same IP in location c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project Source Files/vivado-library-v2019.1-1/ip/PWM_2.0
-CRITICAL WARNING: [IP_Flow 19-1663] Duplicate IP found for 'digilentinc.com:IP:PWM_Analyzer:1.0'. The one found in IP location 'c:/Users/ME/Vivado_Projects/myip/legacyrepo/PWM_Analyzer_1.0' will take precedence over the same IP in location c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project Source Files/vivado-library-v2019.1-1/ip/PWM_Analyzer_1.0
-open_project: Time (s): cpu = 00:00:27 ; elapsed = 00:00:20 . Memory (MB): peak = 862.668 ; gain = 185.559
+open_project: Time (s): cpu = 00:00:25 ; elapsed = 00:00:15 . Memory (MB): peak = 874.680 ; gain = 180.305
 update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May 19 11:18:14 2020] Launched synth_1...
+Run output will be captured here: C:/Users/ME/Vivado_Projects/project_2/project_2.runs/synth_1/runme.log
+[Tue May 19 11:18:14 2020] Launched impl_1...
+Run output will be captured here: C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/runme.log
+open_bd_design {C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd}
+Adding cell -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz_1
+Adding cell -- xilinx.com:ip:fit_timer:2.0 - fit_timer_0
+Adding cell -- xilinx.com:ip:mdm:3.2 - mdm_1
+Adding cell -- xilinx.com:ip:microblaze:10.0 - microblaze_0
+Adding cell -- xilinx.com:ip:axi_intc:4.1 - microblaze_0_axi_intc
+Adding cell -- xilinx.com:ip:xlconcat:2.1 - microblaze_0_xlconcat
+Adding cell -- xilinx.com:ip:proc_sys_reset:5.0 - rst_clk_wiz_1_100M
+Adding cell -- digilentinc.com:IP:PmodENC:1.0 - PmodENC_0
+Adding cell -- digilentinc.com:IP:PmodOLEDrgb:1.0 - PmodOLEDrgb_0
+Adding cell -- xilinx.com:ip:axi_gpio:2.0 - axi_gpio_0
+Adding cell -- xilinx.com:ip:axi_gpio:2.0 - axi_gpio_1
+Adding cell -- xilinx.com:ip:axi_timebase_wdt:3.0 - axi_timebase_wdt_0
+Adding cell -- xilinx.com:ip:axi_timer:2.0 - axi_timer_0
+Adding cell -- xilinx.com:ip:axi_uartlite:2.0 - axi_uartlite_0
+Adding cell -- xilinx.com:user:nexys4IO:2.0 - nexys4IO_0
+Adding cell -- xilinx.com:user:pmod_hb3:1.0 - pmod_hb3_0
+Adding cell -- xilinx.com:ip:lmb_v10:3.0 - dlmb_v10
+Adding cell -- xilinx.com:ip:lmb_v10:3.0 - ilmb_v10
+Adding cell -- xilinx.com:ip:lmb_bram_if_cntlr:4.0 - dlmb_bram_if_cntlr
+Adding cell -- xilinx.com:ip:lmb_bram_if_cntlr:4.0 - ilmb_bram_if_cntlr
+Adding cell -- xilinx.com:ip:blk_mem_gen:8.4 - lmb_bram
+Adding cell -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Successfully read diagram <embsys> from BD file <C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd>
+open_bd_design: Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 929.949 ; gain = 23.574
+file copy -force C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.sysdef C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/nexysA7fpga.hdf
+
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292AA7EAAA
+set_property PROGRAM.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.bit} [get_hw_devices xc7a50t_0]
+current_hw_device [get_hw_devices xc7a50t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a50t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a50t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+open_bd_design {C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd}
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:ila:6.2 ila_0
+INFO: [xilinx.com:ip:ila:6.2-6] /ila_0: Xilinx recommends using the System ILA IP in IP Integrator. The System ILA IP is functionally equivalent to an ILA and offers additional benefits in debugging interfaces both within IP Integrator and the Hardware Manager. Consult the Programming and Debug User Guide UG908 for further details.
+endgroup
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+set_property location {2 345 570} [get_bd_cells ila_0]
+connect_bd_net [get_bd_ports SA_0] [get_bd_pins ila_0/probe0]
+WARNING: [BD 41-1306] The connection to interface pin /ila_0/probe0 is being overridden by the user. This pin will not be connected as a part of interface connection SLOT_0_AXI
+connect_bd_net [get_bd_pins ila_0/clk] [get_bd_pins clk_wiz_1/clk_out1]
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+startgroup
+set_property -dict [list CONFIG.C_SLOT_0_AXI_ID_WIDTH.VALUE_SRC PROPAGATED] [get_bd_cells ila_0]
+set_property -dict [list CONFIG.C_PROBE43_MU_CNT {1} CONFIG.C_PROBE42_MU_CNT {1} CONFIG.C_PROBE41_MU_CNT {1} CONFIG.C_PROBE40_MU_CNT {1} CONFIG.C_PROBE39_MU_CNT {1} CONFIG.C_PROBE38_MU_CNT {1} CONFIG.C_PROBE37_MU_CNT {1} CONFIG.C_PROBE36_MU_CNT {1} CONFIG.C_PROBE35_MU_CNT {1} CONFIG.C_PROBE34_MU_CNT {1} CONFIG.C_PROBE33_MU_CNT {1} CONFIG.C_PROBE32_MU_CNT {1} CONFIG.C_PROBE31_MU_CNT {1} CONFIG.C_PROBE30_MU_CNT {1} CONFIG.C_PROBE29_MU_CNT {1} CONFIG.C_PROBE28_MU_CNT {1} CONFIG.C_PROBE27_MU_CNT {1} CONFIG.C_PROBE26_MU_CNT {1} CONFIG.C_PROBE25_MU_CNT {1} CONFIG.C_PROBE24_MU_CNT {1} CONFIG.C_PROBE23_MU_CNT {1} CONFIG.C_PROBE22_MU_CNT {1} CONFIG.C_PROBE21_MU_CNT {1} CONFIG.C_PROBE20_MU_CNT {1} CONFIG.C_PROBE19_MU_CNT {1} CONFIG.C_PROBE18_MU_CNT {1} CONFIG.C_PROBE17_MU_CNT {1} CONFIG.C_PROBE16_MU_CNT {1} CONFIG.C_PROBE15_MU_CNT {1} CONFIG.C_PROBE14_MU_CNT {1} CONFIG.C_PROBE13_MU_CNT {1} CONFIG.C_PROBE12_MU_CNT {1} CONFIG.C_PROBE11_MU_CNT {1} CONFIG.C_PROBE10_MU_CNT {1} CONFIG.C_PROBE9_MU_CNT {1} CONFIG.C_PROBE8_MU_CNT {1} CONFIG.C_PROBE7_MU_CNT {1} CONFIG.C_PROBE6_MU_CNT {1} CONFIG.C_PROBE5_MU_CNT {1} CONFIG.C_PROBE4_MU_CNT {1} CONFIG.C_PROBE3_MU_CNT {1} CONFIG.C_PROBE2_MU_CNT {1} CONFIG.C_PROBE1_MU_CNT {1} CONFIG.C_PROBE0_MU_CNT {1} CONFIG.C_TRIGIN_EN {false} CONFIG.ALL_PROBE_SAME_MU_CNT {1}] [get_bd_cells ila_0]
+endgroup
+validate_bd_design
+INFO: [xilinx.com:ip:axi_intc:4.1-1] /microblaze_0_axi_intc: The AXI INTC core has been configured to operate with synchronous clocks.
+WARNING: [BD 41-927] Following properties on pin /PmodENC_0/s_axi_aclk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=/clk_wiz_1_clk_out1 
+generate_target all [get_files  C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd]
+INFO: [BD 41-1662] The design 'embsys.bd' is already validated. Therefore parameter propagation will not be re-run.
+Wrote  : <C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd> 
+Wrote  : <C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ui/bd_bcf741d3.ui> 
+VHDL Output written to : C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/synth/embsys.v
+VHDL Output written to : C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/sim/embsys.v
+VHDL Output written to : C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/hdl/embsys_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block nexys4IO_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block PmodOLEDrgb_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_timer_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block fit_timer_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_uartlite_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_axi_intc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_xlconcat .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mdm_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_clk_wiz_1_100M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_axi_periph/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/dlmb_v10 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/ilmb_v10 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/dlmb_bram_if_cntlr .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/ilmb_bram_if_cntlr .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/lmb_bram .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block PmodENC_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_timebase_wdt_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pmod_hb3_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_ila_0_0/embsys_ila_0_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ila_0 .
+Exporting to file C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/hw_handoff/embsys.hwh
+Generated Block Design Tcl file C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/hw_handoff/embsys_bd.tcl
+Generated Hardware Definition File C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/synth/embsys.hwdef
+catch { config_ip_cache -export [get_ips -all embsys_ila_0_0] }
+export_ip_user_files -of_objects [get_files C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd]
+launch_runs -jobs 4 embsys_ila_0_0_synth_1
+[Tue May 19 11:37:46 2020] Launched embsys_ila_0_0_synth_1...
+Run output will be captured here: C:/Users/ME/Vivado_Projects/project_2/project_2.runs/embsys_ila_0_0_synth_1/runme.log
+export_simulation -of_objects [get_files C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd] -directory C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files -ipstatic_source_dir C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/modelsim} {questa=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/questa} {riviera=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/riviera} {activehdl=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/ME/Vivado_Projects/project_2/project_2.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May 19 11:39:05 2020] Launched embsys_ila_0_0_synth_1, synth_1...
+Run output will be captured here:
+embsys_ila_0_0_synth_1: C:/Users/ME/Vivado_Projects/project_2/project_2.runs/embsys_ila_0_0_synth_1/runme.log
+synth_1: C:/Users/ME/Vivado_Projects/project_2/project_2.runs/synth_1/runme.log
+[Tue May 19 11:39:05 2020] Launched impl_1...
+Run output will be captured here: C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/runme.log
+close_hw_target {localhost:3121/xilinx_tcf/Digilent/210292AA7EAAA}
+INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3121/xilinx_tcf/Digilent/210292AA7EAAA
+disconnect_hw_server localhost:3121
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292AA7EAAA
+set_property PROGRAM.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.bit} [get_hw_devices xc7a50t_0]
+set_property PROBES.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.ltx} [get_hw_devices xc7a50t_0]
+set_property FULL_PROBES.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.ltx} [get_hw_devices xc7a50t_0]
+current_hw_device [get_hw_devices xc7a50t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a50t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a50t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+WARNING: [Labtools 27-3413] Dropping logic core with cellname:'EMBSYS/ila_0' at location 'uuid_DF33ABC627585A689669D367CAEEF80C' from probes file, since it cannot be found on the programmed device.
+set_property PROBES.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.ltx} [get_hw_devices xc7a50t_0]
+set_property FULL_PROBES.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.ltx} [get_hw_devices xc7a50t_0]
+set_property PROGRAM.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.bit} [get_hw_devices xc7a50t_0]
+program_hw_devices [get_hw_devices xc7a50t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a50t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a50t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 11:55:09
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 11:55:09
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+add_wave -into {hw_ila_data_1.wcfg} -radix hex { {EMBSYS/SA_0_1} }
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 11:56:05
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 11:56:05
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 11:56:17
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 11:56:17
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 11:56:21
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 11:56:21
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 11:56:24
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 11:56:24
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 11:56:28
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 11:56:28
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 11:56:32
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 11:56:32
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+set_property TRIGGER_COMPARE_VALUE eq1'b1 [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE neq1'b1 [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE neq1'b0 [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+open_bd_design {C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd}
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 12:03:48
+set_property TRIGGER_COMPARE_VALUE eq1'b0 [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq1'bX [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1965] The ILA core 'hw_ila_1' trigger was stopped by user at 2020-May-19 12:04:15
+WARNING: [Labtools 27-157] hw_ila [hw_ila_1] stopped. No data to upload.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 12:04:20
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 12:04:20
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 12:04:26
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 12:04:26
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 12:04:30
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 12:04:30
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 12:04:33
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 12:04:33
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 12:04:37
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 12:04:37
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a50tcsg324-1
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodENC_0_1/embsys_PmodENC_0_1.dcp' for cell 'EMBSYS/PmodENC_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/embsys_PmodOLEDrgb_0_1.dcp' for cell 'EMBSYS/PmodOLEDrgb_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_gpio_0_1/embsys_axi_gpio_0_1.dcp' for cell 'EMBSYS/axi_gpio_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_gpio_1_0/embsys_axi_gpio_1_0.dcp' for cell 'EMBSYS/axi_gpio_1'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_timebase_wdt_0_0/embsys_axi_timebase_wdt_0_0.dcp' for cell 'EMBSYS/axi_timebase_wdt_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_timer_0_1/embsys_axi_timer_0_1.dcp' for cell 'EMBSYS/axi_timer_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_uartlite_0_1/embsys_axi_uartlite_0_1.dcp' for cell 'EMBSYS/axi_uartlite_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_clk_wiz_1_1/embsys_clk_wiz_1_1.dcp' for cell 'EMBSYS/clk_wiz_1'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_fit_timer_0_1/embsys_fit_timer_0_1.dcp' for cell 'EMBSYS/fit_timer_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_ila_0_0/embsys_ila_0_0.dcp' for cell 'EMBSYS/ila_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_mdm_1_1/embsys_mdm_1_1.dcp' for cell 'EMBSYS/mdm_1'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_1/embsys_microblaze_0_1.dcp' for cell 'EMBSYS/microblaze_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_axi_intc_1/embsys_microblaze_0_axi_intc_1.dcp' for cell 'EMBSYS/microblaze_0_axi_intc'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_xlconcat_1/embsys_microblaze_0_xlconcat_1.dcp' for cell 'EMBSYS/microblaze_0_xlconcat'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_nexys4IO_0_1/embsys_nexys4IO_0_1.dcp' for cell 'EMBSYS/nexys4IO_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_pmod_hb3_0_0/embsys_pmod_hb3_0_0.dcp' for cell 'EMBSYS/pmod_hb3_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_rst_clk_wiz_1_100M_1/embsys_rst_clk_wiz_1_100M_1.dcp' for cell 'EMBSYS/rst_clk_wiz_1_100M'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_xbar_1/embsys_xbar_1.dcp' for cell 'EMBSYS/microblaze_0_axi_periph/xbar'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_dlmb_bram_if_cntlr_1/embsys_dlmb_bram_if_cntlr_1.dcp' for cell 'EMBSYS/microblaze_0_local_memory/dlmb_bram_if_cntlr'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_dlmb_v10_1/embsys_dlmb_v10_1.dcp' for cell 'EMBSYS/microblaze_0_local_memory/dlmb_v10'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_ilmb_bram_if_cntlr_1/embsys_ilmb_bram_if_cntlr_1.dcp' for cell 'EMBSYS/microblaze_0_local_memory/ilmb_bram_if_cntlr'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_ilmb_v10_1/embsys_ilmb_v10_1.dcp' for cell 'EMBSYS/microblaze_0_local_memory/ilmb_v10'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_lmb_bram_1/embsys_lmb_bram_1.dcp' for cell 'EMBSYS/microblaze_0_local_memory/lmb_bram'
+INFO: [Netlist 29-17] Analyzing 1572 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.2
+INFO: [Device 21-403] Loading part xc7a50tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Chipscope 16-324] Core: EMBSYS/ila_0 UUID: df33abc6-2758-5a68-9669-d367caeef80c 
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_1/embsys_microblaze_0_1.xdc] for cell 'EMBSYS/microblaze_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_1/embsys_microblaze_0_1.xdc] for cell 'EMBSYS/microblaze_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_quad_spi_0_0/PmodOLEDrgb_axi_quad_spi_0_0_board.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_quad_spi_0_0/PmodOLEDrgb_axi_quad_spi_0_0_board.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_quad_spi_0_0/PmodOLEDrgb_axi_quad_spi_0_0.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_quad_spi_0_0/PmodOLEDrgb_axi_quad_spi_0_0.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_gpio_0_1/PmodOLEDrgb_axi_gpio_0_1_board.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_gpio_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_gpio_0_1/PmodOLEDrgb_axi_gpio_0_1_board.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_gpio_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_gpio_0_1/PmodOLEDrgb_axi_gpio_0_1.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_gpio_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_gpio_0_1/PmodOLEDrgb_axi_gpio_0_1.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_gpio_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_pmod_bridge_0_0/PmodOLEDrgb_pmod_bridge_0_0_board.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/pmod_bridge_0/inst'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_pmod_bridge_0_0/PmodOLEDrgb_pmod_bridge_0_0_board.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/pmod_bridge_0/inst'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/embsys_PmodOLEDrgb_0_1_board.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/embsys_PmodOLEDrgb_0_1_board.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_gpio_0_1/embsys_axi_gpio_0_1_board.xdc] for cell 'EMBSYS/axi_gpio_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_gpio_0_1/embsys_axi_gpio_0_1_board.xdc] for cell 'EMBSYS/axi_gpio_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_gpio_0_1/embsys_axi_gpio_0_1.xdc] for cell 'EMBSYS/axi_gpio_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_gpio_0_1/embsys_axi_gpio_0_1.xdc] for cell 'EMBSYS/axi_gpio_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_timer_0_1/embsys_axi_timer_0_1.xdc] for cell 'EMBSYS/axi_timer_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_timer_0_1/embsys_axi_timer_0_1.xdc] for cell 'EMBSYS/axi_timer_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_uartlite_0_1/embsys_axi_uartlite_0_1_board.xdc] for cell 'EMBSYS/axi_uartlite_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_uartlite_0_1/embsys_axi_uartlite_0_1_board.xdc] for cell 'EMBSYS/axi_uartlite_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_uartlite_0_1/embsys_axi_uartlite_0_1.xdc] for cell 'EMBSYS/axi_uartlite_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_uartlite_0_1/embsys_axi_uartlite_0_1.xdc] for cell 'EMBSYS/axi_uartlite_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_axi_intc_1/embsys_microblaze_0_axi_intc_1.xdc] for cell 'EMBSYS/microblaze_0_axi_intc/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_axi_intc_1/embsys_microblaze_0_axi_intc_1.xdc] for cell 'EMBSYS/microblaze_0_axi_intc/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_mdm_1_1/embsys_mdm_1_1.xdc] for cell 'EMBSYS/mdm_1/U0'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_mdm_1_1/embsys_mdm_1_1.xdc:50]
+get_clocks: Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2977.227 ; gain = 549.238
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_mdm_1_1/embsys_mdm_1_1.xdc] for cell 'EMBSYS/mdm_1/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_clk_wiz_1_1/embsys_clk_wiz_1_1_board.xdc] for cell 'EMBSYS/clk_wiz_1/inst'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_clk_wiz_1_1/embsys_clk_wiz_1_1_board.xdc] for cell 'EMBSYS/clk_wiz_1/inst'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_clk_wiz_1_1/embsys_clk_wiz_1_1.xdc] for cell 'EMBSYS/clk_wiz_1/inst'
+INFO: [Timing 38-2] Deriving generated clocks [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_clk_wiz_1_1/embsys_clk_wiz_1_1.xdc:57]
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_clk_wiz_1_1/embsys_clk_wiz_1_1.xdc] for cell 'EMBSYS/clk_wiz_1/inst'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_rst_clk_wiz_1_100M_1/embsys_rst_clk_wiz_1_100M_1_board.xdc] for cell 'EMBSYS/rst_clk_wiz_1_100M/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_rst_clk_wiz_1_100M_1/embsys_rst_clk_wiz_1_100M_1_board.xdc] for cell 'EMBSYS/rst_clk_wiz_1_100M/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_rst_clk_wiz_1_100M_1/embsys_rst_clk_wiz_1_100M_1.xdc] for cell 'EMBSYS/rst_clk_wiz_1_100M/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_rst_clk_wiz_1_100M_1/embsys_rst_clk_wiz_1_100M_1.xdc] for cell 'EMBSYS/rst_clk_wiz_1_100M/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_dlmb_v10_1/embsys_dlmb_v10_1.xdc] for cell 'EMBSYS/microblaze_0_local_memory/dlmb_v10/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_dlmb_v10_1/embsys_dlmb_v10_1.xdc] for cell 'EMBSYS/microblaze_0_local_memory/dlmb_v10/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_ilmb_v10_1/embsys_ilmb_v10_1.xdc] for cell 'EMBSYS/microblaze_0_local_memory/ilmb_v10/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_ilmb_v10_1/embsys_ilmb_v10_1.xdc] for cell 'EMBSYS/microblaze_0_local_memory/ilmb_v10/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodENC_0_1/src/PmodENC_pmod_bridge_0_0/PmodENC_pmod_bridge_0_0_board.xdc] for cell 'EMBSYS/PmodENC_0/inst/pmod_bridge_0/inst'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodENC_0_1/src/PmodENC_pmod_bridge_0_0/PmodENC_pmod_bridge_0_0_board.xdc] for cell 'EMBSYS/PmodENC_0/inst/pmod_bridge_0/inst'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodENC_0_1/src/PmodENC_axi_gpio_0_0/PmodENC_axi_gpio_0_0_board.xdc] for cell 'EMBSYS/PmodENC_0/inst/axi_gpio_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodENC_0_1/src/PmodENC_axi_gpio_0_0/PmodENC_axi_gpio_0_0_board.xdc] for cell 'EMBSYS/PmodENC_0/inst/axi_gpio_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodENC_0_1/src/PmodENC_axi_gpio_0_0/PmodENC_axi_gpio_0_0.xdc] for cell 'EMBSYS/PmodENC_0/inst/axi_gpio_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodENC_0_1/src/PmodENC_axi_gpio_0_0/PmodENC_axi_gpio_0_0.xdc] for cell 'EMBSYS/PmodENC_0/inst/axi_gpio_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodENC_0_1/embsys_PmodENC_0_1_board.xdc] for cell 'EMBSYS/PmodENC_0/inst'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodENC_0_1/embsys_PmodENC_0_1_board.xdc] for cell 'EMBSYS/PmodENC_0/inst'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_gpio_1_0/embsys_axi_gpio_1_0_board.xdc] for cell 'EMBSYS/axi_gpio_1/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_gpio_1_0/embsys_axi_gpio_1_0_board.xdc] for cell 'EMBSYS/axi_gpio_1/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_gpio_1_0/embsys_axi_gpio_1_0.xdc] for cell 'EMBSYS/axi_gpio_1/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_gpio_1_0/embsys_axi_gpio_1_0.xdc] for cell 'EMBSYS/axi_gpio_1/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_timebase_wdt_0_0/embsys_axi_timebase_wdt_0_0.xdc] for cell 'EMBSYS/axi_timebase_wdt_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_timebase_wdt_0_0/embsys_axi_timebase_wdt_0_0.xdc] for cell 'EMBSYS/axi_timebase_wdt_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_ila_0_0/ila_v6_2/constraints/ila_impl.xdc] for cell 'EMBSYS/ila_0/inst'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_ila_0_0/ila_v6_2/constraints/ila_impl.xdc] for cell 'EMBSYS/ila_0/inst'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_ila_0_0/ila_v6_2/constraints/ila.xdc] for cell 'EMBSYS/ila_0/inst'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_ila_0_0/ila_v6_2/constraints/ila.xdc] for cell 'EMBSYS/ila_0/inst'
+Parsing XDC File [C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/constrs_1/imports/A7-50t Constraint Files/Nexys-A7-50T-Master.xdc]
+Finished Parsing XDC File [C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/constrs_1/imports/A7-50t Constraint Files/Nexys-A7-50T-Master.xdc]
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_quad_spi_0_0/PmodOLEDrgb_axi_quad_spi_0_0_clocks.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0'
+INFO: [Timing 38-2] Deriving generated clocks [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_quad_spi_0_0/PmodOLEDrgb_axi_quad_spi_0_0_clocks.xdc:50]
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_quad_spi_0_0/PmodOLEDrgb_axi_quad_spi_0_0_clocks.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_axi_intc_1/embsys_microblaze_0_axi_intc_1_clocks.xdc] for cell 'EMBSYS/microblaze_0_axi_intc/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_axi_intc_1/embsys_microblaze_0_axi_intc_1_clocks.xdc] for cell 'EMBSYS/microblaze_0_axi_intc/U0'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_dc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_dc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_dc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_dc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_dc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_dc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_dc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_dc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_sync_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.rrst_wr_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_sync_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.rrst_wr_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_sync_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.wrst_rd_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_sync_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.wrst_rd_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_sync_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.rrst_wr_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_sync_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.rrst_wr_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_sync_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.wrst_rd_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_sync_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.wrst_rd_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst'
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Generating merged BMM file for the design top 'nexysA7fpga'...
+INFO: [Memdata 28-144] Successfully populated the BRAM INIT strings from the following elf files: c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_1/data/mb_bootloop_le.elf 
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 420 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRLC32E, SRL16E): 272 instances
+  IOBUF => IOBUF (IBUF, OBUFT): 16 instances
+  LUT6_2 => LUT6_2 (LUT5, LUT6): 80 instances
+  RAM16X1D => RAM32X1D (RAMD32, RAMD32): 32 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 20 instances
+
+open_run: Time (s): cpu = 00:00:55 ; elapsed = 00:00:51 . Memory (MB): peak = 2982.840 ; gain = 794.453
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Tue May 19 12:16:05 2020] Launched synth_1...
+Run output will be captured here: C:/Users/ME/Vivado_Projects/project_2/project_2.runs/synth_1/runme.log
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd]
+refresh_design
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodENC_0_1/embsys_PmodENC_0_1.dcp' for cell 'EMBSYS/PmodENC_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/embsys_PmodOLEDrgb_0_1.dcp' for cell 'EMBSYS/PmodOLEDrgb_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_gpio_0_1/embsys_axi_gpio_0_1.dcp' for cell 'EMBSYS/axi_gpio_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_gpio_1_0/embsys_axi_gpio_1_0.dcp' for cell 'EMBSYS/axi_gpio_1'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_timebase_wdt_0_0/embsys_axi_timebase_wdt_0_0.dcp' for cell 'EMBSYS/axi_timebase_wdt_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_timer_0_1/embsys_axi_timer_0_1.dcp' for cell 'EMBSYS/axi_timer_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_uartlite_0_1/embsys_axi_uartlite_0_1.dcp' for cell 'EMBSYS/axi_uartlite_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_clk_wiz_1_1/embsys_clk_wiz_1_1.dcp' for cell 'EMBSYS/clk_wiz_1'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_fit_timer_0_1/embsys_fit_timer_0_1.dcp' for cell 'EMBSYS/fit_timer_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_ila_0_0/embsys_ila_0_0.dcp' for cell 'EMBSYS/ila_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_mdm_1_1/embsys_mdm_1_1.dcp' for cell 'EMBSYS/mdm_1'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_1/embsys_microblaze_0_1.dcp' for cell 'EMBSYS/microblaze_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_axi_intc_1/embsys_microblaze_0_axi_intc_1.dcp' for cell 'EMBSYS/microblaze_0_axi_intc'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_xlconcat_1/embsys_microblaze_0_xlconcat_1.dcp' for cell 'EMBSYS/microblaze_0_xlconcat'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_nexys4IO_0_1/embsys_nexys4IO_0_1.dcp' for cell 'EMBSYS/nexys4IO_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_pmod_hb3_0_0/embsys_pmod_hb3_0_0.dcp' for cell 'EMBSYS/pmod_hb3_0'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_rst_clk_wiz_1_100M_1/embsys_rst_clk_wiz_1_100M_1.dcp' for cell 'EMBSYS/rst_clk_wiz_1_100M'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_xbar_1/embsys_xbar_1.dcp' for cell 'EMBSYS/microblaze_0_axi_periph/xbar'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_dlmb_bram_if_cntlr_1/embsys_dlmb_bram_if_cntlr_1.dcp' for cell 'EMBSYS/microblaze_0_local_memory/dlmb_bram_if_cntlr'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_dlmb_v10_1/embsys_dlmb_v10_1.dcp' for cell 'EMBSYS/microblaze_0_local_memory/dlmb_v10'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_ilmb_bram_if_cntlr_1/embsys_ilmb_bram_if_cntlr_1.dcp' for cell 'EMBSYS/microblaze_0_local_memory/ilmb_bram_if_cntlr'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_ilmb_v10_1/embsys_ilmb_v10_1.dcp' for cell 'EMBSYS/microblaze_0_local_memory/ilmb_v10'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_lmb_bram_1/embsys_lmb_bram_1.dcp' for cell 'EMBSYS/microblaze_0_local_memory/lmb_bram'
+INFO: [Netlist 29-17] Analyzing 1573 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Chipscope 16-324] Core: EMBSYS/ila_0 UUID: df33abc6-2758-5a68-9669-d367caeef80c 
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_1/embsys_microblaze_0_1.xdc] for cell 'EMBSYS/microblaze_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_1/embsys_microblaze_0_1.xdc] for cell 'EMBSYS/microblaze_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_quad_spi_0_0/PmodOLEDrgb_axi_quad_spi_0_0_board.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_quad_spi_0_0/PmodOLEDrgb_axi_quad_spi_0_0_board.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_quad_spi_0_0/PmodOLEDrgb_axi_quad_spi_0_0.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_quad_spi_0_0/PmodOLEDrgb_axi_quad_spi_0_0.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_gpio_0_1/PmodOLEDrgb_axi_gpio_0_1_board.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_gpio_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_gpio_0_1/PmodOLEDrgb_axi_gpio_0_1_board.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_gpio_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_gpio_0_1/PmodOLEDrgb_axi_gpio_0_1.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_gpio_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_gpio_0_1/PmodOLEDrgb_axi_gpio_0_1.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_gpio_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_pmod_bridge_0_0/PmodOLEDrgb_pmod_bridge_0_0_board.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/pmod_bridge_0/inst'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_pmod_bridge_0_0/PmodOLEDrgb_pmod_bridge_0_0_board.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/pmod_bridge_0/inst'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/embsys_PmodOLEDrgb_0_1_board.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/embsys_PmodOLEDrgb_0_1_board.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_gpio_0_1/embsys_axi_gpio_0_1_board.xdc] for cell 'EMBSYS/axi_gpio_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_gpio_0_1/embsys_axi_gpio_0_1_board.xdc] for cell 'EMBSYS/axi_gpio_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_gpio_0_1/embsys_axi_gpio_0_1.xdc] for cell 'EMBSYS/axi_gpio_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_gpio_0_1/embsys_axi_gpio_0_1.xdc] for cell 'EMBSYS/axi_gpio_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_timer_0_1/embsys_axi_timer_0_1.xdc] for cell 'EMBSYS/axi_timer_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_timer_0_1/embsys_axi_timer_0_1.xdc] for cell 'EMBSYS/axi_timer_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_uartlite_0_1/embsys_axi_uartlite_0_1_board.xdc] for cell 'EMBSYS/axi_uartlite_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_uartlite_0_1/embsys_axi_uartlite_0_1_board.xdc] for cell 'EMBSYS/axi_uartlite_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_uartlite_0_1/embsys_axi_uartlite_0_1.xdc] for cell 'EMBSYS/axi_uartlite_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_uartlite_0_1/embsys_axi_uartlite_0_1.xdc] for cell 'EMBSYS/axi_uartlite_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_axi_intc_1/embsys_microblaze_0_axi_intc_1.xdc] for cell 'EMBSYS/microblaze_0_axi_intc/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_axi_intc_1/embsys_microblaze_0_axi_intc_1.xdc] for cell 'EMBSYS/microblaze_0_axi_intc/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_mdm_1_1/embsys_mdm_1_1.xdc] for cell 'EMBSYS/mdm_1/U0'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_mdm_1_1/embsys_mdm_1_1.xdc:50]
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_mdm_1_1/embsys_mdm_1_1.xdc] for cell 'EMBSYS/mdm_1/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_clk_wiz_1_1/embsys_clk_wiz_1_1_board.xdc] for cell 'EMBSYS/clk_wiz_1/inst'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_clk_wiz_1_1/embsys_clk_wiz_1_1_board.xdc] for cell 'EMBSYS/clk_wiz_1/inst'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_clk_wiz_1_1/embsys_clk_wiz_1_1.xdc] for cell 'EMBSYS/clk_wiz_1/inst'
+INFO: [Timing 38-2] Deriving generated clocks [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_clk_wiz_1_1/embsys_clk_wiz_1_1.xdc:57]
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_clk_wiz_1_1/embsys_clk_wiz_1_1.xdc] for cell 'EMBSYS/clk_wiz_1/inst'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_rst_clk_wiz_1_100M_1/embsys_rst_clk_wiz_1_100M_1_board.xdc] for cell 'EMBSYS/rst_clk_wiz_1_100M/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_rst_clk_wiz_1_100M_1/embsys_rst_clk_wiz_1_100M_1_board.xdc] for cell 'EMBSYS/rst_clk_wiz_1_100M/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_rst_clk_wiz_1_100M_1/embsys_rst_clk_wiz_1_100M_1.xdc] for cell 'EMBSYS/rst_clk_wiz_1_100M/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_rst_clk_wiz_1_100M_1/embsys_rst_clk_wiz_1_100M_1.xdc] for cell 'EMBSYS/rst_clk_wiz_1_100M/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_dlmb_v10_1/embsys_dlmb_v10_1.xdc] for cell 'EMBSYS/microblaze_0_local_memory/dlmb_v10/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_dlmb_v10_1/embsys_dlmb_v10_1.xdc] for cell 'EMBSYS/microblaze_0_local_memory/dlmb_v10/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_ilmb_v10_1/embsys_ilmb_v10_1.xdc] for cell 'EMBSYS/microblaze_0_local_memory/ilmb_v10/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_ilmb_v10_1/embsys_ilmb_v10_1.xdc] for cell 'EMBSYS/microblaze_0_local_memory/ilmb_v10/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodENC_0_1/src/PmodENC_pmod_bridge_0_0/PmodENC_pmod_bridge_0_0_board.xdc] for cell 'EMBSYS/PmodENC_0/inst/pmod_bridge_0/inst'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodENC_0_1/src/PmodENC_pmod_bridge_0_0/PmodENC_pmod_bridge_0_0_board.xdc] for cell 'EMBSYS/PmodENC_0/inst/pmod_bridge_0/inst'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodENC_0_1/src/PmodENC_axi_gpio_0_0/PmodENC_axi_gpio_0_0_board.xdc] for cell 'EMBSYS/PmodENC_0/inst/axi_gpio_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodENC_0_1/src/PmodENC_axi_gpio_0_0/PmodENC_axi_gpio_0_0_board.xdc] for cell 'EMBSYS/PmodENC_0/inst/axi_gpio_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodENC_0_1/src/PmodENC_axi_gpio_0_0/PmodENC_axi_gpio_0_0.xdc] for cell 'EMBSYS/PmodENC_0/inst/axi_gpio_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodENC_0_1/src/PmodENC_axi_gpio_0_0/PmodENC_axi_gpio_0_0.xdc] for cell 'EMBSYS/PmodENC_0/inst/axi_gpio_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodENC_0_1/embsys_PmodENC_0_1_board.xdc] for cell 'EMBSYS/PmodENC_0/inst'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodENC_0_1/embsys_PmodENC_0_1_board.xdc] for cell 'EMBSYS/PmodENC_0/inst'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_gpio_1_0/embsys_axi_gpio_1_0_board.xdc] for cell 'EMBSYS/axi_gpio_1/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_gpio_1_0/embsys_axi_gpio_1_0_board.xdc] for cell 'EMBSYS/axi_gpio_1/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_gpio_1_0/embsys_axi_gpio_1_0.xdc] for cell 'EMBSYS/axi_gpio_1/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_gpio_1_0/embsys_axi_gpio_1_0.xdc] for cell 'EMBSYS/axi_gpio_1/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_timebase_wdt_0_0/embsys_axi_timebase_wdt_0_0.xdc] for cell 'EMBSYS/axi_timebase_wdt_0/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_timebase_wdt_0_0/embsys_axi_timebase_wdt_0_0.xdc] for cell 'EMBSYS/axi_timebase_wdt_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_ila_0_0/ila_v6_2/constraints/ila_impl.xdc] for cell 'EMBSYS/ila_0/inst'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_ila_0_0/ila_v6_2/constraints/ila_impl.xdc] for cell 'EMBSYS/ila_0/inst'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_ila_0_0/ila_v6_2/constraints/ila.xdc] for cell 'EMBSYS/ila_0/inst'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_ila_0_0/ila_v6_2/constraints/ila.xdc] for cell 'EMBSYS/ila_0/inst'
+Parsing XDC File [C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/constrs_1/imports/A7-50t Constraint Files/Nexys-A7-50T-Master.xdc]
+Finished Parsing XDC File [C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/constrs_1/imports/A7-50t Constraint Files/Nexys-A7-50T-Master.xdc]
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_quad_spi_0_0/PmodOLEDrgb_axi_quad_spi_0_0_clocks.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0'
+INFO: [Timing 38-2] Deriving generated clocks [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_quad_spi_0_0/PmodOLEDrgb_axi_quad_spi_0_0_clocks.xdc:50]
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_PmodOLEDrgb_0_1/ip/PmodOLEDrgb_axi_quad_spi_0_0/PmodOLEDrgb_axi_quad_spi_0_0_clocks.xdc] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0'
+Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_axi_intc_1/embsys_microblaze_0_axi_intc_1_clocks.xdc] for cell 'EMBSYS/microblaze_0_axi_intc/U0'
+Finished Parsing XDC File [c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_axi_intc_1/embsys_microblaze_0_axi_intc_1_clocks.xdc] for cell 'EMBSYS/microblaze_0_axi_intc/U0'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_dc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_dc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_dc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.wr_pntr_cdc_dc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_dc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_dc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_dc_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_cdc_pntr.rd_pntr_cdc_dc_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_sync_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.rrst_wr_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_sync_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.rrst_wr_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_sync_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.wrst_rd_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_sync_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.wrst_rd_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_sync_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.rrst_wr_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_sync_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.rrst_wr_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_sync_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.wrst_rd_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_sync_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.wrst_rd_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.TX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'EMBSYS/PmodOLEDrgb_0/inst/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/FIFO_EXISTS.RX_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst'
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Generating merged BMM file for the design top 'nexysA7fpga'...
+INFO: [Memdata 28-144] Successfully populated the BRAM INIT strings from the following elf files: c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_1/data/mb_bootloop_le.elf 
+refresh_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:22 . Memory (MB): peak = 3076.121 ; gain = 80.234
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.079 . Memory (MB): peak = 3076.121 ; gain = 0.000
+[Tue May 19 12:18:26 2020] Launched impl_1...
+Run output will be captured here: C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:09 ; elapsed = 00:00:05 . Memory (MB): peak = 3076.711 ; gain = 0.590
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210292AA7EAAA
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292AA7EAAA
+INFO: [Labtools 27-1434] Device xc7a50t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+ERROR: [Common 17-48] File not found: C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.ltx
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+reset_run impl_1
+open_bd_design {C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd}
+update_ip_catalog -rebuild -scan_changes
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project Source Files/ece544ip-library-master'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project2/pmodhb3/pmod_hb3_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project Source Files/vivado-library-v2019.1-1'.
+report_ip_status -name ip_status
+upgrade_ip -vlnv xilinx.com:user:pmod_hb3:1.0 [get_ips  embsys_pmod_hb3_0_0] -log ip_upgrade.log
+Upgrading 'C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd'
+INFO: [IP_Flow 19-3422] Upgraded embsys_pmod_hb3_0_0 (pmod_hb3_v1.0 1.0) from revision 4 to revision 5
+Wrote  : <C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd> 
+Wrote  : <C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ui/bd_bcf741d3.ui> 
+INFO: [Coretcl 2-1525] Wrote upgrade log to 'C:/Users/ME/Vivado_Projects/project_2/ip_upgrade.log'.
+export_ip_user_files -of_objects [get_ips embsys_pmod_hb3_0_0] -no_script -sync -force -quiet
+generate_target all [get_files  C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd]
+INFO: [xilinx.com:ip:axi_intc:4.1-1] /microblaze_0_axi_intc: The AXI INTC core has been configured to operate with synchronous clocks.
+WARNING: [BD 41-927] Following properties on pin /PmodENC_0/s_axi_aclk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=/clk_wiz_1_clk_out1 
+Wrote  : <C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd> 
+VHDL Output written to : C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/synth/embsys.v
+VHDL Output written to : C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/sim/embsys.v
+VHDL Output written to : C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/hdl/embsys_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block nexys4IO_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block PmodOLEDrgb_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_timer_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block fit_timer_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_uartlite_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_axi_intc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_xlconcat .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mdm_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_clk_wiz_1_100M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_axi_periph/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/dlmb_v10 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/ilmb_v10 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/dlmb_bram_if_cntlr .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/ilmb_bram_if_cntlr .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/lmb_bram .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block PmodENC_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_timebase_wdt_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pmod_hb3_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ila_0 .
+Exporting to file C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/hw_handoff/embsys.hwh
+Generated Block Design Tcl file C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/hw_handoff/embsys_bd.tcl
+Generated Hardware Definition File C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/synth/embsys.hwdef
+generate_target: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 3118.328 ; gain = 41.617
+catch { config_ip_cache -export [get_ips -all embsys_pmod_hb3_0_0] }
+export_ip_user_files -of_objects [get_files C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd]
+launch_runs -jobs 4 embsys_pmod_hb3_0_0_synth_1
+[Tue May 19 12:40:33 2020] Launched embsys_pmod_hb3_0_0_synth_1...
+Run output will be captured here: C:/Users/ME/Vivado_Projects/project_2/project_2.runs/embsys_pmod_hb3_0_0_synth_1/runme.log
+export_simulation -of_objects [get_files C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd] -directory C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files -ipstatic_source_dir C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/modelsim} {questa=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/questa} {riviera=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/riviera} {activehdl=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+report_ip_status -name ip_status 
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/ME/Vivado_Projects/project_2/project_2.runs/synth_1
+
+launch_runs impl_1 -jobs 4
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Tue May 19 12:41:20 2020] Launched embsys_pmod_hb3_0_0_synth_1, synth_1...
+Run output will be captured here:
+embsys_pmod_hb3_0_0_synth_1: C:/Users/ME/Vivado_Projects/project_2/project_2.runs/embsys_pmod_hb3_0_0_synth_1/runme.log
+synth_1: C:/Users/ME/Vivado_Projects/project_2/project_2.runs/synth_1/runme.log
+[Tue May 19 12:41:20 2020] Launched impl_1...
+Run output will be captured here: C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/runme.log
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+report_timing_summary: Time (s): cpu = 00:00:28 ; elapsed = 00:00:16 . Memory (MB): peak = 3196.473 ; gain = 67.664
+close_design
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 1582 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 3196.473 ; gain = 0.000
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 3196.473 ; gain = 0.000
+Generating merged BMM file for the design top 'nexysA7fpga'...
+INFO: [Memdata 28-144] Successfully populated the BRAM INIT strings from the following elf files: c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_1/data/mb_bootloop_le.elf 
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 426 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRLC32E, SRL16E): 272 instances
+  IOBUF => IOBUF (IBUF, OBUFT): 16 instances
+  LUT6_2 => LUT6_2 (LUT5, LUT6): 79 instances
+  RAM16X1D => RAM32X1D (RAMD32, RAMD32): 32 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 26 instances
+  SRLC16E => SRL16E: 1 instances
+
+open_run: Time (s): cpu = 00:00:14 ; elapsed = 00:00:11 . Memory (MB): peak = 3206.184 ; gain = 9.711
+open_report: Time (s): cpu = 00:00:11 ; elapsed = 00:00:08 . Memory (MB): peak = 3265.852 ; gain = 56.832
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May 19 13:14:46 2020] Launched impl_1...
+Run output will be captured here: C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/runme.log
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210292AA7EAAA
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292AA7EAAA
+INFO: [Labtools 27-1435] Device xc7a50t (JTAG device index = 0) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.ltx} [get_hw_devices xc7a50t_0]
+set_property FULL_PROBES.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.ltx} [get_hw_devices xc7a50t_0]
+set_property PROGRAM.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.bit} [get_hw_devices xc7a50t_0]
+program_hw_devices [get_hw_devices xc7a50t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a50t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a50t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+set_property TRIGGER_COMPARE_VALUE eq1'b0 [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE neq1'b0 [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 13:17:00
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 13:17:05
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+update_ip_catalog -rebuild -scan_changes
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project Source Files/ece544ip-library-master'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project2/pmodhb3/pmod_hb3_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project Source Files/vivado-library-v2019.1-1'.
+report_ip_status -name ip_status
+upgrade_ip -vlnv xilinx.com:user:pmod_hb3:1.0 [get_ips  embsys_pmod_hb3_0_0] -log ip_upgrade.log
+Upgrading 'C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd'
+INFO: [IP_Flow 19-3422] Upgraded embsys_pmod_hb3_0_0 (pmod_hb3_v1.0 1.0) from revision 5 to revision 6
+Wrote  : <C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd> 
+INFO: [Coretcl 2-1525] Wrote upgrade log to 'C:/Users/ME/Vivado_Projects/project_2/ip_upgrade.log'.
+export_ip_user_files -of_objects [get_ips embsys_pmod_hb3_0_0] -no_script -sync -force -quiet
+generate_target all [get_files  C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd]
+INFO: [xilinx.com:ip:axi_intc:4.1-1] /microblaze_0_axi_intc: The AXI INTC core has been configured to operate with synchronous clocks.
+WARNING: [BD 41-927] Following properties on pin /PmodENC_0/s_axi_aclk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=/clk_wiz_1_clk_out1 
+Wrote  : <C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd> 
+VHDL Output written to : C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/synth/embsys.v
+VHDL Output written to : C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/sim/embsys.v
+VHDL Output written to : C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/hdl/embsys_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block nexys4IO_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block PmodOLEDrgb_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_timer_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block fit_timer_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_uartlite_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_axi_intc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_xlconcat .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mdm_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_clk_wiz_1_100M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_axi_periph/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/dlmb_v10 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/ilmb_v10 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/dlmb_bram_if_cntlr .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/ilmb_bram_if_cntlr .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/lmb_bram .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block PmodENC_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_timebase_wdt_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pmod_hb3_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ila_0 .
+Exporting to file C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/hw_handoff/embsys.hwh
+Generated Block Design Tcl file C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/hw_handoff/embsys_bd.tcl
+Generated Hardware Definition File C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/synth/embsys.hwdef
+generate_target: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 3501.723 ; gain = 28.688
+catch { config_ip_cache -export [get_ips -all embsys_pmod_hb3_0_0] }
+export_ip_user_files -of_objects [get_files C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd]
+launch_runs -jobs 4 embsys_pmod_hb3_0_0_synth_1
+[Tue May 19 13:33:28 2020] Launched embsys_pmod_hb3_0_0_synth_1...
+Run output will be captured here: C:/Users/ME/Vivado_Projects/project_2/project_2.runs/embsys_pmod_hb3_0_0_synth_1/runme.log
+export_simulation -of_objects [get_files C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd] -directory C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files -ipstatic_source_dir C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/modelsim} {questa=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/questa} {riviera=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/riviera} {activehdl=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210292AA7EAAA
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+report_timing_summary: Time (s): cpu = 00:00:18 ; elapsed = 00:00:12 . Memory (MB): peak = 3565.676 ; gain = 53.980
+generate_target all [get_files  C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd]
+INFO: [BD 41-1637] Generated targets are already up-to-date for bd-design 'embsys' - hence not re-generating.
+export_ip_user_files -of_objects [get_files C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd]
+export_simulation -of_objects [get_files C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/embsys.bd] -directory C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files -ipstatic_source_dir C:/Users/ME/Vivado_Projects/project_2/project_2.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/modelsim} {questa=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/questa} {riviera=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/riviera} {activehdl=C:/Users/ME/Vivado_Projects/project_2/project_2.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May 19 13:38:11 2020] Launched synth_1...
+Run output will be captured here: C:/Users/ME/Vivado_Projects/project_2/project_2.runs/synth_1/runme.log
+[Tue May 19 13:38:11 2020] Launched impl_1...
+Run output will be captured here: C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/runme.log
+close_design
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292AA7EAAA
+INFO: [Labtools 27-1435] Device xc7a50t (JTAG device index = 0) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210292AA7EAAA
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292AA7EAAA
+INFO: [Labtools 27-1435] Device xc7a50t (JTAG device index = 0) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210292AA7EAAA
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292AA7EAAA
+INFO: [Labtools 27-1435] Device xc7a50t (JTAG device index = 0) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210292AA7EAAA
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292AA7EAAA
+INFO: [Labtools 27-1435] Device xc7a50t (JTAG device index = 0) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.ltx} [get_hw_devices xc7a50t_0]
+set_property FULL_PROBES.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.ltx} [get_hw_devices xc7a50t_0]
+set_property PROGRAM.FILE {C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.bit} [get_hw_devices xc7a50t_0]
+program_hw_devices [get_hw_devices xc7a50t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a50t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a50t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 14:20:18
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 14:20:18
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 14:20:33
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 14:20:33
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+report_ip_status -name ip_status 
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}] -trigger_now
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 14:21:12
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 14:21:12
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 14:21:15
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 14:21:15
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 14:21:19
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 14:21:19
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 14:21:22
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 14:21:22
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 14:21:26
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 14:21:26
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+set_property TRIGGER_COMPARE_VALUE {neq1'b0 eq1'bX} [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE {eq1'b0 eq1'bX} [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE {eq1'b0 eq1'b1} [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+ERROR: [Labtools 27-3239] Trigger needs too many comparators for ILA port(index=0). Port has 1 comparators available, but 2 are needed for compare values:
+	EMBSYS/SA_0_1==1'h0
+	EMBSYS/SA_0_1==1'h1
+ERROR: [Labtools 27-3241] Unable to fit compare values for hw_ila 'hw_ila_1'.
+Multiple compare values for the same ILA trigger port, can only be merged into the same comparator if 1) the overall trigger condition is 'AND', 'NAND' and 2) the compare value operator for multi-bit hw_probes is 'eq'.
+set_property TRIGGER_COMPARE_VALUE eq1'b0 [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 14:22:53
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 14:22:53
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 14:22:57
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 14:22:57
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 14:23:00
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 14:23:00
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+set_property TRIGGER_COMPARE_VALUE eq1'b1 [get_hw_probes EMBSYS/SA_0_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 14:23:04
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 14:23:04
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 14:23:07
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 14:23:07
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 14:23:11
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 14:23:11
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 14:23:14
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 14:23:14
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 14:23:18
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 14:23:18
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 14:23:21
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 14:23:21
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2020-May-19 14:23:25
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a50t_0] -filter {CELL_NAME=~"EMBSYS/ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2020-May-19 14:23:25
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/ME/Vivado_Projects/project_2/project_2.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+save_wave_config {C:/Users/ME/Vivado_Projects/project_2/project_2.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wcfg}
+file copy -force C:/Users/ME/Vivado_Projects/project_2/project_2.runs/impl_1/nexysA7fpga.sysdef C:/Users/ME/Vivado_Projects/project_2/project_2.sdk/nexysA7fpga.hdf
+
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 1582 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 3578.582 ; gain = 0.000
+Restored from archive | CPU: 2.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 3578.582 ; gain = 0.000
+Generating merged BMM file for the design top 'nexysA7fpga'...
+INFO: [Memdata 28-144] Successfully populated the BRAM INIT strings from the following elf files: c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_1/data/mb_bootloop_le.elf 
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 426 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRLC32E, SRL16E): 272 instances
+  IOBUF => IOBUF (IBUF, OBUFT): 16 instances
+  LUT6_2 => LUT6_2 (LUT5, LUT6): 79 instances
+  RAM16X1D => RAM32X1D (RAMD32, RAMD32): 32 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 26 instances
+  SRLC16E => SRL16E: 1 instances
+
+open_run: Time (s): cpu = 00:00:21 ; elapsed = 00:00:14 . Memory (MB): peak = 3578.582 ; gain = 0.000
+open_report: Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 3578.582 ; gain = 0.000
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210292AA7EAAA
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292AA7EAAA
+INFO: [Labtools 27-1435] Device xc7a50t (JTAG device index = 0) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210292AA7EAAA
+archive_project C:/Users/ME/Vivado_Projects/project_2.xpr.zip -temp_dir C:/Users/ME/Vivado_Projects/project_2/.Xil/Vivado-9800-DESKTOP-J4B3MVP -force -include_local_ip_cache -include_config_settings
+INFO: [Coretcl 2-137] starting archive...
+INFO: [Coretcl 2-1499] Saving project copy to temporary location 'C:/Users/ME/Vivado_Projects/project_2/.Xil/Vivado-9800-DESKTOP-J4B3MVP' for archiving project
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project Source Files/ece544ip-library-master'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project2/pmodhb3/pmod_hb3_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project Source Files/vivado-library-v2019.1-1'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
+INFO: [Coretcl 2-1211] Creating project copy for archival...
+INFO: [Coretcl 2-1213] Including run results for 'synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'embsys_microblaze_0_1_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'embsys_axi_gpio_0_1_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'embsys_axi_timer_0_1_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'embsys_axi_uartlite_0_1_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'embsys_microblaze_0_axi_intc_1_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'embsys_microblaze_0_xlconcat_1_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'embsys_xbar_1_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'embsys_axi_gpio_1_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'embsys_axi_timebase_wdt_0_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'embsys_rst_clk_wiz_1_100M_1_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'embsys_dlmb_bram_if_cntlr_1_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'embsys_ila_0_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'embsys_pmod_hb3_0_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'impl_1'
+INFO: [Coretcl 2-133] re-setting run 'embsys_microblaze_0_1_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'embsys_axi_gpio_0_1_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'embsys_axi_timer_0_1_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'embsys_axi_uartlite_0_1_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'embsys_microblaze_0_axi_intc_1_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'embsys_microblaze_0_xlconcat_1_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'embsys_xbar_1_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'embsys_axi_gpio_1_0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'embsys_axi_timebase_wdt_0_0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'embsys_rst_clk_wiz_1_100M_1_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'embsys_dlmb_bram_if_cntlr_1_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'embsys_ila_0_0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'embsys_pmod_hb3_0_0_impl_1'...
+WARNING: [Coretcl 2-52] File 'c:/Users/ME/Vivado_Projects/project_2/Vivado_Projects/hb3/hb3.srcs/sources_1/imports/new/counter.v' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/ME/Vivado_Projects/project_2/Vivado_Projects/hb3/hb3.srcs/sources_1/imports/hwdet/hw_pwdet.v' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/ME/Vivado_Projects/project_2/Vivado_Projects/hb3/hb3.srcs/sources_1/imports/hwdet/pwm_gen.v' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/ME/Vivado_Projects/project_2/Vivado_Projects/hb3/hb3.srcs/sources_1/imports/new/counter.v' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/ME/Vivado_Projects/project_2/Vivado_Projects/hb3/hb3.srcs/sources_1/imports/hwdet/hw_pwdet.v' does not exist
+WARNING: [Coretcl 2-52] File 'c:/Users/ME/Vivado_Projects/project_2/Vivado_Projects/hb3/hb3.srcs/sources_1/imports/hwdet/pwm_gen.v' does not exist
+INFO: [Coretcl 2-1212] Importing remotely added design sources and verilog include files (if any)...
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'embsys_axi_gpio_0_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'embsys_axi_gpio_0_1'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'embsys_axi_gpio_1_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'embsys_axi_gpio_1_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'embsys_axi_timebase_wdt_0_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'embsys_axi_timebase_wdt_0_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'embsys_axi_timer_0_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'embsys_axi_timer_0_1'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'embsys_axi_uartlite_0_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'embsys_axi_uartlite_0_1'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'embsys_dlmb_bram_if_cntlr_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'embsys_dlmb_bram_if_cntlr_1'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'embsys_ila_0_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'embsys_ila_0_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'embsys_microblaze_0_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'embsys_microblaze_0_1'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'embsys_microblaze_0_axi_intc_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'embsys_microblaze_0_axi_intc_1'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'embsys_microblaze_0_xlconcat_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'embsys_microblaze_0_xlconcat_1'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'embsys_pmod_hb3_0_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'embsys_pmod_hb3_0_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'embsys_rst_clk_wiz_1_100M_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'embsys_rst_clk_wiz_1_100M_1'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'embsys_xbar_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'embsys_xbar_1'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'constrs_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'constrs_1'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'sources_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'sources_1'
+INFO: [Coretcl 2-1209] Adding archive summary file to the project...
+INFO: [Coretcl 2-1214] Preparing project files for archive...
+INFO: [Coretcl 2-1210] Compressing project files and data...
+INFO: [Coretcl 2-1215] Project archived (C:/Users/ME/Vivado_Projects/project_2.xpr.zip)
+INFO: [Coretcl 2-1216] To view the archive summary log in GUI, double click on 'Design Sources->Text->archive_project_summary.txt', or open this file from the archived project directory.
+archive_project: Time (s): cpu = 00:00:29 ; elapsed = 00:00:52 . Memory (MB): peak = 3687.012 ; gain = 81.160
 exit
-INFO: [Common 17-206] Exiting Vivado at Sat May 16 19:45:22 2020...
+INFO: [Common 17-206] Exiting Vivado at Tue May 19 15:00:01 2020...

@@ -170,7 +170,6 @@
   "../../../bd/embsys/ip/embsys_PmodENC_0_1/src/PmodENC_xlconcat_0_0/sim/PmodENC_xlconcat_0_0.v" \
   "../../../../project_2.srcs/sources_1/bd/embsys/ipshared/4239/src/PmodENC.v" \
   "../../../bd/embsys/ip/embsys_PmodENC_0_1/sim/embsys_PmodENC_0_1.v" \
-  "../../../bd/embsys/sim/embsys.v" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
   "../../../bd/embsys/ip/embsys_axi_gpio_1_0/sim/embsys_axi_gpio_1_0.vhd" \
@@ -180,6 +179,16 @@
 -endlib
 -makelib ies_lib/xil_defaultlib \
   "../../../bd/embsys/ip/embsys_axi_timebase_wdt_0_0/sim/embsys_axi_timebase_wdt_0_0.vhd" \
+-endlib
+-makelib ies_lib/xil_defaultlib \
+  "../../../bd/embsys/ipshared/fbea/hdl/pmod_hb3_v1_0_S00_AXI.v" \
+  "../../../../../../../../Vivado_Projects/hb3/hb3.srcs/sources_1/imports/new/counter.v" \
+  "../../../../../../../../Vivado_Projects/hb3/hb3.srcs/sources_1/imports/hwdet/hw_pwdet.v" \
+  "../../../../../../../../Vivado_Projects/hb3/hb3.srcs/sources_1/imports/hwdet/pwm_gen.v" \
+  "../../../bd/embsys/ipshared/fbea/hdl/pmod_hb3_v1_0.v" \
+  "../../../bd/embsys/ip/embsys_pmod_hb3_0_0/sim/embsys_pmod_hb3_0_0.v" \
+  "../../../bd/embsys/ip/embsys_ila_0_0/sim/embsys_ila_0_0.v" \
+  "../../../bd/embsys/sim/embsys.v" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
   glbl.v

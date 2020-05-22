@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;project2/src/FreeRTOS_Example.c&apos; to &apos;myapp.c&apos;" description="Rename resource &apos;FreeRTOS_Example.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/FreeRTOS_Example.c" name="myapp.c" stamp="1589666204832" updateReferences="true"/>
-</session>

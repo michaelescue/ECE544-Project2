@@ -37,7 +37,7 @@ module nexysA7fpga(
     input				uart_rtl_rxd,	// USB UART Rx and Tx on Nexys 4
     output				uart_rtl_txd,	
     
-	output  [7:0]       JA,             // JA Pmod conector - Can be used for debugging purposes
+    inout   [7:0]       JA,             // JA Pmod conector - Can be used for debugging purposes
     inout	[7:0] 		JB,				// JB Pmod connector - PmodOLEDrgb
     inout	[7:0] 		JC,				// JC Pmod connector - PmodEnc signals
 	output	[7:0]		JD				// JD Pmod connector - Can be used for debugging purposes
@@ -81,6 +81,11 @@ wire    [15:0]      led_int;                // Nexys4IO drives these outputs
 // Buttons Bus
 wire    [4:0]       btns;                   // Combines all buttons into bus. BtnU,BtnR,BtnD,BtnL,Btnc.
 
+// PMOD JA to HB3 connections
+wire DIR;
+wire EN;
+wire SA;
+
 // make the connections to the GPIO port.  Most of the bits are unused in the Getting
 // Started project but GPIO's provide a convenient way to get the inputs and
 // outputs from logic you create to and from the Microblaze.  For example,
@@ -114,7 +119,7 @@ assign JB[6] = pmodoledrgb_out_pin9_io;
 assign JB[7] = pmodoledrgb_out_pin10_io;
 
 // JA and JD connectors can be used for debug purposes
-assign JA = 8'b0000000;
+//assign JA = 8'b0000000;
 assign JD = 8'h00; 
 
 // PmodENC signals
@@ -129,6 +134,12 @@ assign  Pmod_out_0_pin7_io = JC[4];
 assign  Pmod_out_0_pin8_io = JC[5];
 assign  Pmod_out_0_pin9_io = JC[6];
 assign  Pmod_out_0_pin10_io = JC[7];
+
+// Pmod HB3 connections
+assign JA[0] = DIR;
+assign JA[1] = EN;
+assign SA = JA[2];
+//assign led[15] = JA[2];
 
 // instantiate the embedded system
 embsys EMBSYS
@@ -182,12 +193,12 @@ embsys EMBSYS
         .Pmod_out_0_pin9_i(Pmod_out_0_pin9_i),
         .Pmod_out_0_pin9_o(Pmod_out_0_pin9_o),
         .Pmod_out_0_pin9_t(Pmod_out_0_pin9_t),
+        
         // GPIO pins 
-//       .gpio_rtl_0_tri_i(gpio_in),    // Project 1
-//       .gpio_rtl_1_tri_o(gpio_out),   // Project 1
-        .gpio_rtl_0_tri_o(/*led_int*/),     // GPIO 0: 16 bits wide (LEDS)
+        .gpio_rtl_0_tri_o(/* led_int */),     // GPIO 0: 16 bits wide (LEDS)
         .gpio_rtl_2_tri_i(btns),        // GPIO 1: 5 bits wide. (BTNS)
         .gpio_rtl_3_tri_i(sw),          // GPIO 1: 16 bits wide (SW)
+        
         // RGB1/2 Led's 
         .RGB1_Blue_0(RGB1_Blue),
         .RGB1_Green_0(RGB1_Green),
@@ -195,24 +206,34 @@ embsys EMBSYS
         .RGB2_Blue_0(RGB2_Blue),
         .RGB2_Green_0(RGB2_Green),
         .RGB2_Red_0(RGB2_Red),
+        
         // Seven Segment Display anode control  
         .an_0(an),
         .dp_0(dp),
-        .led_0(led_int),  // Left unconnected for project 2 example.
+        .led_0(led_int),  
         .seg_0(seg),
+        
         // Push buttons and switches  
-        .btnC_0(/* btnC */),   // Left unconnected for project 2 example.
-        .btnD_0(/* btnD */),    // Left unconnected for project 2 example.
-        .btnL_0(/* btnL */),   // Left unconnected for project 2 example.
-        .btnR_0(/* btnR */),    // Left unconnected for project 2 example.
-        .btnU_0(/* btnU */),    // Left unconnected for project 2 example.
-        .sw_0(/* sw */),        // Left unconnected for project 2 example.
+        .btnC_0(/* btnC */),   // Left unconnected for project 2 
+        .btnD_0(/* btnD */),    // Left unconnected for project 2 
+        .btnL_0(/* btnL */),   // Left unconnected for project 2 
+        .btnR_0(/* btnR */),    // Left unconnected for project 2 
+        .btnU_0(/* btnU */),    // Left unconnected for project 2 
+        .sw_0(/* sw */),        // Left unconnected for project 2 
+        
         // reset and clock 
         .sysreset_n(sysreset_n),
         .sysclk(sysclk),
+        
         // UART pins 
         .uart_rtl_0_rxd(uart_rtl_rxd),
-        .uart_rtl_0_txd(uart_rtl_txd)
+        .uart_rtl_0_txd(uart_rtl_txd),
+        
+        // PmodHB3 pins
+        .SA_0(SA),
+        .DIR_0(DIR),
+        .EN_0(EN)
+        
         );
         
 // Tristate buffers for the pmodOLEDrgb pins

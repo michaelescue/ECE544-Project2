@@ -37,7 +37,8 @@ src/myapp.o src/myapp.o: ../src/myapp.c \
  ../../freertos10_xilinx_bsp_0/microblaze_0/include/PmodOLEDrgb.h \
  ../../freertos10_xilinx_bsp_0/microblaze_0/include/xspi.h \
  ../../freertos10_xilinx_bsp_0/microblaze_0/include/xspi_l.h \
- ../../freertos10_xilinx_bsp_0/microblaze_0/include/PmodENC.h
+ ../../freertos10_xilinx_bsp_0/microblaze_0/include/PmodENC.h \
+ ../../freertos10_xilinx_bsp_0/microblaze_0/include/pmod_hb3.h
 
 ../../freertos10_xilinx_bsp_0/microblaze_0/include/FreeRTOS.h:
 
@@ -116,3 +117,5 @@ src/myapp.o src/myapp.o: ../src/myapp.c \
 ../../freertos10_xilinx_bsp_0/microblaze_0/include/xspi_l.h:
 
 ../../freertos10_xilinx_bsp_0/microblaze_0/include/PmodENC.h:
+
+../../freertos10_xilinx_bsp_0/microblaze_0/include/pmod_hb3.h:

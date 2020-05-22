@@ -1,11 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Mon Apr 13 12:03:30 2020
+// Date        : Tue May 19 17:15:49 2020
 // Host        : DESKTOP-J4B3MVP running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               {c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project
-//               0-Getting_Started/project_0/project_0.srcs/sources_1/bd/embsys/ip/embsys_dlmb_v10_1/embsys_dlmb_v10_1_stub.v}
+// Command     : write_verilog -force -mode synth_stub -rename_top embsys_dlmb_v10_1 -prefix
+//               embsys_dlmb_v10_1_ embsys_dlmb_v10_1_stub.v
 // Design      : embsys_dlmb_v10_1
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a50tcsg324-1

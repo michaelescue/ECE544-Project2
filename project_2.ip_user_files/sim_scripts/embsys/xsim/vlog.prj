@@ -1,4 +1,4 @@
-verilog xil_defaultlib --include "../../../../project_2.srcs/sources_1/bd/embsys/ipshared/b65a" --include "../../../../project_2.srcs/sources_1/bd/embsys/ipshared/ec67/hdl" \
+verilog xil_defaultlib --include "../../../../project_2.srcs/sources_1/bd/embsys/ipshared/b65a" --include "../../../../project_2.srcs/sources_1/bd/embsys/ipshared/ec67/hdl" --include "../../../../project_2.srcs/sources_1/bd/embsys/ipshared/6180/hdl/verilog" --include "../../../../project_2.srcs/sources_1/bd/embsys/ipshared/a08d/hdl/verilog" --include "../../../../project_2.srcs/sources_1/bd/embsys/ipshared/0a8d/hdl/verilog" --include "../../../../project_2.srcs/sources_1/bd/embsys/ipshared/0000/hdl/verilog" \
 "../../../../project_2.srcs/sources_1/bd/embsys/ipshared/5bf9/src/rgbpwm.v" \
 "../../../../project_2.srcs/sources_1/bd/embsys/ipshared/5bf9/src/sevensegment.v" \
 "../../../../project_2.srcs/sources_1/bd/embsys/ipshared/5bf9/src/debounce.v" \
@@ -22,6 +22,13 @@ verilog xil_defaultlib --include "../../../../project_2.srcs/sources_1/bd/embsys
 "../../../bd/embsys/ip/embsys_PmodENC_0_1/src/PmodENC_xlconcat_0_0/sim/PmodENC_xlconcat_0_0.v" \
 "../../../../project_2.srcs/sources_1/bd/embsys/ipshared/4239/src/PmodENC.v" \
 "../../../bd/embsys/ip/embsys_PmodENC_0_1/sim/embsys_PmodENC_0_1.v" \
+"../../../bd/embsys/ipshared/fbea/hdl/pmod_hb3_v1_0_S00_AXI.v" \
+"../../../../../../../../Vivado_Projects/hb3/hb3.srcs/sources_1/imports/new/counter.v" \
+"../../../../../../../../Vivado_Projects/hb3/hb3.srcs/sources_1/imports/hwdet/hw_pwdet.v" \
+"../../../../../../../../Vivado_Projects/hb3/hb3.srcs/sources_1/imports/hwdet/pwm_gen.v" \
+"../../../bd/embsys/ipshared/fbea/hdl/pmod_hb3_v1_0.v" \
+"../../../bd/embsys/ip/embsys_pmod_hb3_0_0/sim/embsys_pmod_hb3_0_0.v" \
+"../../../bd/embsys/ip/embsys_ila_0_0/sim/embsys_ila_0_0.v" \
 "../../../bd/embsys/sim/embsys.v" \
 
 verilog xil_defaultlib "glbl.v"

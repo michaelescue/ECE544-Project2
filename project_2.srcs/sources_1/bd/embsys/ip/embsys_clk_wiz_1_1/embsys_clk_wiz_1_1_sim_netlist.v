@@ -1,11 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Mon Apr 13 12:02:10 2020
+// Date        : Tue May 19 17:15:47 2020
 // Host        : DESKTOP-J4B3MVP running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               {c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project
-//               0-Getting_Started/project_0/project_0.srcs/sources_1/bd/embsys/ip/embsys_clk_wiz_1_1/embsys_clk_wiz_1_1_sim_netlist.v}
+// Command     : write_verilog -force -mode funcsim -rename_top embsys_clk_wiz_1_1 -prefix
+//               embsys_clk_wiz_1_1_ embsys_clk_wiz_1_1_sim_netlist.v
 // Design      : embsys_clk_wiz_1_1
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -36,7 +35,6 @@ module embsys_clk_wiz_1_1
         .locked(locked));
 endmodule
 
-(* ORIG_REF_NAME = "embsys_clk_wiz_1_1_clk_wiz" *) 
 module embsys_clk_wiz_1_1_embsys_clk_wiz_1_1_clk_wiz
    (clk_out1,
     clk_out2,

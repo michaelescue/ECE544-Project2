@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Sat May 16 00:59:25 2020
+// Date        : Sat May 16 00:59:24 2020
 // Host        : DESKTOP-J4B3MVP running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_timebase_wdt_0_0/embsys_axi_timebase_wdt_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top embsys_axi_timebase_wdt_0_0 -prefix
+//               embsys_axi_timebase_wdt_0_0_ embsys_axi_timebase_wdt_0_0_sim_netlist.v
 // Design      : embsys_axi_timebase_wdt_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,119 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "embsys_axi_timebase_wdt_0_0,axi_timebase_wdt_top,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_timebase_wdt_top,Vivado 2018.2" *) 
-(* NotValidForBitStream *)
-module embsys_axi_timebase_wdt_0_0
-   (s_axi_araddr,
-    s_axi_arready,
-    s_axi_arvalid,
-    s_axi_awaddr,
-    s_axi_awready,
-    s_axi_awvalid,
-    s_axi_bready,
-    s_axi_bresp,
-    s_axi_bvalid,
-    s_axi_rdata,
-    s_axi_rready,
-    s_axi_rresp,
-    s_axi_rvalid,
-    s_axi_wdata,
-    s_axi_wready,
-    s_axi_wstrb,
-    s_axi_wvalid,
-    freeze,
-    s_axi_aclk,
-    s_axi_aresetn,
-    timebase_interrupt,
-    wdt_interrupt,
-    wdt_reset);
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARADDR" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 4, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) input [3:0]s_axi_araddr;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARREADY" *) output s_axi_arready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARVALID" *) input s_axi_arvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWADDR" *) input [3:0]s_axi_awaddr;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWREADY" *) output s_axi_awready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWVALID" *) input s_axi_awvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BREADY" *) input s_axi_bready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BRESP" *) output [1:0]s_axi_bresp;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BVALID" *) output s_axi_bvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RDATA" *) output [31:0]s_axi_rdata;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RREADY" *) input s_axi_rready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RRESP" *) output [1:0]s_axi_rresp;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RVALID" *) output s_axi_rvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WDATA" *) input [31:0]s_axi_wdata;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WREADY" *) output s_axi_wready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WSTRB" *) input [3:0]s_axi_wstrb;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WVALID" *) input s_axi_wvalid;
-  input freeze;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 S_AXI_ACLK CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI_ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET s_axi_aresetn:wdt_reset, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1" *) input s_axi_aclk;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 S_AXI_ARESETN RST" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI_ARESETN, POLARITY ACTIVE_LOW" *) input s_axi_aresetn;
-  (* x_interface_info = "xilinx.com:signal:interrupt:1.0 TIMEBASE_INTERRUPT INTERRUPT" *) (* x_interface_parameter = "XIL_INTERFACENAME TIMEBASE_INTERRUPT, SENSITIVITY LEVEL_HIGH, PortWidth 1" *) output timebase_interrupt;
-  (* x_interface_info = "xilinx.com:signal:interrupt:1.0 WDT_INTERRUPT INTERRUPT" *) (* x_interface_parameter = "XIL_INTERFACENAME WDT_INTERRUPT, SENSITIVITY LEVEL_HIGH, PortWidth 1" *) output wdt_interrupt;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 WDT_RESET RST" *) (* x_interface_parameter = "XIL_INTERFACENAME WDT_RESET, POLARITY ACTIVE_HIGH" *) output wdt_reset;
-
-  wire freeze;
-  wire s_axi_aclk;
-  wire [3:0]s_axi_araddr;
-  wire s_axi_aresetn;
-  wire s_axi_arready;
-  wire s_axi_arvalid;
-  wire [3:0]s_axi_awaddr;
-  wire s_axi_awready;
-  wire s_axi_awvalid;
-  wire s_axi_bready;
-  wire [1:0]s_axi_bresp;
-  wire s_axi_bvalid;
-  wire [31:0]s_axi_rdata;
-  wire s_axi_rready;
-  wire [1:0]s_axi_rresp;
-  wire s_axi_rvalid;
-  wire [31:0]s_axi_wdata;
-  wire s_axi_wready;
-  wire [3:0]s_axi_wstrb;
-  wire s_axi_wvalid;
-  wire timebase_interrupt;
-  wire wdt_interrupt;
-  wire wdt_reset;
-  wire NLW_U0_wdt_reset_pending_UNCONNECTED;
-  wire [6:0]NLW_U0_wdt_state_vec_UNCONNECTED;
-
-  (* C_ENABLE_WINDOW_WDT = "0" *) 
-  (* C_FAMILY = "artix7" *) 
-  (* C_MAX_COUNT_WIDTH = "32" *) 
-  (* C_SST_COUNT_WIDTH = "8" *) 
-  (* C_S_AXI_ADDR_WIDTH = "4" *) 
-  (* C_S_AXI_DATA_WIDTH = "32" *) 
-  (* C_WDT_ENABLE_ONCE = "1" *) 
-  (* C_WDT_INTERVAL = "27" *) 
-  embsys_axi_timebase_wdt_0_0_axi_timebase_wdt_top U0
-       (.freeze(freeze),
-        .s_axi_aclk(s_axi_aclk),
-        .s_axi_araddr(s_axi_araddr),
-        .s_axi_aresetn(s_axi_aresetn),
-        .s_axi_arready(s_axi_arready),
-        .s_axi_arvalid(s_axi_arvalid),
-        .s_axi_awaddr(s_axi_awaddr),
-        .s_axi_awready(s_axi_awready),
-        .s_axi_awvalid(s_axi_awvalid),
-        .s_axi_bready(s_axi_bready),
-        .s_axi_bresp(s_axi_bresp),
-        .s_axi_bvalid(s_axi_bvalid),
-        .s_axi_rdata(s_axi_rdata),
-        .s_axi_rready(s_axi_rready),
-        .s_axi_rresp(s_axi_rresp),
-        .s_axi_rvalid(s_axi_rvalid),
-        .s_axi_wdata(s_axi_wdata),
-        .s_axi_wready(s_axi_wready),
-        .s_axi_wstrb(s_axi_wstrb),
-        .s_axi_wvalid(s_axi_wvalid),
-        .timebase_interrupt(timebase_interrupt),
-        .wdt_interrupt(wdt_interrupt),
-        .wdt_reset(wdt_reset),
-        .wdt_reset_pending(NLW_U0_wdt_reset_pending_UNCONNECTED),
-        .wdt_state_vec(NLW_U0_wdt_state_vec_UNCONNECTED[6:0]));
-endmodule
-
-(* ORIG_REF_NAME = "address_decoder" *) 
 module embsys_axi_timebase_wdt_0_0_address_decoder
    (wdt_Bitin_1d_reg_bret__0,
     bus2ip_cs,
@@ -984,7 +871,6 @@ module embsys_axi_timebase_wdt_0_0_address_decoder
         .O(bus2ip_wrce[1]));
 endmodule
 
-(* ORIG_REF_NAME = "axi_lite_ipif" *) 
 module embsys_axi_timebase_wdt_0_0_axi_lite_ipif
    (\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ,
     s_axi_rresp,
@@ -1231,7 +1117,6 @@ module embsys_axi_timebase_wdt_0_0_axi_lite_ipif
         .wdt_State_Reg_reg_bret(wdt_State_Reg_reg_bret));
 endmodule
 
-(* ORIG_REF_NAME = "axi_timebase_wdt" *) 
 module embsys_axi_timebase_wdt_0_0_axi_timebase_wdt
    (s_axi_wready,
     s_axi_arready,
@@ -1465,7 +1350,7 @@ endmodule
 
 (* C_ENABLE_WINDOW_WDT = "0" *) (* C_FAMILY = "artix7" *) (* C_MAX_COUNT_WIDTH = "32" *) 
 (* C_SST_COUNT_WIDTH = "8" *) (* C_S_AXI_ADDR_WIDTH = "4" *) (* C_S_AXI_DATA_WIDTH = "32" *) 
-(* C_WDT_ENABLE_ONCE = "1" *) (* C_WDT_INTERVAL = "27" *) (* ORIG_REF_NAME = "axi_timebase_wdt_top" *) 
+(* C_WDT_ENABLE_ONCE = "1" *) (* C_WDT_INTERVAL = "27" *) 
 module embsys_axi_timebase_wdt_0_0_axi_timebase_wdt_top
    (s_axi_araddr,
     s_axi_arready,
@@ -1582,7 +1467,6 @@ module embsys_axi_timebase_wdt_0_0_axi_timebase_wdt_top
         .wdt_reset(wdt_reset));
 endmodule
 
-(* ORIG_REF_NAME = "cdc_sync" *) 
 module embsys_axi_timebase_wdt_0_0_cdc_sync
    (\iTimebase_count_reg[31] ,
     freeze,
@@ -1650,7 +1534,118 @@ module embsys_axi_timebase_wdt_0_0_cdc_sync
         .O(\iTimebase_count_reg[31] ));
 endmodule
 
-(* ORIG_REF_NAME = "pselect_f" *) 
+(* CHECK_LICENSE_TYPE = "embsys_axi_timebase_wdt_0_0,axi_timebase_wdt_top,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_timebase_wdt_top,Vivado 2018.2" *) 
+(* NotValidForBitStream *)
+module embsys_axi_timebase_wdt_0_0
+   (s_axi_araddr,
+    s_axi_arready,
+    s_axi_arvalid,
+    s_axi_awaddr,
+    s_axi_awready,
+    s_axi_awvalid,
+    s_axi_bready,
+    s_axi_bresp,
+    s_axi_bvalid,
+    s_axi_rdata,
+    s_axi_rready,
+    s_axi_rresp,
+    s_axi_rvalid,
+    s_axi_wdata,
+    s_axi_wready,
+    s_axi_wstrb,
+    s_axi_wvalid,
+    freeze,
+    s_axi_aclk,
+    s_axi_aresetn,
+    timebase_interrupt,
+    wdt_interrupt,
+    wdt_reset);
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARADDR" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 4, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) input [3:0]s_axi_araddr;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARREADY" *) output s_axi_arready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARVALID" *) input s_axi_arvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWADDR" *) input [3:0]s_axi_awaddr;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWREADY" *) output s_axi_awready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWVALID" *) input s_axi_awvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BREADY" *) input s_axi_bready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BRESP" *) output [1:0]s_axi_bresp;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BVALID" *) output s_axi_bvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RDATA" *) output [31:0]s_axi_rdata;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RREADY" *) input s_axi_rready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RRESP" *) output [1:0]s_axi_rresp;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RVALID" *) output s_axi_rvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WDATA" *) input [31:0]s_axi_wdata;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WREADY" *) output s_axi_wready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WSTRB" *) input [3:0]s_axi_wstrb;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WVALID" *) input s_axi_wvalid;
+  input freeze;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 S_AXI_ACLK CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI_ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET s_axi_aresetn:wdt_reset, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1" *) input s_axi_aclk;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 S_AXI_ARESETN RST" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI_ARESETN, POLARITY ACTIVE_LOW" *) input s_axi_aresetn;
+  (* x_interface_info = "xilinx.com:signal:interrupt:1.0 TIMEBASE_INTERRUPT INTERRUPT" *) (* x_interface_parameter = "XIL_INTERFACENAME TIMEBASE_INTERRUPT, SENSITIVITY LEVEL_HIGH, PortWidth 1" *) output timebase_interrupt;
+  (* x_interface_info = "xilinx.com:signal:interrupt:1.0 WDT_INTERRUPT INTERRUPT" *) (* x_interface_parameter = "XIL_INTERFACENAME WDT_INTERRUPT, SENSITIVITY LEVEL_HIGH, PortWidth 1" *) output wdt_interrupt;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 WDT_RESET RST" *) (* x_interface_parameter = "XIL_INTERFACENAME WDT_RESET, POLARITY ACTIVE_HIGH" *) output wdt_reset;
+
+  wire freeze;
+  wire s_axi_aclk;
+  wire [3:0]s_axi_araddr;
+  wire s_axi_aresetn;
+  wire s_axi_arready;
+  wire s_axi_arvalid;
+  wire [3:0]s_axi_awaddr;
+  wire s_axi_awready;
+  wire s_axi_awvalid;
+  wire s_axi_bready;
+  wire [1:0]s_axi_bresp;
+  wire s_axi_bvalid;
+  wire [31:0]s_axi_rdata;
+  wire s_axi_rready;
+  wire [1:0]s_axi_rresp;
+  wire s_axi_rvalid;
+  wire [31:0]s_axi_wdata;
+  wire s_axi_wready;
+  wire [3:0]s_axi_wstrb;
+  wire s_axi_wvalid;
+  wire timebase_interrupt;
+  wire wdt_interrupt;
+  wire wdt_reset;
+  wire NLW_U0_wdt_reset_pending_UNCONNECTED;
+  wire [6:0]NLW_U0_wdt_state_vec_UNCONNECTED;
+
+  (* C_ENABLE_WINDOW_WDT = "0" *) 
+  (* C_FAMILY = "artix7" *) 
+  (* C_MAX_COUNT_WIDTH = "32" *) 
+  (* C_SST_COUNT_WIDTH = "8" *) 
+  (* C_S_AXI_ADDR_WIDTH = "4" *) 
+  (* C_S_AXI_DATA_WIDTH = "32" *) 
+  (* C_WDT_ENABLE_ONCE = "1" *) 
+  (* C_WDT_INTERVAL = "27" *) 
+  embsys_axi_timebase_wdt_0_0_axi_timebase_wdt_top U0
+       (.freeze(freeze),
+        .s_axi_aclk(s_axi_aclk),
+        .s_axi_araddr(s_axi_araddr),
+        .s_axi_aresetn(s_axi_aresetn),
+        .s_axi_arready(s_axi_arready),
+        .s_axi_arvalid(s_axi_arvalid),
+        .s_axi_awaddr(s_axi_awaddr),
+        .s_axi_awready(s_axi_awready),
+        .s_axi_awvalid(s_axi_awvalid),
+        .s_axi_bready(s_axi_bready),
+        .s_axi_bresp(s_axi_bresp),
+        .s_axi_bvalid(s_axi_bvalid),
+        .s_axi_rdata(s_axi_rdata),
+        .s_axi_rready(s_axi_rready),
+        .s_axi_rresp(s_axi_rresp),
+        .s_axi_rvalid(s_axi_rvalid),
+        .s_axi_wdata(s_axi_wdata),
+        .s_axi_wready(s_axi_wready),
+        .s_axi_wstrb(s_axi_wstrb),
+        .s_axi_wvalid(s_axi_wvalid),
+        .timebase_interrupt(timebase_interrupt),
+        .wdt_interrupt(wdt_interrupt),
+        .wdt_reset(wdt_reset),
+        .wdt_reset_pending(NLW_U0_wdt_reset_pending_UNCONNECTED),
+        .wdt_state_vec(NLW_U0_wdt_state_vec_UNCONNECTED[6:0]));
+endmodule
+
 module embsys_axi_timebase_wdt_0_0_pselect_f
    (ce_expnd_i_3,
     \bus2ip_addr_i_reg[2] ,
@@ -1692,7 +1687,6 @@ module embsys_axi_timebase_wdt_0_0_pselect_f__parameterized1
         .O(ce_expnd_i_1));
 endmodule
 
-(* ORIG_REF_NAME = "slave_attachment" *) 
 module embsys_axi_timebase_wdt_0_0_slave_attachment
    (wdt_Bitin_1d_reg_bret__0,
     s_axi_rresp,
@@ -2566,7 +2560,6 @@ module embsys_axi_timebase_wdt_0_0_slave_attachment
         .R(rst));
 endmodule
 
-(* ORIG_REF_NAME = "timebase_wdt_core" *) 
 module embsys_axi_timebase_wdt_0_0_timebase_wdt_core
    (bus2ip_reset,
     wdt_reset,

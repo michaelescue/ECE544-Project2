@@ -1,11 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Mon Apr 13 12:03:37 2020
+-- Date        : Tue May 19 17:15:53 2020
 -- Host        : DESKTOP-J4B3MVP running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               {c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project
---               0-Getting_Started/project_0/project_0.srcs/sources_1/bd/embsys/ip/embsys_ilmb_bram_if_cntlr_1/embsys_ilmb_bram_if_cntlr_1_sim_netlist.vhdl}
+-- Command     : write_vhdl -force -mode funcsim -rename_top embsys_ilmb_bram_if_cntlr_1 -prefix
+--               embsys_ilmb_bram_if_cntlr_1_ embsys_ilmb_bram_if_cntlr_1_sim_netlist.vhdl
 -- Design      : embsys_ilmb_bram_if_cntlr_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -143,8 +142,6 @@ entity embsys_ilmb_bram_if_cntlr_1_lmb_bram_if_cntlr is
   attribute C_UE_FAILING_REGISTERS of embsys_ilmb_bram_if_cntlr_1_lmb_bram_if_cntlr : entity is 0;
   attribute C_WRITE_ACCESS : integer;
   attribute C_WRITE_ACCESS of embsys_ilmb_bram_if_cntlr_1_lmb_bram_if_cntlr : entity is 2;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_ilmb_bram_if_cntlr_1_lmb_bram_if_cntlr : entity is "lmb_bram_if_cntlr";
 end embsys_ilmb_bram_if_cntlr_1_lmb_bram_if_cntlr;
 
 architecture STRUCTURE of embsys_ilmb_bram_if_cntlr_1_lmb_bram_if_cntlr is

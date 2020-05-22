@@ -60,11 +60,14 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 
 start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param tcl.collectionResultDisplayLimit 0
+  set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7a50tcsg324-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
@@ -72,7 +75,7 @@ set rc [catch {
   set_property parent.project_path C:/Users/ME/Vivado_Projects/project_2/project_2.xpr [current_project]
   set_property ip_repo_paths {
   {C:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project Source Files/ece544ip-library-master}
-  C:/Users/ME/Vivado_Projects/myip
+  C:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project2/pmodhb3/pmod_hb3_1.0
   {C:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project Source Files/vivado-library-v2019.1-1}
 } [current_project]
   set_property ip_output_repo C:/Users/ME/Vivado_Projects/project_2/project_2.cache/ip [current_project]

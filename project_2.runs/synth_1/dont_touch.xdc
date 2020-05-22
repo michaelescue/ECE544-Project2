@@ -72,4 +72,10 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==embsys_axi_gpio
 # IP: bd/embsys/ip/embsys_axi_timebase_wdt_0_0/embsys_axi_timebase_wdt_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==embsys_axi_timebase_wdt_0_0 || ORIG_REF_NAME==embsys_axi_timebase_wdt_0_0} -quiet] -quiet
 
+# IP: bd/embsys/ip/embsys_pmod_hb3_0_0/embsys_pmod_hb3_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==embsys_pmod_hb3_0_0 || ORIG_REF_NAME==embsys_pmod_hb3_0_0} -quiet] -quiet
+
+# IP: bd/embsys/ip/embsys_ila_0_0/embsys_ila_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==embsys_ila_0_0 || ORIG_REF_NAME==embsys_ila_0_0} -quiet] -quiet
+
 # XDC: bd/embsys/embsys_ooc.xdc

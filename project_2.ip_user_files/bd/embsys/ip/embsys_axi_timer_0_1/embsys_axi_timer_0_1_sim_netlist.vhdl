@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Sat May  9 19:46:12 2020
+-- Date        : Sat May  9 19:46:11 2020
 -- Host        : DESKTOP-J4B3MVP running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_timer_0_1/embsys_axi_timer_0_1_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top embsys_axi_timer_0_1 -prefix
+--               embsys_axi_timer_0_1_ embsys_axi_timer_0_1_sim_netlist.vhdl
 -- Design      : embsys_axi_timer_0_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -21,8 +21,6 @@ entity embsys_axi_timer_0_1_cdc_sync is
     capturetrig0 : in STD_LOGIC;
     s_axi_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_timer_0_1_cdc_sync : entity is "cdc_sync";
 end embsys_axi_timer_0_1_cdc_sync;
 
 architecture STRUCTURE of embsys_axi_timer_0_1_cdc_sync is
@@ -482,8 +480,6 @@ entity embsys_axi_timer_0_1_counter_f is
     Bus_RNW_reg_reg_1 : in STD_LOGIC;
     \INFERRED_GEN.icount_out_reg[31]_bret_0\ : in STD_LOGIC_VECTOR ( 4 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_timer_0_1_counter_f : entity is "counter_f";
 end embsys_axi_timer_0_1_counter_f;
 
 architecture STRUCTURE of embsys_axi_timer_0_1_counter_f is
@@ -3684,8 +3680,6 @@ entity embsys_axi_timer_0_1_mux_onehot_f is
     \TCSR1_GENERATE[31].TCSR1_FF_I\ : in STD_LOGIC;
     \INFERRED_GEN.icount_out_reg[0]\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_timer_0_1_mux_onehot_f : entity is "mux_onehot_f";
 end embsys_axi_timer_0_1_mux_onehot_f;
 
 architecture STRUCTURE of embsys_axi_timer_0_1_mux_onehot_f is
@@ -4374,8 +4368,6 @@ entity embsys_axi_timer_0_1_pselect_f is
     ce_expnd_i_7 : out STD_LOGIC;
     \bus2ip_addr_i_reg[4]\ : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_timer_0_1_pselect_f : entity is "pselect_f";
 end embsys_axi_timer_0_1_pselect_f;
 
 architecture STRUCTURE of embsys_axi_timer_0_1_pselect_f is
@@ -4663,8 +4655,6 @@ entity embsys_axi_timer_0_1_address_decoder is
     bus2ip_rnw_i : in STD_LOGIC;
     \bus2ip_addr_i_reg[4]\ : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_timer_0_1_address_decoder : entity is "address_decoder";
 end embsys_axi_timer_0_1_address_decoder;
 
 architecture STRUCTURE of embsys_axi_timer_0_1_address_decoder is
@@ -6124,8 +6114,6 @@ entity embsys_axi_timer_0_1_count_module is
     s_axi_aresetn : in STD_LOGIC;
     Q : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_timer_0_1_count_module : entity is "count_module";
 end embsys_axi_timer_0_1_count_module;
 
 architecture STRUCTURE of embsys_axi_timer_0_1_count_module is
@@ -7407,8 +7395,6 @@ entity embsys_axi_timer_0_1_timer_control is
     capturetrig0 : in STD_LOGIC;
     capturetrig1 : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_timer_0_1_timer_control : entity is "timer_control";
 end embsys_axi_timer_0_1_timer_control;
 
 architecture STRUCTURE of embsys_axi_timer_0_1_timer_control is
@@ -8680,8 +8666,6 @@ entity embsys_axi_timer_0_1_slave_attachment is
     read_done1 : in STD_LOGIC;
     D : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_timer_0_1_slave_attachment : entity is "slave_attachment";
 end embsys_axi_timer_0_1_slave_attachment;
 
 architecture STRUCTURE of embsys_axi_timer_0_1_slave_attachment is
@@ -9764,8 +9748,6 @@ entity embsys_axi_timer_0_1_tc_core is
     capturetrig0 : in STD_LOGIC;
     capturetrig1 : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_timer_0_1_tc_core : entity is "tc_core";
 end embsys_axi_timer_0_1_tc_core;
 
 architecture STRUCTURE of embsys_axi_timer_0_1_tc_core is
@@ -10284,8 +10266,6 @@ entity embsys_axi_timer_0_1_axi_lite_ipif is
     read_done1 : in STD_LOGIC;
     D : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_timer_0_1_axi_lite_ipif : entity is "axi_lite_ipif";
 end embsys_axi_timer_0_1_axi_lite_ipif;
 
 architecture STRUCTURE of embsys_axi_timer_0_1_axi_lite_ipif is
@@ -10471,8 +10451,6 @@ entity embsys_axi_timer_0_1_axi_timer is
   attribute C_TRIG0_ASSERT of embsys_axi_timer_0_1_axi_timer : entity is "1'b1";
   attribute C_TRIG1_ASSERT : string;
   attribute C_TRIG1_ASSERT of embsys_axi_timer_0_1_axi_timer : entity is "1'b1";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_timer_0_1_axi_timer : entity is "axi_timer";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of embsys_axi_timer_0_1_axi_timer : entity is "yes";
 end embsys_axi_timer_0_1_axi_timer;

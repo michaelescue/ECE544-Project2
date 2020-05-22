@@ -1,4 +1,4 @@
-NumberHits:0
-Timestamp: Mon May 18 00:55:42 UTC 2020
+NumberHits:2
+Timestamp: Wed May 20 00:13:20 UTC 2020
 VLNV: xilinx.com:ip:microblaze:10.0
 SynthRuntime: 141

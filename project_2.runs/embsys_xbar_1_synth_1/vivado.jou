@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Sat May 16 17:05:15 2020
-# Process ID: 14516
+# Start of session at: Tue May 19 17:13:24 2020
+# Process ID: 10392
 # Current directory: C:/Users/ME/Vivado_Projects/project_2/project_2.runs/embsys_xbar_1_synth_1
 # Command line: vivado.exe -log embsys_xbar_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source embsys_xbar_1.tcl
 # Log file: C:/Users/ME/Vivado_Projects/project_2/project_2.runs/embsys_xbar_1_synth_1/embsys_xbar_1.vds

@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
 -- Date        : Sun May 17 00:20:48 2020
 -- Host        : DESKTOP-J4B3MVP running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_rst_clk_wiz_1_100M_1/embsys_rst_clk_wiz_1_100M_1_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top embsys_rst_clk_wiz_1_100M_1 -prefix
+--               embsys_rst_clk_wiz_1_100M_1_ embsys_rst_clk_wiz_1_100M_1_sim_netlist.vhdl
 -- Design      : embsys_rst_clk_wiz_1_100M_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -25,8 +25,6 @@ entity embsys_rst_clk_wiz_1_100M_1_cdc_sync is
     aux_reset_in : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_rst_clk_wiz_1_100M_1_cdc_sync : entity is "cdc_sync";
 end embsys_rst_clk_wiz_1_100M_1_cdc_sync;
 
 architecture STRUCTURE of embsys_rst_clk_wiz_1_100M_1_cdc_sync is
@@ -226,8 +224,6 @@ entity embsys_rst_clk_wiz_1_100M_1_upcnt_n is
     seq_cnt_en : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_rst_clk_wiz_1_100M_1_upcnt_n : entity is "upcnt_n";
 end embsys_rst_clk_wiz_1_100M_1_upcnt_n;
 
 architecture STRUCTURE of embsys_rst_clk_wiz_1_100M_1_upcnt_n is
@@ -392,8 +388,6 @@ entity embsys_rst_clk_wiz_1_100M_1_lpf is
     aux_reset_in : in STD_LOGIC;
     dcm_locked : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_rst_clk_wiz_1_100M_1_lpf : entity is "lpf";
 end embsys_rst_clk_wiz_1_100M_1_lpf;
 
 architecture STRUCTURE of embsys_rst_clk_wiz_1_100M_1_lpf is
@@ -604,8 +598,6 @@ entity embsys_rst_clk_wiz_1_100M_1_sequence_psr is
     lpf_int0 : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_rst_clk_wiz_1_100M_1_sequence_psr : entity is "sequence_psr";
 end embsys_rst_clk_wiz_1_100M_1_sequence_psr;
 
 architecture STRUCTURE of embsys_rst_clk_wiz_1_100M_1_sequence_psr is
@@ -944,8 +936,6 @@ entity embsys_rst_clk_wiz_1_100M_1_proc_sys_reset is
   attribute C_NUM_PERP_ARESETN of embsys_rst_clk_wiz_1_100M_1_proc_sys_reset : entity is 1;
   attribute C_NUM_PERP_RST : integer;
   attribute C_NUM_PERP_RST of embsys_rst_clk_wiz_1_100M_1_proc_sys_reset : entity is 1;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_rst_clk_wiz_1_100M_1_proc_sys_reset : entity is "proc_sys_reset";
 end embsys_rst_clk_wiz_1_100M_1_proc_sys_reset;
 
 architecture STRUCTURE of embsys_rst_clk_wiz_1_100M_1_proc_sys_reset is

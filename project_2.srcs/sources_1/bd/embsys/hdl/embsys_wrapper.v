@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-//Date        : Sun May 17 17:52:32 2020
+//Date        : Thu May 21 01:12:50 2020
 //Host        : DESKTOP-J4B3MVP running 64-bit major release  (build 9200)
 //Command     : generate_target embsys_wrapper.bd
 //Design      : embsys_wrapper
@@ -10,7 +10,9 @@
 `timescale 1 ps / 1 ps
 
 module embsys_wrapper
-   (PmodOLEDrgb_out_0_pin10_io,
+   (DIR_0,
+    EN_0,
+    PmodOLEDrgb_out_0_pin10_io,
     PmodOLEDrgb_out_0_pin1_io,
     PmodOLEDrgb_out_0_pin2_io,
     PmodOLEDrgb_out_0_pin3_io,
@@ -32,6 +34,7 @@ module embsys_wrapper
     RGB2_Blue_0,
     RGB2_Green_0,
     RGB2_Red_0,
+    SA_0,
     an_0,
     btnC_0,
     btnD_0,
@@ -49,6 +52,8 @@ module embsys_wrapper
     sysreset_n,
     uart_rtl_0_rxd,
     uart_rtl_0_txd);
+  output DIR_0;
+  output EN_0;
   inout PmodOLEDrgb_out_0_pin10_io;
   inout PmodOLEDrgb_out_0_pin1_io;
   inout PmodOLEDrgb_out_0_pin2_io;
@@ -71,6 +76,7 @@ module embsys_wrapper
   output RGB2_Blue_0;
   output RGB2_Green_0;
   output RGB2_Red_0;
+  input SA_0;
   output [7:0]an_0;
   input btnC_0;
   input btnD_0;
@@ -89,6 +95,8 @@ module embsys_wrapper
   input uart_rtl_0_rxd;
   output uart_rtl_0_txd;
 
+  wire DIR_0;
+  wire EN_0;
   wire PmodOLEDrgb_out_0_pin10_i;
   wire PmodOLEDrgb_out_0_pin10_io;
   wire PmodOLEDrgb_out_0_pin10_o;
@@ -159,6 +167,7 @@ module embsys_wrapper
   wire RGB2_Blue_0;
   wire RGB2_Green_0;
   wire RGB2_Red_0;
+  wire SA_0;
   wire [7:0]an_0;
   wire btnC_0;
   wire btnD_0;
@@ -258,7 +267,9 @@ module embsys_wrapper
         .O(Pmod_out_0_pin9_i),
         .T(Pmod_out_0_pin9_t));
   embsys embsys_i
-       (.PmodOLEDrgb_out_0_pin10_i(PmodOLEDrgb_out_0_pin10_i),
+       (.DIR_0(DIR_0),
+        .EN_0(EN_0),
+        .PmodOLEDrgb_out_0_pin10_i(PmodOLEDrgb_out_0_pin10_i),
         .PmodOLEDrgb_out_0_pin10_o(PmodOLEDrgb_out_0_pin10_o),
         .PmodOLEDrgb_out_0_pin10_t(PmodOLEDrgb_out_0_pin10_t),
         .PmodOLEDrgb_out_0_pin1_i(PmodOLEDrgb_out_0_pin1_i),
@@ -312,6 +323,7 @@ module embsys_wrapper
         .RGB2_Blue_0(RGB2_Blue_0),
         .RGB2_Green_0(RGB2_Green_0),
         .RGB2_Red_0(RGB2_Red_0),
+        .SA_0(SA_0),
         .an_0(an_0),
         .btnC_0(btnC_0),
         .btnD_0(btnD_0),

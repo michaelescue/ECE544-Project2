@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Sun May 17 17:55:43 2020
+// Date        : Sun May 17 17:55:38 2020
 // Host        : DESKTOP-J4B3MVP running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_microblaze_0_1/embsys_microblaze_0_1_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top embsys_microblaze_0_1 -prefix
+//               embsys_microblaze_0_1_ embsys_microblaze_0_1_sim_netlist.v
 // Design      : embsys_microblaze_0_1
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -1027,7 +1027,6 @@ module embsys_microblaze_0_1
         .Write_Strobe(Write_Strobe));
 endmodule
 
-(* ORIG_REF_NAME = "ALU" *) 
 module embsys_microblaze_0_1_ALU
    (EX_ALU_DataAddr,
     \Data_Addr[0] ,
@@ -1715,7 +1714,6 @@ module embsys_microblaze_0_1_ALU
         .O(DI));
 endmodule
 
-(* ORIG_REF_NAME = "ALU_Bit" *) 
 module embsys_microblaze_0_1_ALU_Bit
    (EX_CarryOut,
     \Data_Addr[10] ,
@@ -3973,7 +3971,6 @@ module embsys_microblaze_0_1_ALU_Bit__parameterized2
         .O(maintain_sign_n_rep_n_0));
 endmodule
 
-(* ORIG_REF_NAME = "Byte_Doublet_Handle_gti" *) 
 module embsys_microblaze_0_1_Byte_Doublet_Handle_gti
    (wb_read_msb_doublet_sel_reg_0,
     wb_read_lsb_1_sel,
@@ -4310,7 +4307,6 @@ module embsys_microblaze_0_1_Byte_Doublet_Handle_gti
         .R(sync_reset));
 endmodule
 
-(* ORIG_REF_NAME = "DAXI_interface" *) 
 module embsys_microblaze_0_1_DAXI_interface
    (active_access_d1,
     active_access,
@@ -5050,7 +5046,6 @@ module embsys_microblaze_0_1_DAXI_interface
         .O(\LOCKSTEP_Out_reg[3007]_0 ));
 endmodule
 
-(* ORIG_REF_NAME = "Data_Flow_Logic" *) 
 module embsys_microblaze_0_1_Data_Flow_Logic
    (MEM_EX_Result,
     mem_not_fpu_instr,
@@ -5569,7 +5564,6 @@ module embsys_microblaze_0_1_Data_Flow_Logic
         .O(in0));
 endmodule
 
-(* ORIG_REF_NAME = "Data_Flow_gti" *) 
 module embsys_microblaze_0_1_Data_Flow_gti
    (iterations,
     out,
@@ -8019,7 +8013,6 @@ module embsys_microblaze_0_1_Data_Flow_gti
         .wb_PipeRun_i_reg(wb_PipeRun_i_reg));
 endmodule
 
-(* ORIG_REF_NAME = "Debug" *) 
 module embsys_microblaze_0_1_Debug
    (LOCKSTEP_Master_Out,
     command_reg_clear_reg_0,
@@ -11182,7 +11175,6 @@ module embsys_microblaze_0_1_Debug
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "Decode_gti" *) 
 module embsys_microblaze_0_1_Decode_gti
    (use_Reg_Neg_S_reg,
     D,
@@ -16646,7 +16638,6 @@ module embsys_microblaze_0_1_Decode_gti
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "Div_unit_gti" *) 
 module embsys_microblaze_0_1_Div_unit_gti
    (Q,
     E,
@@ -19469,7 +19460,6 @@ module embsys_microblaze_0_1_Div_unit_gti
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "FPU_ADDSUB" *) 
 module embsys_microblaze_0_1_FPU_ADDSUB
    (mem_addsub_zero_4,
     MEM_AddSub_Inc_Exp_4,
@@ -24370,7 +24360,6 @@ module embsys_microblaze_0_1_FPU_ADDSUB
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "FPU_DIV" *) 
 module embsys_microblaze_0_1_FPU_DIV
    (MEM_Div_Dec_Exp_4,
     E,
@@ -25889,7 +25878,6 @@ module embsys_microblaze_0_1_FPU_DIV
         .O(p_1_in0__22_carry_i_4_n_0));
 endmodule
 
-(* ORIG_REF_NAME = "FPU_MUL" *) 
 module embsys_microblaze_0_1_FPU_MUL
    (P,
     mem_inc_exp_5_cmb,
@@ -25999,7 +25987,6 @@ module embsys_microblaze_0_1_FPU_MUL
         .p_39_out40_out(p_39_out40_out));
 endmodule
 
-(* ORIG_REF_NAME = "Fpu" *) 
 module embsys_microblaze_0_1_Fpu
    (iterations,
     mem_sqrt_op_2,
@@ -29693,7 +29680,6 @@ module embsys_microblaze_0_1_Fpu
         .O(\data_rd_reg_reg[27] [0]));
 endmodule
 
-(* ORIG_REF_NAME = "MB_AND2B1L" *) 
 module embsys_microblaze_0_1_MB_AND2B1L
    (D,
     \mem_div_delay_reg[2] ,
@@ -29715,7 +29701,6 @@ module embsys_microblaze_0_1_MB_AND2B1L
         .SRI(SRI));
 endmodule
 
-(* ORIG_REF_NAME = "MB_DSP48E1" *) 
 module embsys_microblaze_0_1_MB_DSP48E1
    (DETECT,
     PCOUT,
@@ -30261,7 +30246,6 @@ module embsys_microblaze_0_1_MB_DSP48E1__parameterized1
         .UNDERFLOW(\Using_FPGA.DSP48E1_I1_n_5 ));
 endmodule
 
-(* ORIG_REF_NAME = "MB_FD" *) 
 module embsys_microblaze_0_1_MB_FD
    (mem_fpu_norm_delay_2,
     mem_fpu_norm_delay_3,
@@ -30286,7 +30270,6 @@ module embsys_microblaze_0_1_MB_FD
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "MB_FDE" *) 
 module embsys_microblaze_0_1_MB_FDE
    (\LOCKSTEP_Out_reg[2914] ,
     \mem_div_delay_reg[2] ,
@@ -31182,7 +31165,6 @@ module embsys_microblaze_0_1_MB_FDE_407
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "MB_FDR" *) 
 module embsys_microblaze_0_1_MB_FDR
    (\Using_FPGA.Native_0 ,
     sync_reset,
@@ -31239,7 +31221,6 @@ module embsys_microblaze_0_1_MB_FDR
         .O(\Using_FPGA.Native_i_1__62_n_0 ));
 endmodule
 
-(* ORIG_REF_NAME = "MB_FDRE" *) 
 module embsys_microblaze_0_1_MB_FDRE
    (D,
     sync_reset,
@@ -41876,7 +41857,6 @@ module embsys_microblaze_0_1_MB_FDR_586
         .R(ex_start_fpu_i_reg));
 endmodule
 
-(* ORIG_REF_NAME = "MB_FDS" *) 
 module embsys_microblaze_0_1_MB_FDS
    (\Using_FPGA.Native_0 ,
     I041_out,
@@ -42477,7 +42457,6 @@ module embsys_microblaze_0_1_MB_FD_585
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "MB_LUT4" *) 
 module embsys_microblaze_0_1_MB_LUT4
    (S,
     Q,
@@ -43746,7 +43725,6 @@ module embsys_microblaze_0_1_MB_LUT4__parameterized3_582
         .O(S));
 endmodule
 
-(* ORIG_REF_NAME = "MB_LUT6" *) 
 module embsys_microblaze_0_1_MB_LUT6
    (sel_input_iii_3,
     if_sel_input,
@@ -43889,7 +43867,6 @@ module embsys_microblaze_0_1_MB_LUT6_120
         .O(sel_input_iii_0));
 endmodule
 
-(* ORIG_REF_NAME = "MB_LUT6_2" *) 
 module embsys_microblaze_0_1_MB_LUT6_2
    (DI,
     S,
@@ -47304,7 +47281,6 @@ module embsys_microblaze_0_1_MB_LUT6__parameterized8_85
         .O(of_read_mem_write_op3_conflict_part1));
 endmodule
 
-(* ORIG_REF_NAME = "MB_MULT_AND" *) 
 module embsys_microblaze_0_1_MB_MULT_AND
    (DI,
     \Use_FPU.mem_Exp_Res_2_reg[10] ,
@@ -47544,7 +47520,6 @@ module embsys_microblaze_0_1_MB_MULT_AND_855
         .O(DI));
 endmodule
 
-(* ORIG_REF_NAME = "MB_MUXCY" *) 
 module embsys_microblaze_0_1_MB_MUXCY
    (mem_databus_ready,
     mem_access_completed_reg,
@@ -51237,7 +51212,6 @@ module embsys_microblaze_0_1_MB_MUXCY_99
         .O(of_read_imm_reg_ii_i_2_n_0));
 endmodule
 
-(* ORIG_REF_NAME = "MB_MUXCY_XORCY" *) 
 module embsys_microblaze_0_1_MB_MUXCY_XORCY
    (O56_out,
     Q,
@@ -65880,7 +65854,6 @@ module embsys_microblaze_0_1_MB_MUXCY_XORCY_856
   assign EX_ALU_Carry = lopt;
 endmodule
 
-(* ORIG_REF_NAME = "MB_MUXF7" *) 
 module embsys_microblaze_0_1_MB_MUXF7
    (sel_input_i_1,
     I4_0,
@@ -69477,7 +69450,6 @@ module embsys_microblaze_0_1_MB_MUXF7_556
         .O(swap_result));
 endmodule
 
-(* ORIG_REF_NAME = "MB_RAM32M" *) 
 module embsys_microblaze_0_1_MB_RAM32M
    (GPR_Op1,
     GPR_Op2,
@@ -70437,7 +70409,6 @@ module embsys_microblaze_0_1_MB_RAM32M_524
         .WE(wb_gpr_write_i_reg));
 endmodule
 
-(* ORIG_REF_NAME = "MB_SRL16E" *) 
 module embsys_microblaze_0_1_MB_SRL16E
    (Q_0,
     Q,
@@ -70999,7 +70970,6 @@ module embsys_microblaze_0_1_MB_SRL16E__parameterized9
         .Q(Q2_in));
 endmodule
 
-(* ORIG_REF_NAME = "MB_SRLC16E" *) 
 module embsys_microblaze_0_1_MB_SRLC16E
    (SRL16_Sel_7,
     which_pc__0,
@@ -71384,8 +71354,7 @@ endmodule
 (* C_USE_EXT_NM_BRK = "0" *) (* C_USE_FPU = "2" *) (* C_USE_HW_MUL = "0" *) 
 (* C_USE_ICACHE = "0" *) (* C_USE_INTERRUPT = "2" *) (* C_USE_MMU = "0" *) 
 (* C_USE_MSR_INSTR = "0" *) (* C_USE_NON_SECURE = "0" *) (* C_USE_PCMP_INSTR = "0" *) 
-(* C_USE_REORDER_INSTR = "1" *) (* C_USE_STACK_PROTECTION = "0" *) (* ORIG_REF_NAME = "MicroBlaze" *) 
-(* downgradeipidentifiedwarnings = "yes" *) 
+(* C_USE_REORDER_INSTR = "1" *) (* C_USE_STACK_PROTECTION = "0" *) (* downgradeipidentifiedwarnings = "yes" *) 
 module embsys_microblaze_0_1_MicroBlaze
    (RAM_To,
     RAM_From,
@@ -84031,7 +84000,6 @@ module embsys_microblaze_0_1_MicroBlaze
        (.P(\<const1> ));
 endmodule
 
-(* ORIG_REF_NAME = "MicroBlaze_Core" *) 
 module embsys_microblaze_0_1_MicroBlaze_Core
    (use_Reg_Neg_S_reg,
     \wb_instr_reg[31] ,
@@ -84257,7 +84225,6 @@ module embsys_microblaze_0_1_MicroBlaze_Core
         .O(reset_temp__0));
 endmodule
 
-(* ORIG_REF_NAME = "MicroBlaze_GTi" *) 
 module embsys_microblaze_0_1_MicroBlaze_GTi
    (E,
     \wb_instr_reg[31] ,
@@ -86638,7 +86605,6 @@ module embsys_microblaze_0_1_MicroBlaze_GTi
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "Operand_Select_gti" *) 
 module embsys_microblaze_0_1_Operand_Select_gti
    (\mem_byte_selects_reg[1] ,
     Q,
@@ -90153,7 +90119,6 @@ module embsys_microblaze_0_1_Operand_Select_gti
         .O(in0));
 endmodule
 
-(* ORIG_REF_NAME = "PC_Module_gti" *) 
 module embsys_microblaze_0_1_PC_Module_gti
    (D,
     O56_out,
@@ -92298,7 +92263,6 @@ module embsys_microblaze_0_1_PC_Module_gti
         .R(sync_reset));
 endmodule
 
-(* ORIG_REF_NAME = "PreFetch_Buffer_gti" *) 
 module embsys_microblaze_0_1_PreFetch_Buffer_gti
    (\Using_FPGA.Native ,
     \Using_FPGA.Native_0 ,
@@ -95197,7 +95161,6 @@ module embsys_microblaze_0_1_PreFetch_Buffer_gti
         .Q(p_1_in164_in));
 endmodule
 
-(* ORIG_REF_NAME = "Register_File_gti" *) 
 module embsys_microblaze_0_1_Register_File_gti
    (GPR_Op1,
     GPR_Op2,
@@ -95409,7 +95372,6 @@ module embsys_microblaze_0_1_Register_File_gti
         .wb_gpr_write_i_reg(wb_gpr_write_i_reg));
 endmodule
 
-(* ORIG_REF_NAME = "Shift_Logic_Module_gti" *) 
 module embsys_microblaze_0_1_Shift_Logic_Module_gti
    (out,
     \Using_FPGA.Native ,
@@ -95429,7 +95391,6 @@ module embsys_microblaze_0_1_Shift_Logic_Module_gti
   assign sign_16_23 = in0;
 endmodule
 
-(* ORIG_REF_NAME = "Zero_Detect_gti" *) 
 module embsys_microblaze_0_1_Zero_Detect_gti
    (\FPGA_Shift.cnt_shifts_reg[31] ,
     MEM_Div_By_Zero_reg,
@@ -95604,7 +95565,6 @@ module embsys_microblaze_0_1_Zero_Detect_gti
         .O(\Zero_Detecting[5].nibble_Zero_reg ));
 endmodule
 
-(* ORIG_REF_NAME = "address_hit" *) 
 module embsys_microblaze_0_1_address_hit
    (p_44_out,
     Hit,
@@ -95809,7 +95769,6 @@ module embsys_microblaze_0_1_address_hit
         .p_44_out(p_44_out));
 endmodule
 
-(* ORIG_REF_NAME = "carry_and" *) 
 module embsys_microblaze_0_1_carry_and
    (of_PipeRun_carry_1,
     \Using_FPGA.Native ,
@@ -97575,7 +97534,6 @@ module embsys_microblaze_0_1_carry_and_90
         .wb_valid_reg_0(wb_valid_reg_0));
 endmodule
 
-(* ORIG_REF_NAME = "carry_compare" *) 
 module embsys_microblaze_0_1_carry_compare
    (ex_Exp_Equal_2_cmb_s,
     \Use_FPU.mem_absAgtB_2_reg ,
@@ -97777,7 +97735,6 @@ module embsys_microblaze_0_1_carry_compare__parameterized1
         .lopt_1(lopt_1));
 endmodule
 
-(* ORIG_REF_NAME = "carry_compare_const" *) 
 module embsys_microblaze_0_1_carry_compare_const
    (ex_MantA_Zero_2_cmb_s,
     \Use_FPU.mem_cmp_eq_2_reg ,
@@ -98007,7 +97964,6 @@ module embsys_microblaze_0_1_carry_compare_const_587
         .lopt_8(\The_Compare[2].sel_reg_3 ));
 endmodule
 
-(* ORIG_REF_NAME = "carry_or" *) 
 module embsys_microblaze_0_1_carry_or
    (mem_databus_ready,
     mem_access_completed_reg,
@@ -98097,7 +98053,6 @@ module embsys_microblaze_0_1_carry_or_91
         .mem_wait_on_ready_N(mem_wait_on_ready_N));
 endmodule
 
-(* ORIG_REF_NAME = "dsp_module" *) 
 module embsys_microblaze_0_1_dsp_module
    (DETECT,
     PCOUT,
@@ -98235,7 +98190,6 @@ module embsys_microblaze_0_1_dsp_module__parameterized1
         .p_39_out40_out(p_39_out40_out));
 endmodule
 
-(* ORIG_REF_NAME = "exception_registers_gti" *) 
 module embsys_microblaze_0_1_exception_registers_gti
    (DI,
     \LOCKSTEP_Out_reg[2944] ,
@@ -100045,7 +99999,6 @@ module embsys_microblaze_0_1_exception_registers_gti
         .wb_PC_II_22(wb_PC_II_22));
 endmodule
 
-(* ORIG_REF_NAME = "fpu_conv" *) 
 module embsys_microblaze_0_1_fpu_conv
    (mem_flt_done,
     mem_int_done_early,
@@ -105924,7 +105877,6 @@ module embsys_microblaze_0_1_fpu_conv
         .R(sync_reset));
 endmodule
 
-(* ORIG_REF_NAME = "fpu_sqrt" *) 
 module embsys_microblaze_0_1_fpu_sqrt
    (iterations,
     addsub_res_24,
@@ -107416,7 +107368,6 @@ module embsys_microblaze_0_1_fpu_sqrt
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "instr_mux" *) 
 module embsys_microblaze_0_1_instr_mux
    (I139_out,
     Y,
@@ -107451,7 +107402,6 @@ module embsys_microblaze_0_1_instr_mux
         .in(in));
 endmodule
 
-(* ORIG_REF_NAME = "jump_logic" *) 
 module embsys_microblaze_0_1_jump_logic
    (ex_jump,
     EX_Op1_CMP_Equal,
@@ -107925,7 +107875,6 @@ module embsys_microblaze_0_1_jump_logic
         .R(reset_bool_for_rst));
 endmodule
 
-(* ORIG_REF_NAME = "mb_sync_bit" *) 
 module embsys_microblaze_0_1_mb_sync_bit
    (out,
     reset_temp__0,
@@ -108911,7 +108860,6 @@ module embsys_microblaze_0_1_mb_sync_bit__parameterized4_29
         .R(sync_reset));
 endmodule
 
-(* ORIG_REF_NAME = "mb_sync_vec" *) 
 module embsys_microblaze_0_1_mb_sync_vec
    (D,
     dbg_hit,
@@ -109082,7 +109030,6 @@ module embsys_microblaze_0_1_mb_sync_vec__parameterized1
         .sync_reset(sync_reset));
 endmodule
 
-(* ORIG_REF_NAME = "msr_reg_gti" *) 
 module embsys_microblaze_0_1_msr_reg_gti
    (D,
     \WB_MEM_Result_reg[30] ,
@@ -109272,7 +109219,6 @@ module embsys_microblaze_0_1_msr_reg_gti
         .R(sync_reset));
 endmodule
 
-(* ORIG_REF_NAME = "mux_bus" *) 
 module embsys_microblaze_0_1_mux_bus
    (I139_out,
     Y,
@@ -109368,7 +109314,6 @@ module embsys_microblaze_0_1_mux_bus
         .Y({Y[9],Y[25]}));
 endmodule
 
-(* ORIG_REF_NAME = "read_data_mux" *) 
 module embsys_microblaze_0_1_read_data_mux
    (wb_databus_read_data,
     Q,

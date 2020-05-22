@@ -22,7 +22,7 @@
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
     <Option Name="IPRepoPath" Val="$PPRDIR/../../OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project Source Files/ece544ip-library-master"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/../myip"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project2/pmodhb3/pmod_hb3_1.0"/>
     <Option Name="IPRepoPath" Val="$PPRDIR/../../OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project Source Files/vivado-library-v2019.1-1"/>
     <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
     <Option Name="IPCachePermission" Val="read"/>
@@ -41,13 +41,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="11"/>
-    <Option Name="WTModelSimExportSim" Val="11"/>
-    <Option Name="WTQuestaExportSim" Val="11"/>
-    <Option Name="WTIesExportSim" Val="11"/>
-    <Option Name="WTVcsExportSim" Val="11"/>
-    <Option Name="WTRivieraExportSim" Val="11"/>
-    <Option Name="WTActivehdlExportSim" Val="11"/>
+    <Option Name="WTXSimExportSim" Val="29"/>
+    <Option Name="WTModelSimExportSim" Val="29"/>
+    <Option Name="WTQuestaExportSim" Val="29"/>
+    <Option Name="WTIesExportSim" Val="29"/>
+    <Option Name="WTVcsExportSim" Val="29"/>
+    <Option Name="WTRivieraExportSim" Val="29"/>
+    <Option Name="WTActivehdlExportSim" Val="29"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -73,32 +73,62 @@
         <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_microblaze_0_1/embsys_microblaze_0_1.xci">
           <Proxy FileSetName="embsys_microblaze_0_1"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_microblaze_0_axi_intc_1/embsys_microblaze_0_axi_intc_1.xci">
-          <Proxy FileSetName="embsys_microblaze_0_axi_intc_1"/>
+        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_axi_timer_0_1/embsys_axi_timer_0_1.xci">
+          <Proxy FileSetName="embsys_axi_timer_0_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_fit_timer_0_1/embsys_fit_timer_0_1.xci">
+          <Proxy FileSetName="embsys_fit_timer_0_1"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_axi_uartlite_0_1/embsys_axi_uartlite_0_1.xci">
           <Proxy FileSetName="embsys_axi_uartlite_0_1"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_axi_timer_0_1/embsys_axi_timer_0_1.xci">
-          <Proxy FileSetName="embsys_axi_timer_0_1"/>
+        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_nexys4IO_0_1/embsys_nexys4IO_0_1.xci">
+          <Proxy FileSetName="embsys_nexys4IO_0_1"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_microblaze_0_xlconcat_1/embsys_microblaze_0_xlconcat_1.xci">
-          <Proxy FileSetName="embsys_microblaze_0_xlconcat_1"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_xbar_1/embsys_xbar_1.xci">
-          <Proxy FileSetName="embsys_xbar_1"/>
+        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_PmodOLEDrgb_0_1/embsys_PmodOLEDrgb_0_1.xci">
+          <Proxy FileSetName="embsys_PmodOLEDrgb_0_1"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_axi_gpio_0_1/embsys_axi_gpio_0_1.xci">
           <Proxy FileSetName="embsys_axi_gpio_0_1"/>
         </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_ilmb_v10_1/embsys_ilmb_v10_1.xci">
+          <Proxy FileSetName="embsys_ilmb_v10_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_PmodENC_0_1/embsys_PmodENC_0_1.xci">
+          <Proxy FileSetName="embsys_PmodENC_0_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_ila_0_0/embsys_ila_0_0.xci">
+          <Proxy FileSetName="embsys_ila_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_ilmb_bram_if_cntlr_1/embsys_ilmb_bram_if_cntlr_1.xci">
+          <Proxy FileSetName="embsys_ilmb_bram_if_cntlr_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_mdm_1_1/embsys_mdm_1_1.xci">
+          <Proxy FileSetName="embsys_mdm_1_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_pmod_hb3_0_0/embsys_pmod_hb3_0_0.xci">
+          <Proxy FileSetName="embsys_pmod_hb3_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_microblaze_0_xlconcat_1/embsys_microblaze_0_xlconcat_1.xci">
+          <Proxy FileSetName="embsys_microblaze_0_xlconcat_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_lmb_bram_1/embsys_lmb_bram_1.xci">
+          <Proxy FileSetName="embsys_lmb_bram_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_dlmb_v10_1/embsys_dlmb_v10_1.xci">
+          <Proxy FileSetName="embsys_dlmb_v10_1"/>
+        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_axi_gpio_1_0/embsys_axi_gpio_1_0.xci">
           <Proxy FileSetName="embsys_axi_gpio_1_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_axi_timebase_wdt_0_0/embsys_axi_timebase_wdt_0_0.xci">
-          <Proxy FileSetName="embsys_axi_timebase_wdt_0_0"/>
+        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_microblaze_0_axi_intc_1/embsys_microblaze_0_axi_intc_1.xci">
+          <Proxy FileSetName="embsys_microblaze_0_axi_intc_1"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_rst_clk_wiz_1_100M_1/embsys_rst_clk_wiz_1_100M_1.xci">
-          <Proxy FileSetName="embsys_rst_clk_wiz_1_100M_1"/>
+        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_xbar_1/embsys_xbar_1.xci">
+          <Proxy FileSetName="embsys_xbar_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="embsys.bd" FileRelPathName="ip/embsys_clk_wiz_1_1/embsys_clk_wiz_1_1.xci">
+          <Proxy FileSetName="embsys_clk_wiz_1_1"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/imports/hardware/nexysA7fpga.v">
@@ -190,15 +220,75 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="embsys_axi_timebase_wdt_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/embsys_axi_timebase_wdt_0_0">
+    <FileSet Name="embsys_ila_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/embsys_ila_0_0">
       <Config>
-        <Option Name="TopModule" Val="embsys_axi_timebase_wdt_0_0"/>
+        <Option Name="TopModule" Val="embsys_ila_0_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="embsys_rst_clk_wiz_1_100M_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/embsys_rst_clk_wiz_1_100M_1">
+    <FileSet Name="embsys_nexys4IO_0_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/embsys_nexys4IO_0_1">
       <Config>
-        <Option Name="TopModule" Val="embsys_rst_clk_wiz_1_100M_1"/>
+        <Option Name="TopModule" Val="embsys_nexys4IO_0_1"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="embsys_PmodOLEDrgb_0_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/embsys_PmodOLEDrgb_0_1">
+      <Config>
+        <Option Name="TopModule" Val="embsys_PmodOLEDrgb_0_1"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="embsys_fit_timer_0_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/embsys_fit_timer_0_1">
+      <Config>
+        <Option Name="TopModule" Val="embsys_fit_timer_0_1"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="embsys_mdm_1_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/embsys_mdm_1_1">
+      <Config>
+        <Option Name="TopModule" Val="embsys_mdm_1_1"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="embsys_clk_wiz_1_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/embsys_clk_wiz_1_1">
+      <Config>
+        <Option Name="TopModule" Val="embsys_clk_wiz_1_1"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="embsys_dlmb_v10_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/embsys_dlmb_v10_1">
+      <Config>
+        <Option Name="TopModule" Val="embsys_dlmb_v10_1"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="embsys_ilmb_v10_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/embsys_ilmb_v10_1">
+      <Config>
+        <Option Name="TopModule" Val="embsys_ilmb_v10_1"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="embsys_ilmb_bram_if_cntlr_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/embsys_ilmb_bram_if_cntlr_1">
+      <Config>
+        <Option Name="TopModule" Val="embsys_ilmb_bram_if_cntlr_1"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="embsys_lmb_bram_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/embsys_lmb_bram_1">
+      <Config>
+        <Option Name="TopModule" Val="embsys_lmb_bram_1"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="embsys_PmodENC_0_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/embsys_PmodENC_0_1">
+      <Config>
+        <Option Name="TopModule" Val="embsys_PmodENC_0_1"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="embsys_pmod_hb3_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/embsys_pmod_hb3_0_0">
+      <Config>
+        <Option Name="TopModule" Val="embsys_pmod_hb3_0_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -227,8 +317,8 @@
         <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design">
           <Option Id="ReTiming">1</Option>
-          <Option Id="Directive">6</Option>
           <Option Id="RepFanoutThreshold">1000</Option>
+          <Option Id="Directive">6</Option>
         </Step>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -240,8 +330,8 @@
         <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design">
           <Option Id="ReTiming">1</Option>
-          <Option Id="Directive">6</Option>
           <Option Id="RepFanoutThreshold">1000</Option>
+          <Option Id="Directive">6</Option>
         </Step>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -253,8 +343,8 @@
         <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design">
           <Option Id="ReTiming">1</Option>
-          <Option Id="Directive">6</Option>
           <Option Id="RepFanoutThreshold">1000</Option>
+          <Option Id="Directive">6</Option>
         </Step>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -266,8 +356,8 @@
         <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design">
           <Option Id="ReTiming">1</Option>
-          <Option Id="Directive">6</Option>
           <Option Id="RepFanoutThreshold">1000</Option>
+          <Option Id="Directive">6</Option>
         </Step>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -279,8 +369,8 @@
         <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design">
           <Option Id="ReTiming">1</Option>
-          <Option Id="Directive">6</Option>
           <Option Id="RepFanoutThreshold">1000</Option>
+          <Option Id="Directive">6</Option>
         </Step>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -292,8 +382,8 @@
         <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design">
           <Option Id="ReTiming">1</Option>
-          <Option Id="Directive">6</Option>
           <Option Id="RepFanoutThreshold">1000</Option>
+          <Option Id="Directive">6</Option>
         </Step>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -305,8 +395,8 @@
         <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design">
           <Option Id="ReTiming">1</Option>
-          <Option Id="Directive">6</Option>
           <Option Id="RepFanoutThreshold">1000</Option>
+          <Option Id="Directive">6</Option>
         </Step>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -318,8 +408,8 @@
         <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design">
           <Option Id="ReTiming">1</Option>
-          <Option Id="Directive">6</Option>
           <Option Id="RepFanoutThreshold">1000</Option>
+          <Option Id="Directive">6</Option>
         </Step>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -331,34 +421,164 @@
         <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design">
           <Option Id="ReTiming">1</Option>
-          <Option Id="Directive">6</Option>
           <Option Id="RepFanoutThreshold">1000</Option>
+          <Option Id="Directive">6</Option>
         </Step>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="embsys_axi_timebase_wdt_0_0_synth_1" Type="Ft3:Synth" SrcSet="embsys_axi_timebase_wdt_0_0" Part="xc7a50tcsg324-1" ConstrsSet="embsys_axi_timebase_wdt_0_0" Description="" WriteIncrSynthDcp="false" Dir="$PRUNDIR/embsys_axi_timebase_wdt_0_0_synth_1" IncludeInArchive="true">
+    <Run Id="embsys_ila_0_0_synth_1" Type="Ft3:Synth" SrcSet="embsys_ila_0_0" Part="xc7a50tcsg324-1" ConstrsSet="embsys_ila_0_0" Description="" WriteIncrSynthDcp="false" Dir="$PRUNDIR/embsys_ila_0_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design">
           <Option Id="ReTiming">1</Option>
-          <Option Id="Directive">6</Option>
           <Option Id="RepFanoutThreshold">1000</Option>
+          <Option Id="Directive">6</Option>
         </Step>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="embsys_rst_clk_wiz_1_100M_1_synth_1" Type="Ft3:Synth" SrcSet="embsys_rst_clk_wiz_1_100M_1" Part="xc7a50tcsg324-1" ConstrsSet="embsys_rst_clk_wiz_1_100M_1" Description="" WriteIncrSynthDcp="false" Dir="$PRUNDIR/embsys_rst_clk_wiz_1_100M_1_synth_1" IncludeInArchive="true">
+    <Run Id="embsys_nexys4IO_0_1_synth_1" Type="Ft3:Synth" SrcSet="embsys_nexys4IO_0_1" Part="xc7a50tcsg324-1" ConstrsSet="embsys_nexys4IO_0_1" Description="" WriteIncrSynthDcp="false" Dir="$PRUNDIR/embsys_nexys4IO_0_1_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design">
           <Option Id="ReTiming">1</Option>
-          <Option Id="Directive">6</Option>
           <Option Id="RepFanoutThreshold">1000</Option>
+          <Option Id="Directive">6</Option>
+        </Step>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="embsys_PmodOLEDrgb_0_1_synth_1" Type="Ft3:Synth" SrcSet="embsys_PmodOLEDrgb_0_1" Part="xc7a50tcsg324-1" ConstrsSet="embsys_PmodOLEDrgb_0_1" Description="" WriteIncrSynthDcp="false" Dir="$PRUNDIR/embsys_PmodOLEDrgb_0_1_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
+        <Step Id="synth_design">
+          <Option Id="ReTiming">1</Option>
+          <Option Id="RepFanoutThreshold">1000</Option>
+          <Option Id="Directive">6</Option>
+        </Step>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="embsys_fit_timer_0_1_synth_1" Type="Ft3:Synth" SrcSet="embsys_fit_timer_0_1" Part="xc7a50tcsg324-1" ConstrsSet="embsys_fit_timer_0_1" Description="" WriteIncrSynthDcp="false" Dir="$PRUNDIR/embsys_fit_timer_0_1_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
+        <Step Id="synth_design">
+          <Option Id="ReTiming">1</Option>
+          <Option Id="RepFanoutThreshold">1000</Option>
+          <Option Id="Directive">6</Option>
+        </Step>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="embsys_mdm_1_1_synth_1" Type="Ft3:Synth" SrcSet="embsys_mdm_1_1" Part="xc7a50tcsg324-1" ConstrsSet="embsys_mdm_1_1" Description="" WriteIncrSynthDcp="false" Dir="$PRUNDIR/embsys_mdm_1_1_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
+        <Step Id="synth_design">
+          <Option Id="ReTiming">1</Option>
+          <Option Id="RepFanoutThreshold">1000</Option>
+          <Option Id="Directive">6</Option>
+        </Step>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="embsys_clk_wiz_1_1_synth_1" Type="Ft3:Synth" SrcSet="embsys_clk_wiz_1_1" Part="xc7a50tcsg324-1" ConstrsSet="embsys_clk_wiz_1_1" Description="" WriteIncrSynthDcp="false" Dir="$PRUNDIR/embsys_clk_wiz_1_1_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
+        <Step Id="synth_design">
+          <Option Id="ReTiming">1</Option>
+          <Option Id="RepFanoutThreshold">1000</Option>
+          <Option Id="Directive">6</Option>
+        </Step>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="embsys_dlmb_v10_1_synth_1" Type="Ft3:Synth" SrcSet="embsys_dlmb_v10_1" Part="xc7a50tcsg324-1" ConstrsSet="embsys_dlmb_v10_1" Description="" WriteIncrSynthDcp="false" Dir="$PRUNDIR/embsys_dlmb_v10_1_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
+        <Step Id="synth_design">
+          <Option Id="ReTiming">1</Option>
+          <Option Id="RepFanoutThreshold">1000</Option>
+          <Option Id="Directive">6</Option>
+        </Step>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="embsys_ilmb_v10_1_synth_1" Type="Ft3:Synth" SrcSet="embsys_ilmb_v10_1" Part="xc7a50tcsg324-1" ConstrsSet="embsys_ilmb_v10_1" Description="" WriteIncrSynthDcp="false" Dir="$PRUNDIR/embsys_ilmb_v10_1_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
+        <Step Id="synth_design">
+          <Option Id="ReTiming">1</Option>
+          <Option Id="RepFanoutThreshold">1000</Option>
+          <Option Id="Directive">6</Option>
+        </Step>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="embsys_ilmb_bram_if_cntlr_1_synth_1" Type="Ft3:Synth" SrcSet="embsys_ilmb_bram_if_cntlr_1" Part="xc7a50tcsg324-1" ConstrsSet="embsys_ilmb_bram_if_cntlr_1" Description="" WriteIncrSynthDcp="false" Dir="$PRUNDIR/embsys_ilmb_bram_if_cntlr_1_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
+        <Step Id="synth_design">
+          <Option Id="ReTiming">1</Option>
+          <Option Id="RepFanoutThreshold">1000</Option>
+          <Option Id="Directive">6</Option>
+        </Step>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="embsys_lmb_bram_1_synth_1" Type="Ft3:Synth" SrcSet="embsys_lmb_bram_1" Part="xc7a50tcsg324-1" ConstrsSet="embsys_lmb_bram_1" Description="" WriteIncrSynthDcp="false" Dir="$PRUNDIR/embsys_lmb_bram_1_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
+        <Step Id="synth_design">
+          <Option Id="ReTiming">1</Option>
+          <Option Id="RepFanoutThreshold">1000</Option>
+          <Option Id="Directive">6</Option>
+        </Step>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="embsys_PmodENC_0_1_synth_1" Type="Ft3:Synth" SrcSet="embsys_PmodENC_0_1" Part="xc7a50tcsg324-1" ConstrsSet="embsys_PmodENC_0_1" Description="" WriteIncrSynthDcp="false" Dir="$PRUNDIR/embsys_PmodENC_0_1_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
+        <Step Id="synth_design">
+          <Option Id="ReTiming">1</Option>
+          <Option Id="RepFanoutThreshold">1000</Option>
+          <Option Id="Directive">6</Option>
+        </Step>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="embsys_pmod_hb3_0_0_synth_1" Type="Ft3:Synth" SrcSet="embsys_pmod_hb3_0_0" Part="xc7a50tcsg324-1" ConstrsSet="embsys_pmod_hb3_0_0" Description="" WriteIncrSynthDcp="false" Dir="$PRUNDIR/embsys_pmod_hb3_0_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="bestone" Flow="Vivado Synthesis 2018"/>
+        <Step Id="synth_design">
+          <Option Id="ReTiming">1</Option>
+          <Option Id="RepFanoutThreshold">1000</Option>
+          <Option Id="Directive">6</Option>
         </Step>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -600,7 +820,7 @@
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="embsys_axi_timebase_wdt_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a50tcsg324-1" ConstrsSet="embsys_axi_timebase_wdt_0_0" Description="" WriteIncrSynthDcp="false" SynthRun="embsys_axi_timebase_wdt_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+    <Run Id="embsys_ila_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a50tcsg324-1" ConstrsSet="embsys_ila_0_0" Description="" WriteIncrSynthDcp="false" SynthRun="embsys_ila_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="best_so_far" Flow="Vivado Implementation 2018"/>
         <Step Id="init_design"/>
@@ -626,7 +846,267 @@
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="embsys_rst_clk_wiz_1_100M_1_impl_1" Type="Ft2:EntireDesign" Part="xc7a50tcsg324-1" ConstrsSet="embsys_rst_clk_wiz_1_100M_1" Description="" WriteIncrSynthDcp="false" SynthRun="embsys_rst_clk_wiz_1_100M_1_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+    <Run Id="embsys_nexys4IO_0_1_impl_1" Type="Ft2:EntireDesign" Part="xc7a50tcsg324-1" ConstrsSet="embsys_nexys4IO_0_1" Description="" WriteIncrSynthDcp="false" SynthRun="embsys_nexys4IO_0_1_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="best_so_far" Flow="Vivado Implementation 2018"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design">
+          <Option Id="Directive">2</Option>
+        </Step>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design">
+          <Option Id="Directive">18</Option>
+        </Step>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">6</Option>
+        </Step>
+        <Step Id="route_design">
+          <Option Id="Directive">7</Option>
+        </Step>
+        <Step Id="post_route_phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">3</Option>
+        </Step>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="embsys_PmodOLEDrgb_0_1_impl_1" Type="Ft2:EntireDesign" Part="xc7a50tcsg324-1" ConstrsSet="embsys_PmodOLEDrgb_0_1" Description="" WriteIncrSynthDcp="false" SynthRun="embsys_PmodOLEDrgb_0_1_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="best_so_far" Flow="Vivado Implementation 2018"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design">
+          <Option Id="Directive">2</Option>
+        </Step>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design">
+          <Option Id="Directive">18</Option>
+        </Step>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">6</Option>
+        </Step>
+        <Step Id="route_design">
+          <Option Id="Directive">7</Option>
+        </Step>
+        <Step Id="post_route_phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">3</Option>
+        </Step>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="embsys_fit_timer_0_1_impl_1" Type="Ft2:EntireDesign" Part="xc7a50tcsg324-1" ConstrsSet="embsys_fit_timer_0_1" Description="" WriteIncrSynthDcp="false" SynthRun="embsys_fit_timer_0_1_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="best_so_far" Flow="Vivado Implementation 2018"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design">
+          <Option Id="Directive">2</Option>
+        </Step>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design">
+          <Option Id="Directive">18</Option>
+        </Step>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">6</Option>
+        </Step>
+        <Step Id="route_design">
+          <Option Id="Directive">7</Option>
+        </Step>
+        <Step Id="post_route_phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">3</Option>
+        </Step>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="embsys_mdm_1_1_impl_1" Type="Ft2:EntireDesign" Part="xc7a50tcsg324-1" ConstrsSet="embsys_mdm_1_1" Description="" WriteIncrSynthDcp="false" SynthRun="embsys_mdm_1_1_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="best_so_far" Flow="Vivado Implementation 2018"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design">
+          <Option Id="Directive">2</Option>
+        </Step>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design">
+          <Option Id="Directive">18</Option>
+        </Step>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">6</Option>
+        </Step>
+        <Step Id="route_design">
+          <Option Id="Directive">7</Option>
+        </Step>
+        <Step Id="post_route_phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">3</Option>
+        </Step>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="embsys_clk_wiz_1_1_impl_1" Type="Ft2:EntireDesign" Part="xc7a50tcsg324-1" ConstrsSet="embsys_clk_wiz_1_1" Description="" WriteIncrSynthDcp="false" SynthRun="embsys_clk_wiz_1_1_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="best_so_far" Flow="Vivado Implementation 2018"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design">
+          <Option Id="Directive">2</Option>
+        </Step>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design">
+          <Option Id="Directive">18</Option>
+        </Step>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">6</Option>
+        </Step>
+        <Step Id="route_design">
+          <Option Id="Directive">7</Option>
+        </Step>
+        <Step Id="post_route_phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">3</Option>
+        </Step>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="embsys_dlmb_v10_1_impl_1" Type="Ft2:EntireDesign" Part="xc7a50tcsg324-1" ConstrsSet="embsys_dlmb_v10_1" Description="" WriteIncrSynthDcp="false" SynthRun="embsys_dlmb_v10_1_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="best_so_far" Flow="Vivado Implementation 2018"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design">
+          <Option Id="Directive">2</Option>
+        </Step>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design">
+          <Option Id="Directive">18</Option>
+        </Step>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">6</Option>
+        </Step>
+        <Step Id="route_design">
+          <Option Id="Directive">7</Option>
+        </Step>
+        <Step Id="post_route_phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">3</Option>
+        </Step>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="embsys_ilmb_v10_1_impl_1" Type="Ft2:EntireDesign" Part="xc7a50tcsg324-1" ConstrsSet="embsys_ilmb_v10_1" Description="" WriteIncrSynthDcp="false" SynthRun="embsys_ilmb_v10_1_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="best_so_far" Flow="Vivado Implementation 2018"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design">
+          <Option Id="Directive">2</Option>
+        </Step>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design">
+          <Option Id="Directive">18</Option>
+        </Step>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">6</Option>
+        </Step>
+        <Step Id="route_design">
+          <Option Id="Directive">7</Option>
+        </Step>
+        <Step Id="post_route_phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">3</Option>
+        </Step>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="embsys_ilmb_bram_if_cntlr_1_impl_1" Type="Ft2:EntireDesign" Part="xc7a50tcsg324-1" ConstrsSet="embsys_ilmb_bram_if_cntlr_1" Description="" WriteIncrSynthDcp="false" SynthRun="embsys_ilmb_bram_if_cntlr_1_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="best_so_far" Flow="Vivado Implementation 2018"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design">
+          <Option Id="Directive">2</Option>
+        </Step>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design">
+          <Option Id="Directive">18</Option>
+        </Step>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">6</Option>
+        </Step>
+        <Step Id="route_design">
+          <Option Id="Directive">7</Option>
+        </Step>
+        <Step Id="post_route_phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">3</Option>
+        </Step>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="embsys_lmb_bram_1_impl_1" Type="Ft2:EntireDesign" Part="xc7a50tcsg324-1" ConstrsSet="embsys_lmb_bram_1" Description="" WriteIncrSynthDcp="false" SynthRun="embsys_lmb_bram_1_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="best_so_far" Flow="Vivado Implementation 2018"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design">
+          <Option Id="Directive">2</Option>
+        </Step>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design">
+          <Option Id="Directive">18</Option>
+        </Step>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">6</Option>
+        </Step>
+        <Step Id="route_design">
+          <Option Id="Directive">7</Option>
+        </Step>
+        <Step Id="post_route_phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">3</Option>
+        </Step>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="embsys_PmodENC_0_1_impl_1" Type="Ft2:EntireDesign" Part="xc7a50tcsg324-1" ConstrsSet="embsys_PmodENC_0_1" Description="" WriteIncrSynthDcp="false" SynthRun="embsys_PmodENC_0_1_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="best_so_far" Flow="Vivado Implementation 2018"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design">
+          <Option Id="Directive">2</Option>
+        </Step>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design">
+          <Option Id="Directive">18</Option>
+        </Step>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">6</Option>
+        </Step>
+        <Step Id="route_design">
+          <Option Id="Directive">7</Option>
+        </Step>
+        <Step Id="post_route_phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">3</Option>
+        </Step>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="embsys_pmod_hb3_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a50tcsg324-1" ConstrsSet="embsys_pmod_hb3_0_0" Description="" WriteIncrSynthDcp="false" SynthRun="embsys_pmod_hb3_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="best_so_far" Flow="Vivado Implementation 2018"/>
         <Step Id="init_design"/>

@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
 -- Date        : Sat May  9 19:48:26 2020
 -- Host        : DESKTOP-J4B3MVP running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               c:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_gpio_1_0/embsys_axi_gpio_1_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top embsys_axi_gpio_1_0 -prefix
+--               embsys_axi_gpio_1_0_ embsys_axi_gpio_1_0_sim_netlist.vhdl
 -- Design      : embsys_axi_gpio_1_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -60,8 +60,6 @@ entity embsys_axi_gpio_1_0_address_decoder is
     ip2bus_wrack_i_D1 : in STD_LOGIC;
     is_write_reg : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_gpio_1_0_address_decoder : entity is "address_decoder";
 end embsys_axi_gpio_1_0_address_decoder;
 
 architecture STRUCTURE of embsys_axi_gpio_1_0_address_decoder is
@@ -1366,8 +1364,6 @@ entity embsys_axi_gpio_1_0_cdc_sync is
     gpio_io_i : in STD_LOGIC_VECTOR ( 4 downto 0 );
     s_axi_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_gpio_1_0_cdc_sync : entity is "cdc_sync";
 end embsys_axi_gpio_1_0_cdc_sync;
 
 architecture STRUCTURE of embsys_axi_gpio_1_0_cdc_sync is
@@ -2864,8 +2860,6 @@ entity embsys_axi_gpio_1_0_interrupt_control is
     p_6_in : in STD_LOGIC;
     Bus_RNW_reg : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_gpio_1_0_interrupt_control : entity is "interrupt_control";
 end embsys_axi_gpio_1_0_interrupt_control;
 
 architecture STRUCTURE of embsys_axi_gpio_1_0_interrupt_control is
@@ -3106,8 +3100,6 @@ entity embsys_axi_gpio_1_0_GPIO_Core is
     bus2ip_rnw_i_reg_0 : in STD_LOGIC_VECTOR ( 0 to 0 );
     bus2ip_rnw_i_reg_1 : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_gpio_1_0_GPIO_Core : entity is "GPIO_Core";
 end embsys_axi_gpio_1_0_GPIO_Core;
 
 architecture STRUCTURE of embsys_axi_gpio_1_0_GPIO_Core is
@@ -4338,8 +4330,6 @@ entity embsys_axi_gpio_1_0_slave_attachment is
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 6 downto 0 );
     \ip2bus_data_i_D1_reg[0]_1\ : in STD_LOGIC_VECTOR ( 17 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_gpio_1_0_slave_attachment : entity is "slave_attachment";
 end embsys_axi_gpio_1_0_slave_attachment;
 
 architecture STRUCTURE of embsys_axi_gpio_1_0_slave_attachment is
@@ -5482,8 +5472,6 @@ entity embsys_axi_gpio_1_0_axi_lite_ipif is
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 6 downto 0 );
     \ip2bus_data_i_D1_reg[0]_0\ : in STD_LOGIC_VECTOR ( 17 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_gpio_1_0_axi_lite_ipif : entity is "axi_lite_ipif";
 end embsys_axi_gpio_1_0_axi_lite_ipif;
 
 architecture STRUCTURE of embsys_axi_gpio_1_0_axi_lite_ipif is
@@ -5611,8 +5599,6 @@ entity embsys_axi_gpio_1_0_axi_gpio is
   attribute C_TRI_DEFAULT of embsys_axi_gpio_1_0_axi_gpio : entity is -1;
   attribute C_TRI_DEFAULT_2 : integer;
   attribute C_TRI_DEFAULT_2 of embsys_axi_gpio_1_0_axi_gpio : entity is -1;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of embsys_axi_gpio_1_0_axi_gpio : entity is "axi_gpio";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of embsys_axi_gpio_1_0_axi_gpio : entity is "yes";
   attribute ip_group : string;

@@ -1,0 +1,26 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sat May 16 17:15:07 2020
+# Process ID: 6688
+# Current directory: C:/Users/ME/Vivado_Projects/project_2
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15932 C:\Users\ME\Vivado_Projects\project_2\project_2.xpr
+# Log file: C:/Users/ME/Vivado_Projects/project_2/vivado.log
+# Journal file: C:/Users/ME/Vivado_Projects/project_2\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/ME/Vivado_Projects/project_2/project_2.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project Source Files/ece544ip-library-master'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/ME/Vivado_Projects/myip'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project Source Files/vivado-library-v2019.1-1'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
+CRITICAL WARNING: [IP_Flow 19-1663] Duplicate IP found for 'digilentinc.com:IP:PWM:2.0'. The one found in IP location 'c:/Users/ME/Vivado_Projects/myip/legacyrepo/PWM_2.0' will take precedence over the same IP in location c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project Source Files/vivado-library-v2019.1-1/ip/PWM_2.0
+CRITICAL WARNING: [IP_Flow 19-1663] Duplicate IP found for 'digilentinc.com:IP:PWM_Analyzer:1.0'. The one found in IP location 'c:/Users/ME/Vivado_Projects/myip/legacyrepo/PWM_Analyzer_1.0' will take precedence over the same IP in location c:/Users/ME/OneDrive/Documents/School/PSU/Spring2020/ECE544/Projects/Project Source Files/vivado-library-v2019.1-1/ip/PWM_Analyzer_1.0
+open_project: Time (s): cpu = 00:00:27 ; elapsed = 00:00:20 . Memory (MB): peak = 862.668 ; gain = 185.559
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat May 16 19:45:22 2020...

@@ -28,6 +28,7 @@
 #include "nexys4IO.h"
 #include "PmodOLEDrgb.h"
 #include "PmodENC.h"
+#include "pmod_hb3.h"
 
 #define mainQUEUE_LENGTH					( 1 )
 
@@ -94,6 +95,8 @@
 
 /* Timer Macros	*/
 #define TIMER0					0
+#define TIMER1					1
+#define MASK_AXITIMER_0_INTR	0x100
 
 /* Data Structures	*/
 // ENC
@@ -123,19 +126,36 @@ typedef struct gain{
 	u8 k_increment;
 }gain_data;
 
-// Create config instances
+// PID
+typedef struct pid{
+	u32 derState;	// Last position input
+	u32 intergratState; // Integrator state
+	u32 intergratMax,		// Maximum and Minimum
+			intergratMin;	// allowable state
+	u32 intergratGain,	// Integral gain
+			propGain,		// Proportional gain
+			derGain;		// Derivative gain
+}SPid;
+
+/* Create config instances */
 static XWdtTb_Config *wdtConfig;
 
 /* Peripheral Instances	*/
+
 // Gpio Instances
-static XGpio xOutputGPIOInstance, xGPIO_1_instance;
+static XGpio  xGPIO_0_instance, xGPIO_1_instance;
+
+// WDT Instances
 static XWdtTb xWatchDogTimerInstance;
 
 // ENC Instances
 static PmodENC pmodENC_inst;
 
 // AXI Timer Instances
-static XTmrCtr	AXITimerInst;				// PWM timer instance
+static XTmrCtr	AXITimerInstance;				// PWM timer instance
+
+// OLEDrgb Instances
+static PmodOLEDrgb pmodOLEDrgb_inst;
 
 /*	Function Declarations	*/
 void prvSetupHardware( void );
@@ -145,17 +165,21 @@ void initializegpio( void );
 void initializewdt( void );
 void initializenc( void );
 void initializetimer( void );
-int AXI_Timer_initialize(void);
+void initializeoled( void );
 void initialize_states(enc_data *enc, gain_data *gain_coe);
+void initializepwm(void);
+void initializeintc(void);
 
 // ISRs
 void register_wdt_interrupt_handler( void );
 void register_gpio_interrupt_handler( void );
+void register_axi_interrupt_handler( void );
 
 // Tasks
 void input_param_thread(void *p);
 void master_thread(void *p);
 void display_thread(void *p);
+void pid_thread(void *p);
 
 // Sub-Tasks
 void update_a7io_state(io_data * a7io);
@@ -163,10 +187,20 @@ void update_enc_state(enc_data * enc, gain_data *gain_coe);
 void update_gains(io_data *a7io, gain_data *gain_coe);
 int get_rpm(u8 duty);
 void update_sseg(enc_data *enc);
-
+void PMDIO_putnum(PmodOLEDrgb* InstancePtr, int32_t num, int32_t radix);
+void update_oled(enc_data *rx_enc, gain_data *rx_gain);
+unsigned long constructinputmessage(enc_data *enc, gain_data *gain_coe);
+u32 UpdatePID(SPid * pid, int error, u32 position);
+void deconstructinputmessage(gain_data *rx_gain, enc_data *rx_enc, unsigned long ulReceivedValue);
+int AXI_Timer_initialize(void);
+static void gpio_intr(void *pvUnused);
+static void wdt_intr(void *pvUnused);
 
 //Declare a Semaphore
 xSemaphoreHandle binary_sem;
+xSemaphoreHandle ip2d;
+xSemaphoreHandle i2p;
+
 
 /* The queue used by the queue send and queue receive tasks. */
 static xQueueHandle xQueue_param2pid = NULL;
@@ -175,175 +209,274 @@ static xQueueHandle xQueue_param2disp = NULL;
 
 /*	Globals	*/
 static volatile unsigned int force_crash = FALSE;
-static volatile unsigned int health_check = FALSE;
+static volatile unsigned int master_health_check = FALSE;
+static volatile unsigned int input_health_check = FALSE;
+static volatile unsigned int display_health_check = FALSE;
+static volatile unsigned int pid_health_check = FALSE;
+static portBASE_TYPE xStatus;
 
-//ISR, to handle interrupt of GPIO dip switch
-//Can also use Push buttons.
-//Give a Semaphore
+
+/* DEBUG Macro	*/
+#define DEBUG_MAIN
+#define DEBUG_MASTER
+#define DEBUG_DISP
+#define DEBUG_INPUT
+#define DEBUG_PID
+#define DEBUG_NO_AXITIMER
+#define DEBUG_GPIO_ISR
+#define DEBUG_WDT
+#define DEBUG_WDT_ISR
+#define DEBUG_GPIO
+#define DEBUG_OLED
+
+/*-----Code Section-----*/
+
+/*	Main	*/
+
+int main(void)
+{
+	// Announcement
+	#ifdef DEBUG_MAIN
+	print("\r\nMAIN:\tProgram Start.\r\n");
+	#endif 
+	// Handle WDT reset asserted event.
+	if((MASK_TWCSR0_WRS & XWdtTb_ReadReg(XPAR_AXI_TIMEBASE_WDT_0_BASEADDR, XWT_TWCSR0_OFFSET))){
+	
+		// Clear WRS bit. 
+		print("WDT:\tWRS - SET - Restart caused by WDT. - Cleared -\r\n");
+		XWdtTb_WriteReg(XPAR_AXI_TIMEBASE_WDT_0_BASEADDR, XWT_TWCSR0_OFFSET, MASK_TWCSR0_WRS);
+	}
+
+	// Initialize the HW
+	prvSetupHardware();
+
+	//Create Semaphores
+	vSemaphoreCreateBinary(binary_sem);
+	#ifdef DEBUG_MAIN
+	print("MAIN:\t binary_sem Semaphore Created.\r\n");
+	#endif
+	
+	vSemaphoreCreateBinary(i2p);
+	#ifdef DEBUG_MAIN
+	print("MAIN:\t i2p Semaphore Created.\r\n");
+	#endif
+	
+	vSemaphoreCreateBinary(ip2d);
+	#ifdef DEBUG_MAIN
+	print("MAIN:\t ip2d Semaphore Created.\r\n");
+	#endif
+	
+	// Initialize FreeRTOS
+
+	// Create Master Thread
+	#ifndef DEBUG_NO_MASTER
+	xTaskCreate( master_thread,
+			"MASTER",
+			2048,
+			NULL,
+			2,
+			NULL );
+	#endif
+
+	// Start the Scheduler
+	#ifdef DEBUG_MAIN
+	print("MAIN:\tScheduler Starting.\r\n");
+	#endif
+	
+	vTaskStartScheduler();
+
+	// Cleanup Platform
+
+	return -1;
+}
+
+/*	Interrupt Handlers	*/
+
 static void gpio_intr (void *pvUnused)
 {
-	// print("GPIO1: ISR Start.\r\n");
+	#ifdef DEBUG_GPIO_ISR
+	print("GPIO:\tISR Start.\r\n");
+	#endif
+	
+	//Give up semaphore
 	xSemaphoreGiveFromISR(binary_sem,NULL);
-
+	
+	//Clear interrupt
 	XGpio_InterruptClear( &xGPIO_1_instance, MASK_GPIO1_INTR_ALL );
-
+	
+	#ifdef DEBUG_GPIO_ISR
+	print("GPIO:\tISR Exit.\r\n");
+	#endif
 }
 
-// ISR, handles WDT interrupt.
 static void wdt_intr(void *pvUnused){
-
-	// print("WDT: ISR Start.\r\n");
-
-	/* Check for crash conditions	*/
-
-	if(!force_crash){
-		// No force crash enabled, restart normally.
-		// print("WDT: Timer Restarted.\r\n");
-		XWdtTb_RestartWdt(&xWatchDogTimerInstance);
-	}
-	else if(health_check){
-		// No violation of health check, reset to FALSE.
-		health_check = FALSE;
-	}
-	else{
-		// force crash or health check triggered reset.
-		print("WDT: Crashing!\r\n");
+	
+	#ifdef DEBUG_WDT_ISR
+	print("WDT:\tISR Entered.\r\n");
+	#endif
+	
+	if(force_crash){
+		print("WDT:\tForced Crash.\r\n");
 		XWdtTb_IntrClear(&xWatchDogTimerInstance);
 	}
+	else if(master_health_check & input_health_check & display_health_check & pid_health_check){
+		
+		// No violation of health check, reset all for next update.
+		master_health_check = FALSE;
+		input_health_check = FALSE;
+		display_health_check = FALSE;
+		pid_health_check = FALSE;
 
+		// Restart Timer to prevent reset
+		XWdtTb_RestartWdt(&xWatchDogTimerInstance);
+	}
+	else{
+	
+		if(master_health_check == FALSE){
+			print("WDT:\tMaster Thread Crashed.\r\n");
+		}
+		if(input_health_check == FALSE){
+			print("WDT:\tInput Thread Crashed.\r\n");
+		}
+		if(display_health_check == FALSE){
+			print("WDT:\tDisplay Thread Crashed.\r\n");
+		}
+		if(pid_health_check == FALSE){
+			print("WDT:\tPID Thread Crashed.\r\n");
+		}
+		XWdtTb_IntrClear(&xWatchDogTimerInstance);
+	}
+	
+	#ifdef DEBUG_WDT_ISR
+	print("WDT:\tISR Exit.\r\n");
+	#endif
 }
+
+/*	Threads	*/
 
 void display_thread(void *p){
 
 	/* Queue data	*/
 	unsigned long ulReceivedValue = 0xAAA;
-	unsigned long ulReceivedValue_last = 0xAAA;
 
 	/* Data structures	*/
 	enc_data rx_enc;
 	gain_data rx_gain;
 
-
-
 	// Initialize SSEG
 	NX410_SSEG_setAllDigits(SSEGLO, CC_BLANK, CC_BLANK, CC_BLANK, CC_BLANK, DP_NONE);
 	NX410_SSEG_setAllDigits(SSEGHI, CC_BLANK, CC_BLANK, CC_BLANK, CC_BLANK, DP_NONE);
-	print("SSEG: Initialized\r\n");
 
+	#ifdef DEBUG_DISP
+	print("DISP THREAD:\tEntering While Loop.\r\n");
+	#endif
 
 	while(1){
+		
+		/*	Update Displays	*/
 
-		// Receive queue data
+		// Check queue from input parameters
 		xQueueReceive( xQueue_param2disp, &ulReceivedValue, portMAX_DELAY );
 
-		if(ulReceivedValue != ulReceivedValue_last){
+		// Update rx structs
+		deconstructinputmessage(&rx_gain, &rx_enc, ulReceivedValue);
 
-			/* Display variables	*/
-			u32 leds = 0;
+		/* Display variables	*/
+		u32 leds = 0;
 
-			/* Update last data value	*/
-			ulReceivedValue_last = ulReceivedValue;
+		// Construct led signal
+		if(rx_gain.kp > 0) leds = leds | NX4IO_LED2_MASK;
+		if(rx_gain.ki > 0) leds = leds | NX4IO_LED1_MASK;
+		if(rx_gain.kd > 0) leds = leds | NX4IO_LED0_MASK;
 
-			// Extract kd
-			rx_gain.kd = ulReceivedValue & PID_KD_MASK;
-			ulReceivedValue = (ulReceivedValue >> PID_KD_WIDTH);
+		//Set LEDs with led signal constructed above.
+		NX4IO_setLEDs(leds);
 
-			// Extract Ki
-			rx_gain.ki =  ulReceivedValue & PID_KI_MASK;
-			ulReceivedValue = (ulReceivedValue >> PID_KI_WIDTH);		
-			
-			// Extract Kp
-			rx_gain.kp = ulReceivedValue & PID_KP_MASK;
-			ulReceivedValue = (ulReceivedValue >> PID_KD_WIDTH);		
+		// Display requested RPM.
+		update_sseg(&rx_enc);
 
-			// Extract Motor speed setpoint
-			rx_enc.motor_speed = ulReceivedValue & ENC_MOTOR_SPEED_MASK;
-			ulReceivedValue = (ulReceivedValue >> ENC_MOTOR_SPEED_WIDTH);
+		// Display PID variables
+		// update_oled(&rx_enc, &rx_gain);
+		
+		// Check queue from PID
+		xQueueReceive( xQueue_pid2disp, &ulReceivedValue, portMAX_DELAY );
 
-			xil_printf("rx_gain.kd = %u\r\n", rx_gain.kd);
-			xil_printf("rx_gain.ki = %u\r\n", rx_gain.ki);
-			xil_printf("rx_gain.kp = %u\r\n", rx_gain.kp);
-			xil_printf("rx_enc.motor_speed = %u\r\n", rx_enc.motor_speed);
+		// Set healthy
+		display_health_check = TRUE;
 
-			// Construct led signal
-			if(rx_gain.kp > 0) leds = leds | NX4IO_LED2_MASK;
-			if(rx_gain.ki > 0) leds = leds | NX4IO_LED1_MASK;
-			if(rx_gain.kd > 0) leds = leds | NX4IO_LED0_MASK;
-			
-			xil_printf("leds = %x\r\n", leds);
-
-			// Set LEDs with led signal constructed above.
-			NX4IO_setLEDs(leds);
-
-			// Display requested RPM.
-			update_sseg(&rx_enc);
-		}
 	}
+
+	#ifdef DEBUG_DISP
+	print("DISP THREAD:\tExited While Loop!!!\r\n");
+	#endif
+
 }
 
 void input_param_thread(void *p){
 
-	/* Data Structures	*/
+	// /* Data Structures	*/
 	enc_data enc;
 	io_data a7io;
 	gain_data gain_coe;
 
-	/* Initialize Data Structures	*/
+	// /* Initialize Data Structures	*/
 	initialize_states(&enc, &gain_coe);
 
-	/* Queue Variable	*/
+	// /* Queue Variable	*/
 	unsigned long ulValueToSend = 0xAA5;
 
-	/* Task variables	*/
+	// /* Task variables	*/
 	u32 last_enc_sw = 0;
-
-
+	
+	#ifdef DEBUG_INPUT
+	print("INPUT THREAD: Entering While Loop.\r\n");
+	#endif
+	
 	while(1){
-		
+
 		// Update ENC state
 		update_enc_state(&enc, &gain_coe);
 
-		if(xSemaphoreTake(binary_sem,5)){
+		// Check for change in the ENC switch (safety!)
+		if(enc.dir != last_enc_sw) enc.motor_speed = 0;
+
+		// GPIO Interrupt Triggers routine
+		if(xSemaphoreTake(binary_sem,1)){
 
 			// Read BTN and SW inputs
 			update_a7io_state(&a7io);
 
 			// Update gain values
 			update_gains(&a7io, &gain_coe);
-
-			// xil_printf("s8 kp = %d\r\n", gain_coe.kp);
-			// xil_printf("s8 ki = %d\r\n", gain_coe.ki);
-			// xil_printf("s8 kd = %d\r\n", gain_coe.kd);
-			// xil_printf("u8 ms_multiplier = %d\r\n", gain_coe.ms_multiplier);
-			// xil_printf("u8 k_increment = %d\r\n", gain_coe.k_increment);
-						
-			// Check for btnc to reset constants
-			if(a7io.btnc) initialize_states(&enc, &gain_coe);
-			
 		}
 
-		// Check for change in the ENC switch (safety!)
-		if(enc.dir != last_enc_sw) enc.motor_speed = 0;
+		// xil_printf("s8 kp = %d\r\n", gain_coe.kp);
+		// xil_printf("s8 ki = %d\r\n", gain_coe.ki);
+		// xil_printf("s8 kd = %d\r\n", gain_coe.kd);
+		// xil_printf("u8 ms_multiplier = %d\r\n", gain_coe.ms_multiplier);
+		// xil_printf("u8 k_increment = %d\r\n", gain_coe.k_increment);
 
-		/* Construct message.	*/
-		// Assign motor_speed setpoint.
-		ulValueToSend = enc.motor_speed;
+		// Check for btnc to reset constants
+		if(a7io.btnc) initialize_states(&enc, &gain_coe);
 
-		// Shift in kp,
-		ulValueToSend = (ulValueToSend << PID_KP_WIDTH) | gain_coe.kp;
-		
-		// Shift in ki,
-		ulValueToSend = (ulValueToSend << PID_KI_WIDTH) | gain_coe.ki;
+		// Construct Message to send
+		ulValueToSend = constructinputmessage(&enc, &gain_coe);
 
-		// Shift in kd. done.
-		ulValueToSend = (ulValueToSend << PID_KD_WIDTH) | gain_coe.kd;
+		// Update PID Task
+		xQueueSend( xQueue_param2pid, &ulValueToSend, mainDONT_BLOCK );
 
 		// Update Display Task
 		xQueueSend( xQueue_param2disp, &ulValueToSend, mainDONT_BLOCK );
 
-		// Update PID Task
-		//xQueueSend( xQueue, &ulValueToSend, mainDONT_BLOCK );
+		// print("INPUT PARAM THREAD\r\n");
+
+		// Set Healthy
+		input_health_check = TRUE;
 	}
+	
+	#ifdef DEBUG_INPUT
+	print("INPUT THREAD:\tExited While Loop!!!\r\n");
+	#endif
 }
 
 void master_thread(void *p){
@@ -357,120 +490,144 @@ void master_thread(void *p){
 
 	/* Sanity check that the queue was created. */
 	configASSERT( xQueue_param2pid );
-	print("QUEUE: xQueue_param2pid created.\r\n");
-
 	configASSERT( xQueue_pid2disp );
-	print("QUEUE: xQueue_pid2disp created.\r\n");
-
 	configASSERT( xQueue_param2disp );
-	print("QUEUE: xQueue_param2disp created.\r\n");
 
 	/* Register Interrupt handlers	*/
-	register_gpio_interrupt_handler();	// Register gpio interrupt handler
-	register_wdt_interrupt_handler();	// Register wdt interrupt handler
-
+	#ifndef DEBUG_NO_GPIO
+	register_gpio_interrupt_handler();
+	#endif
+	
+	#ifndef DEBUG_NO_WDT
+	register_wdt_interrupt_handler();
+	#endif
+	
+	#ifndef DEBUG_NO_AXITIMER
+	register_axi_interrupt_handler();
+	#endif
+	
 	/* Create & Start Threads	*/
-	// Parameter Input thread
+	#ifndef DEBUG_NO_INPUT
+	//Parameter Input thread
+	xTaskCreate( input_param_thread,
+				"PARAMIN",
+				4096,
+				NULL,
+				2,
+				NULL );
+	#endif
+	
+	#ifndef DEBUG_NO_PID
 	// PID Thread
+	xTaskCreate( pid_thread,
+				"PID",
+				2048,
+				NULL,
+				2,
+				NULL );
+	#endif
+	
+	#ifndef DEBUG_NO_DISP
 	// Display Thread
-
+	xTaskCreate( display_thread,
+				"DISPLAY",
+				2048,
+				NULL,
+				2,
+				NULL );
+	#endif
+	
+	// Create Input Parameter Thread
 
 	/* Enable WDT	*/
+	#ifndef DEBUG_NO_WDT
 	XWdtTb_Start(&xWatchDogTimerInstance);
-	print("WDT: Started.\r\n");
+	#endif
+
+	/* Enable AXI Timer	*/
+	#ifndef DEBUG_NO_AXITIMER
+	XTmrCtr_Enable(XPAR_AXI_TIMER_0_BASEADDR, TIMER0);
+	#endif
 	
+	// initializepwm();
+	
+	#ifdef DEBUG_MASTER
+	print("MASTER THREAD:\tEntering While Loop\r\n");
+	#endif
 
 	/*	Quiescent operations	*/
 	while(1){
 
-		/*	Set Health check	*/
-		health_check = TRUE;
-
 		/* Check for forced crash	*/
 		if(XGpio_DiscreteRead(&xGPIO_1_instance, GPIO1_SW_CHANNEL) & MASK_SW15)
-			force_crash = TRUE;		
+			force_crash = TRUE;				
 		else
 			force_crash = FALSE; // If sw[15] is low, no crash forced.
+
+		// print("MAIN THREAD\r\n");
+
+		/*	Set Health check	*/
+		master_health_check = TRUE;
+	}
+	#ifdef DEBUG_MASTER
+	print("MASTER THREAD:\tExited While Loop!!!\r\n");
+	#endif
+}
+
+void pid_thread(void *p){
+
+	// Queue buffer	
+	unsigned long ulReceivedValue = 0xAA5;
+	unsigned long ulValueToSend = 0xAA5;
+
+	// Control
+	u32 control = 0;
+
+	// Position (The current RPM)
+	u32 position = 0;
+	
+	/* Calculate Error	*/
+	int error = 0;
+
+	// Create PID struct
+	SPid pid;
+	
+	// Signal entry
+	#ifdef DEBUG_PID
+	print("PID THREAD:\Started.\r\n");
+	#endif
+
+	while(1){
+
+		// Receive parameters from queue
+		xQueueReceive( xQueue_param2pid, &ulReceivedValue, portMAX_DELAY);
+
+		// Update PID
+		control = UpdatePID(&pid, error, position);
+
+		// Update Display Queue
+		xQueueSend( xQueue_pid2disp, &ulValueToSend, mainDONT_BLOCK );
+
+		// Set healthy
+		pid_health_check = TRUE;
+
 	}
 	
+	#ifdef DEBUG_PID
+	print("PID THREAD:\tExited While Loop!!!\r\n");
+	#endif
 }
 
-int main(void)
-{
-	// Announcement
-	print("\r\nMAIN: Program Start.\r\n");
-
-	// Initialize the HW
-	prvSetupHardware();
-
-	//Create Semaphore
-	vSemaphoreCreateBinary(binary_sem);
-	print("SEMAPHORE: Created.\r\n");
-
-	// Handle WDT reset asserted event.
-	if((MASK_TWCSR0_WRS & XWdtTb_ReadReg(XPAR_AXI_TIMEBASE_WDT_0_BASEADDR, XWT_TWCSR0_OFFSET))){
-	
-		// Clear WRS bit. 
-		print("WDT: WRS - SET - Restart caused by WDT.\r\n");
-		XWdtTb_WriteReg(XPAR_AXI_TIMEBASE_WDT_0_BASEADDR, XWT_TWCSR0_OFFSET, MASK_TWCSR0_WRS);
-
-	}
-
-	// Initialize FreeRTOS
-
-	// Create Master Thread
-	xTaskCreate( master_thread,
-			"MASTER",
-			2048,
-			NULL,
-			2,
-			NULL );
-
-	// Create Input Parameter Thread
-		xTaskCreate( input_param_thread,
-			"PARAMIN",
-			2048,
-			NULL,
-			2,
-			NULL );
-
-	// Create Input Parameter Thread
-		xTaskCreate( display_thread,
-			"DISPLAY",
-			2048,
-			NULL,
-			2,
-			NULL );
-
-	// Start the Scheduler
-	print("Starting the scheduler.\r\n");
-	vTaskStartScheduler();
-
-	// Cleanup Platform
-
-	return -1;
-}
-
-void prvSetupHardware( void )
-{
-
-	print("HARDWARE_SETUP: Starting.\r\n");
-	portBASE_TYPE xStatus;
-	
-	initializegpio();
-	initializewdt();
-	initializenc();
-	initializetimer();
-	initializenx4io();
-	
-}
+/*	ISR Registrars	*/
 
 void register_wdt_interrupt_handler(void){
 	
 	portBASE_TYPE xStatus;
 
-	print("WDT: ISR Registration Start.\r\n");
-
+	#ifdef DEBUG_WDT
+	print("WDT:\tISR Registration Start.\r\n");
+	#endif
+	
 	/* Install the handler defined in this task for the button input.
 	*NOTE* The FreeRTOS defined xPortInstallInterruptHandler() API function
 	must be used for this purpose. */
@@ -479,26 +636,33 @@ void register_wdt_interrupt_handler(void){
 
 	if( xStatus == pdPASS )
 	{
-		print("WDT: Timebase interrupt handler installed\r\n");
-
+	
 		/* Enable the button input interrupts in the interrupt controller.
 		*NOTE* The vPortEnableInterrupt() API function must be used for this
 		purpose. */
 
 		vPortEnableInterrupt( XPAR_MICROBLAZE_0_AXI_INTC_AXI_TIMEBASE_WDT_0_WDT_INTERRUPT_INTR );
 		
+		#ifdef DEBUG_WDT
+		print("WDT:\tISR Registration done.\r\n");
+		#endif
 	}
 
 	configASSERT( ( xStatus == pdPASS ) );
-
+	
+	#ifdef DEBUG_AXITIMER
+	print("WDT:\tAssertion Passed.\r\n");
+	#endif
 }
 
 void register_gpio_interrupt_handler(void){
 	
 	portBASE_TYPE xStatus;
 
-	print("GPIO1: ISR Registration Start.\r\n");
-
+	#ifdef DEBUG_GPIO
+	print("GPIO1:\tISR Registration Start.\r\n");
+	#endif
+	
 	/* Install the handler defined in this task for the button input.
 	*NOTE* The FreeRTOS defined xPortInstallInterruptHandler() API function
 	must be used for this purpose. */
@@ -507,7 +671,6 @@ void register_gpio_interrupt_handler(void){
 
 	if( xStatus == pdPASS )
 	{
-		print("GPIO1: Buttons and Switches interrupt handler installed.\r\n");
 
 		/* Enable the button input interrupts in the interrupt controller.
 		*NOTE* The vPortEnableInterrupt() API function must be used for this
@@ -518,27 +681,97 @@ void register_gpio_interrupt_handler(void){
 		/* Enable GPIO channel interrupts. */
 		XGpio_InterruptEnable( &xGPIO_1_instance, GPIO1_INTERRUPT_EN_ALL);
 		XGpio_InterruptGlobalEnable( &xGPIO_1_instance );
+				
+		#ifdef DEBUG_GPIO
+		print("GPIO1:\tISR Registration done.\r\n");
+		#endif
 	}
 
 
 	configASSERT( ( xStatus == pdPASS ) );
 
+	#ifdef DEBUG_AXITIMER
+	print("GPIO1:\tAssertion Passed.\r\n");
+	#endif
+}
+
+void register_axi_interrupt_handler(void){
+
+	#ifdef DEBUG_AXITIMER
+	print("AXITIMER:\tISR Registration Start.\r\n");
+	#endif 
+	
+	 xStatus = xPortInstallInterruptHandler( XPAR_MICROBLAZE_0_AXI_INTC_AXI_TIMER_0_INTERRUPT_INTR, XTmrCtr_InterruptHandler, NULL );
+
+	if( xStatus == pdPASS ){
+		vPortEnableInterrupt( XPAR_MICROBLAZE_0_AXI_INTC_AXI_TIMER_0_INTERRUPT_INTR );
+		#ifdef DEBUG_AXITIMER
+		print("AXITIMER:\tInterrupt Enabled.\r\n");
+		#endif
+	}
+
+	configASSERT( ( xStatus == pdPASS ) );
+	
+	#ifdef DEBUG_AXITIMER
+	print("AXITIMER:\tAssertion Passed.\r\n");
+	#endif
+}
+
+/*	Initializations	*/
+
+void prvSetupHardware( void )
+{
+	
+	#ifdef DEBUG_MAIN
+	print("HARDWARE_SETUP:\tStarting.\r\n");
+	#endif
+	
+	portBASE_TYPE xStatus;
+	
+	#ifndef DEBUG_NO_GPIO
+	initializegpio();
+	#endif
+
+	#ifndef DEBUG_NO_WDT
+	initializewdt();
+	#endif
+
+	#ifndef DEBUG_NO_ENC
+	initializenc();
+	#endif
+
+	#ifndef DEBUG_NO_AXITIMER
+	initializetimer();
+	#endif
+
+	#ifndef DEBUG_NO_NX4IO
+	initializenx4io();
+	#endif
+
+	#ifndef DEBUG_NO_OLED
+	initializeoled();
+	#endif
+	
 }
 
 void initializegpio(void){
 
 	portBASE_TYPE xStatus;
 
-	print("GPIO: Initializing.\r\n");
-
+	#ifdef DEBUG_GPIO
+	print("GPIO:\tInitializing.\r\n");
+	#endif
+	
 	/* Initialize the GPIO for the LEDs. */
-	xStatus = XGpio_Initialize( &xOutputGPIOInstance, XPAR_AXI_GPIO_0_DEVICE_ID );
+	xStatus = XGpio_Initialize( &xGPIO_0_instance, XPAR_AXI_GPIO_0_DEVICE_ID );
 
 	if( xStatus == XST_SUCCESS )
 	{
 		/* All bits on this channel are going to be outputs (LEDs). */
-		XGpio_SetDataDirection( &xOutputGPIOInstance, 1, SET_GPIO_OUTPUT );
-		print("GPIO0: Data direction set.\r\n");
+		XGpio_SetDataDirection( &xGPIO_0_instance, 1, SET_GPIO_OUTPUT );
+		#ifdef DEBUG_GPIO
+		print("GPIO0:\tData direction set.\r\n");
+		#endif
 		
 	}
 
@@ -550,8 +783,10 @@ void initializegpio(void){
 		/* Set switches and buttons to input. */
 		XGpio_SetDataDirection( &xGPIO_1_instance, 1,  SET_GPIO_INPUT);
 		XGpio_SetDataDirection( &xGPIO_1_instance, 2, SET_GPIO_INPUT );
-		print("GPIO1: Data direction set.\r\n");
-
+		
+		#ifdef DEBUG_GPIO
+		print("GPIO1:\tData direction set.\r\n");
+		#endif
 	}
 
 
@@ -561,7 +796,9 @@ void initializewdt(void){
 
 	portBASE_TYPE xStatus;
 
-	print("WDT: Initializing.\r\n");
+	#ifdef DEBUG_WDT
+	print("WDT:\tInitializing.\r\n");
+	#endif
 	
 	/*
 	 * Initialize the WDTTB driver so that it's ready to use look up
@@ -587,7 +824,7 @@ void initializewdt(void){
 	 */
 	xStatus = XWdtTb_SelfTest(&xWatchDogTimerInstance);
 	if (xStatus != XST_SUCCESS) {
-		print("WDT: Self test failed.\r\n");
+		print("WDT:\tSelf test failed.\r\n");
 		return XST_FAILURE;
 	}
 
@@ -595,7 +832,11 @@ void initializewdt(void){
 	 * Stop the timer.
 	 */
 	XWdtTb_Stop(&xWatchDogTimerInstance);
-	print("WDT: Stopped (Hardware Config).\r\n");
+	
+	#ifdef DEBUG_WDT
+	print("WDT:\tStopped (Hardware Config).\r\n");
+	#endif
+	
 }
 
 void initializenc( void ){
@@ -609,13 +850,58 @@ void initializetimer( void ){
 	
 	portBASE_TYPE xStatus;
 
-	// Initialize AXI Timer
-	xStatus = AXI_Timer_initialize();
-	if (xStatus != XST_SUCCESS)
-	{
+	uint32_t status;		// status from Xilinx Lib calls
+	uint32_t ctlsts;		// control/status register or mask
+
+	// Initialize AXI Timer 0. 
+	xStatus = XTmrCtr_Initialize(&AXITimerInstance, XPAR_AXI_TIMER_0_DEVICE_ID);
+	if (status != XST_SUCCESS) {
+		print("AXITIMER:\tFailed to initialize.\r\n");
 		return XST_FAILURE;
 	}
-	print("TIMER: AXI Timer Initialized.\r\n");
+	
+	xStatus = XTmrCtr_SelfTest(&AXITimerInstance, TIMER0);
+	if (status != XST_SUCCESS) {
+		print("AXITIMER:\tFailed to initialize.\r\n");
+		return XST_FAILURE;
+	}
+	
+	// TCSR0 Initialization Mask
+	ctlsts = XTC_CSR_AUTO_RELOAD_MASK | XTC_CSR_EXT_GENERATE_MASK | XTC_CSR_LOAD_MASK |XTC_CSR_DOWN_COUNT_MASK ;
+
+	// Configure TCSR0
+	XTmrCtr_SetControlStatusReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0, ctlsts);
+
+	//Set Timer Counter 0
+	XTmrCtr_SetLoadReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0, 24998);
+
+	// Load Timer Counter 0
+	XTmrCtr_LoadTimerCounterReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0);
+
+	// Read TCSR0
+	ctlsts = XTmrCtr_GetControlStatusReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0);
+
+	// Clear Timer load Bit prior to starting counter (Prevents timer from running)
+	ctlsts &= (~XTC_CSR_LOAD_MASK);
+
+	// Set TCSR0
+	XTmrCtr_SetControlStatusReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0, ctlsts);
+
+	// Read TCSR0
+	ctlsts = XTmrCtr_GetControlStatusReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0);
+
+	// Enable Timer 0
+	ctlsts |= XTC_CSR_ENABLE_TMR_MASK;
+	XTmrCtr_SetControlStatusReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0, ctlsts);
+
+	XTmrCtr_DisableIntr(XPAR_AXI_TIMER_0_BASEADDR, TIMER0);
+	XTmrCtr_DisableIntr(XPAR_AXI_TIMER_0_BASEADDR, TIMER1);
+
+	/* Timer status checks	*/
+	// xil_printf("TCSR0 bits = %x\r\n", XTmrCtr_GetControlStatusReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0));
+	// xil_printf("TLR0 bits = %x\r\n", XTmrCtr_GetLoadReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0));
+
+	print("TIMER:\tAXI Timer Initialized.\r\n");
 
 }
 
@@ -630,6 +916,33 @@ void initializenx4io( void ){
 	}
 }
 
+void initializeoled( void ){
+	// Initialize instance
+	OLEDrgb_begin(&pmodOLEDrgb_inst, XPAR_PMODOLEDRGB_0_AXI_LITE_GPIO_BASEADDR, XPAR_PMODOLEDRGB_0_AXI_LITE_SPI_BASEADDR);
+
+	// Set up the display output
+	OLEDrgb_SetFontColor(&pmodOLEDrgb_inst,0xFFFF);
+	#ifdef DEBUG_OLED
+	print("OLEDrbg:\tInitialized.\r\n");
+	#endif
+}
+
+int AXI_Timer_initialize(void){	
+
+}
+
+void initialize_states(enc_data *enc, gain_data *gain_coe){
+
+	gain_coe->kp = PID_KP_MIN + 1;
+	gain_coe->ki = PID_KI_MIN + 1;
+	gain_coe->kd = PID_KD_MIN + 1;
+	gain_coe->ms_multiplier = 1;	
+	enc->motor_speed = 0;
+
+}
+
+/*	Function Helpers	*/
+
 void update_enc_state(enc_data * enc, gain_data *gain_coe){
 	// Read state of ENC.
 	enc->nextstate = ENC_getState(&pmodENC_inst);
@@ -638,6 +951,7 @@ void update_enc_state(enc_data * enc, gain_data *gain_coe){
 
 		// Has encoder value changed? Update ticks
 		enc->motor_speed = enc->motor_speed + (gain_coe->ms_multiplier * ENC_getRotation(enc->nextstate, enc->state));
+		if(enc->motor_speed > ENC_MOTOR_SPEED_MAX) enc->motor_speed = ENC_MOTOR_SPEED_MAX;
 		// xil_printf("enc->motor_speed = %u \r\n", (u32*) enc->motor_speed);
 
 		// Has switch value changed? Update direction
@@ -749,23 +1063,9 @@ void update_gains(io_data *a7io,gain_data *gain_coe){
 	}
 }
 
-void initialize_states(enc_data *enc, gain_data *gain_coe){
-
-	gain_coe->kp = PID_KP_MIN + 1;
-	gain_coe->ki = PID_KI_MIN + 1;
-	gain_coe->kd = PID_KD_MIN + 1;
-	gain_coe->ms_multiplier = 1;	
-	enc->motor_speed = 0;
-
-}
-
-int get_rpm(u8 duty){
-	return duty;
-}
-
 void update_sseg(enc_data *enc){
 
-	// print("SSEG: Update\r\n");
+	// print("SSEG:\tUpdate\r\n");
 	
 	/* Sub task variables	*/
 	u32 duty = 0;
@@ -785,34 +1085,200 @@ void update_sseg(enc_data *enc){
 	NX4IO_SSEG_putU32Dec(rpm, TRUE);
 }
 
-int AXI_Timer_initialize(void){
+void update_oled(enc_data *enc, gain_data *gain /*, pid_data *pid */){
 
-	uint32_t status;				// status from Xilinx Lib calls
-	uint32_t		ctlsts;		// control/status register or mask
+	print("OLEDrgb:\tStarted.\r\n");
 
-	status = XTmrCtr_Initialize(&AXITimerInst,XPAR_AXI_TIMER_0_DEVICE_ID);
-		if (status != XST_SUCCESS) {
-			return XST_FAILURE;
+	// Update input parameters
+	OLEDrgb_Clear(&pmodOLEDrgb_inst);
+	OLEDrgb_SetCursor(&pmodOLEDrgb_inst, 0, 1);
+	OLEDrgb_PutString(&pmodOLEDrgb_inst,"Kp:      ");
+	OLEDrgb_SetCursor(&pmodOLEDrgb_inst, 4, 1);
+	PMDIO_putnum(&pmodOLEDrgb_inst, gain->kp, 10);
+	OLEDrgb_SetCursor(&pmodOLEDrgb_inst, 0, 2);
+	OLEDrgb_PutString(&pmodOLEDrgb_inst,"Ki:      ");
+	OLEDrgb_SetCursor(&pmodOLEDrgb_inst, 4, 2);
+	PMDIO_putnum(&pmodOLEDrgb_inst, gain->ki, 10);
+	OLEDrgb_SetCursor(&pmodOLEDrgb_inst, 0, 3);
+	OLEDrgb_PutString(&pmodOLEDrgb_inst,"Kd:      ");
+	OLEDrgb_SetCursor(&pmodOLEDrgb_inst, 4, 3);
+	PMDIO_putnum(&pmodOLEDrgb_inst, gain->kd, 10);
+	OLEDrgb_SetCursor(&pmodOLEDrgb_inst, 0, 4);
+	OLEDrgb_PutString(&pmodOLEDrgb_inst,"Setpoint:      ");
+	OLEDrgb_SetCursor(&pmodOLEDrgb_inst, 10, 4);
+	PMDIO_putnum(&pmodOLEDrgb_inst, enc->motor_speed, 10);
+
+	// print("OLEDrgb:\tUpdate Done.\r\n");
+
+
+	// Update PID parameters
+	
+}
+
+u32 UpdatePID(SPid * pid, int error, u32 position){
+	u32 pTerm, dTerm, iTerm;
+	pTerm = pid->propGain * error; // calculate the proportional term
+
+	/* Calculate the integral state with appropriate limiting	*/
+	pid->intergratState += error;
+
+	// Limit te integrator state if necessary
+	if(pid->intergratState > pid->intergratMax){
+		pid->intergratState = pid->intergratMax;
+	}
+	else if (pid->intergratState < pid->intergratMin){
+		pid->intergratState = pid->intergratMin;
+	}
+
+	// Calculate the integral term
+	iTerm = pid->intergratGain * pid->intergratState;
+
+	// Calculate the derivative
+	dTerm = pid->derGain * (pid->derState - position);
+	pid->derState = position;
+	
+	// Return control value
+	return pTerm + dTerm + iTerm;
+}
+
+int get_rpm(u8 duty){
+	return duty;
+}
+
+/****************************************************************************/
+/**
+* Write a 32-bit number in Radix "radix" to LCD display
+*
+* Writes a 32-bit number to the LCD display starting at the current
+* cursor position. "radix" is the base to output the number in.
+*
+* @param num is the number to display
+*
+* @param radix is the radix to display number in
+*
+* @return *NONE*
+*
+* @note
+* No size checking is done to make sure the string will fit into a single line,
+* or the entire display, for that matter.  Watch your string sizes.
+*****************************************************************************/ 
+void PMDIO_putnum(PmodOLEDrgb* InstancePtr, int32_t num, int32_t radix)
+{
+  char  buf[16];
+  
+  PMDIO_itoa(num, buf, radix);
+  OLEDrgb_PutString(InstancePtr,buf);
+  
+  return;
+}
+
+/****************************************************************************/
+/**
+* Converts an integer to ASCII characters
+*
+* algorithm borrowed from ReactOS system libraries
+*
+* Converts an integer to ASCII in the specified base.  Assumes string[] is
+* long enough to hold the result plus the terminating null
+*
+* @param 	value is the integer to convert
+* @param 	*string is a pointer to a buffer large enough to hold the converted number plus
+*  			the terminating null
+* @param	radix is the base to use in conversion, 
+*
+* @return  *NONE*
+*
+* @note
+* No size check is done on the return string size.  Make sure you leave room
+* for the full string plus the terminating null in string
+*****************************************************************************/
+void PMDIO_itoa(int32_t value, char *string, int32_t radix)
+{
+	char tmp[33];
+	char *tp = tmp;
+	int32_t i;
+	uint32_t v;
+	int32_t  sign;
+	char *sp;
+
+	if (radix > 36 || radix <= 1)
+	{
+		return;
+	}
+
+	sign = ((10 == radix) && (value < 0));
+	if (sign)
+	{
+		v = -value;
+	}
+	else
+	{
+		v = (uint32_t) value;
+	}
+	
+  	while (v || tp == tmp)
+  	{
+		i = v % radix;
+		v = v / radix;
+		if (i < 10)
+		{
+			*tp++ = i+'0';
 		}
-	status = XTmrCtr_SelfTest(&AXITimerInst, TIMER0);
-		if (status != XST_SUCCESS) {
-			return XST_FAILURE;
+		else
+		{
+			*tp++ = i + 'a' - 10;
 		}
-	ctlsts = XTC_CSR_AUTO_RELOAD_MASK | XTC_CSR_EXT_GENERATE_MASK | XTC_CSR_LOAD_MASK |XTC_CSR_DOWN_COUNT_MASK ;
-	XTmrCtr_SetControlStatusReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0,ctlsts);
+	}
+	sp = string;
+	
+	if (sign)
+		*sp++ = '-';
 
-	//Set the value that is loaded into the timer counter and cause it to be loaded into the timer counter
-	XTmrCtr_SetLoadReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0, 2498);
-	XTmrCtr_LoadTimerCounterReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0);
-	ctlsts = XTmrCtr_GetControlStatusReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0);
-	ctlsts &= (~XTC_CSR_LOAD_MASK);
-	XTmrCtr_SetControlStatusReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0, ctlsts);
+	while (tp > tmp)
+		*sp++ = *--tp;
+	*sp = 0;
+	
+  	return;
+}
 
-	ctlsts = XTmrCtr_GetControlStatusReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0);
-	ctlsts |= XTC_CSR_ENABLE_TMR_MASK;
-	XTmrCtr_SetControlStatusReg(XPAR_AXI_TIMER_0_BASEADDR, TIMER0, ctlsts);
+unsigned long constructinputmessage(enc_data *enc, gain_data *gain_coe){
+	/* Queue Variable	*/
+	unsigned long ulValueToSend = 0xAA5;
 
-	XTmrCtr_Enable(XPAR_AXI_TIMER_0_BASEADDR, TIMER0);
-	return XST_SUCCESS;
+	// Assign motor_speed setpoint.
+	ulValueToSend = enc->motor_speed;
 
+	// Shift in kp,
+	ulValueToSend = (ulValueToSend << PID_KP_WIDTH) | gain_coe->kp;
+	
+	// Shift in ki,
+	ulValueToSend = (ulValueToSend << PID_KI_WIDTH) | gain_coe->ki;
+
+	// Shift in kd. done.
+	ulValueToSend = (ulValueToSend << PID_KD_WIDTH) | gain_coe->kd;
+
+	return ulValueToSend;
+}
+
+void deconstructinputmessage(gain_data *rx_gain, enc_data *rx_enc, unsigned long ulReceivedValue){
+	// Extract kd
+	rx_gain->kd = ulReceivedValue & PID_KD_MASK;
+	ulReceivedValue = (ulReceivedValue >> PID_KD_WIDTH);
+
+	// Extract Ki
+	rx_gain->ki =  ulReceivedValue & PID_KI_MASK;
+	ulReceivedValue = (ulReceivedValue >> PID_KI_WIDTH);		
+
+	// Extract Kp
+	rx_gain->kp = ulReceivedValue & PID_KP_MASK;
+	ulReceivedValue = (ulReceivedValue >> PID_KD_WIDTH);		
+
+	// Extract Motor speed setpoint
+	rx_enc->motor_speed = ulReceivedValue & ENC_MOTOR_SPEED_MASK;
+	ulReceivedValue = (ulReceivedValue >> ENC_MOTOR_SPEED_WIDTH);
+
+	// xil_printf("rx_gain->kd = %u\r\n", rx_gain->kd);
+	// xil_printf("rx_gain->ki = %u\r\n", rx_gain->ki);
+	// xil_printf("rx_gain->kp = %u\r\n", rx_gain->kp);
+	// xil_printf("rx_enc->motor_speed = %u\r\n", rx_enc->motor_speed);
 }

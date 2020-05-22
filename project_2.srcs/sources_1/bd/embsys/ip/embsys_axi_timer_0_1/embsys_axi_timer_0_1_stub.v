@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Sat May  9 19:46:12 2020
+// Date        : Sat May  9 19:46:11 2020
 // Host        : DESKTOP-J4B3MVP running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               C:/Users/ME/Vivado_Projects/project_2/project_2.srcs/sources_1/bd/embsys/ip/embsys_axi_timer_0_1/embsys_axi_timer_0_1_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top embsys_axi_timer_0_1 -prefix
+//               embsys_axi_timer_0_1_ embsys_axi_timer_0_1_stub.v
 // Design      : embsys_axi_timer_0_1
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a50tcsg324-1

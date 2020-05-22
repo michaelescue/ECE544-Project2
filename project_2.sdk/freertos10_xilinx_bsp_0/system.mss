@@ -18,7 +18,7 @@ BEGIN PROCESSOR
  PARAMETER DRIVER_NAME = cpu
  PARAMETER DRIVER_VER = 2.7
  PARAMETER HW_INSTANCE = microblaze_0
- PARAMETER compiler_flags =  -mlittle-endian -mxl-soft-mul -mhard-float -mcpu=v10.0
+ PARAMETER compiler_flags =  -mlittle-endian -mxl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mno-xl-soft-div -mcpu=v10.0
 END
 
 
@@ -92,6 +92,12 @@ BEGIN DRIVER
  PARAMETER DRIVER_NAME = nexys4IO
  PARAMETER DRIVER_VER = 1.0
  PARAMETER HW_INSTANCE = nexys4IO_0
+END
+
+BEGIN DRIVER
+ PARAMETER DRIVER_NAME = pmod_hb3
+ PARAMETER DRIVER_VER = 1.0
+ PARAMETER HW_INSTANCE = pmod_hb3_0
 END
 
 
